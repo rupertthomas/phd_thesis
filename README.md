@@ -2,6 +2,8 @@
 
 This repo contains source files for my PhD Thesis (Bioelectronics) - Single Particle Dielectrophoretic Sorting Technologies.
 
+Full PDF copy available here: [https://eprints.soton.ac.uk/271294/](https://eprints.soton.ac.uk/271294/)
+
 ## Directories
 
 * `Figures/`: Graphics files.
