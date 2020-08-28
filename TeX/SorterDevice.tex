@@ -1,0 +1,471 @@
+\chapter{Automated Particle Separation by a Dielectrophoretic Sorting Gate} 
+\label{Chapter:SorterDevice}
+
+\section{Introduction}
+An alternative strategy to cell separation by trapping is to deflect cells laterally within a fluid stream, and then split the fluid stream into a number of separate outlet channels. This chapter details a number of devices and strategies for separation of cells and particles as they move through a microfluidic device in a fluid stream.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/particle_trajectories_3_outlet_junction.pdf}
+ \caption[Streamlines in a fluid stream splitting into three outlets.]{Streamlines in a fluid stream splitting into three outlets. The laminar flow in a microfluidic environment ensures that there is little inter-mixing normal to the direction of fluid flow.}
+ \label{fig:particle_trajectories_3_outlet_junction}
+\end{figure}
+
+\fref{fig:particle_trajectories_3_outlet_junction} shows streamlines in a fluid as it splits into three separate output channels. Neglecting other forces (such as gravity, or electrokinetic forces), particles suspended in the fluid will follow the streamlines. The channel through which they exit the system will depend on their original lateral position in the channel. Metal electrodes on the top and bottom surfaces of the channel can be used to create a number of different DEP barriers, gates and focusing devices that can deflect particles laterally across the fluid stream.
+
+An important characteristic of a particular sorting electrode geometry is the rate at which it can sort particles. As can be seen from Equation \ref{eqn:sorter_rate}, the rate ($R$) at which particles flow through the device is dependent on two factors: the fluid volumetric flow rate ($Q$), and the concentration of particles in the fluid ($C$). 
+
+\begin{equation}
+ R_{particles} = Q_{fluid} * C_{particles}
+\label{eqn:sorter_rate}
+\end{equation}
+
+The sorter designs developed in this chapter all require the particles to be focused into a narrow stream, before entering the active region of the sorting gate. This creates an upper limit on the fluid flow rate, because particles must spend sufficient time in the focusing region to be adequately focused. Although dielectrophoresis does not need to be the dominant force on the particle (particles are still carried through the device by hydrodynamic drag forces), it must still be sufficient to provide the spatial displacement necessary to move particles between the fluid streamlines.
+
+
+\section{Materials and Methods}
+
+\subsection{Design A: The Sorting Gate}
+
+A primary application for a particle sorting device is the recovery of a purified sample from a mixed population. Two outputs are required, a `recovery' output for the purified sample, and a `waste' output for everything else. The sorting gate electrodes deflect cells and particles laterally between the two outputs by creating a negative DEP `tunnel', as shown in \cref{Chapter:NumericalSimulation}. \fref{fig:junction_sorter_concept} shows the concept of a sorting gate at a microfluidic junction. The polarity of the electrodes is switched when a `target' particle approaches the junction to deflect it into the `recovery' output, otherwise the electrodes deflect all the particles towards the `waste' output. Optical measurements (such as fluorescent intensity) are often used to differentiate between `target' and `negative' particles, and it is easy to integrate the planar structure commonly used to fabricate microfluidic devices into external optical components; impedance spectroscopy could also be used.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/junction_sorter_concept.pdf}
+ \caption[Concept schematic of a dielectrophoretic sorting gate at a fluidic junction.]{Electrodes at a microfluidic junction are switched to actively separate a population of particles as the flow is split between two outputs.}
+ \label{fig:junction_sorter_concept}
+\end{figure}
+
+\subsubsection{Microfluidic Device}
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/sorting_gate_whole_channel.pdf}
+ \captionsetup{justification=justified}
+ \caption[Composite photograph of the microfluidic channel in the sorting gate device.]{Composite photograph of the microfluidic channel (grey regions) and associated electrodes (black) of the sorter device. The channel is 200 $\mu$m wide, except at a constriction in the centre where it narrows to 100 $\mu$m. The fluid inlets and outlets were as follows: \\
+ 1: Inlet for the suspending medium (no particles) for washing particles from the \\ \hspace*{0.3cm} channel and recovery of sorted populations.\\
+ 2: `Recovery' outlet for sorted target particles.\\
+ 3: `Waste' outlet for all unsorted target and negative particles.\\
+ 4: Inlet for particles in their suspending medium. 
+ }
+  
+ \label{fig:sorting_gate_whole_channel}
+\end{figure}
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/focussing_sorting_gate_close_up.pdf}
+ \caption[The focusing and sorting electrodes in the sorting gate device.]{Photographs of (a) the focusing electrodes and (b) the sorting electrodes. Particles are carried through the device from left to right by fluid flow. The channel is 200 $\mu$m wide.}
+ \label{fig:focussing_sorting_gate_close_up}
+\end{figure}
+
+Figure \ref{fig:sorting_gate_whole_channel} shows the microfluidic channel with electrodes on the top and bottom surface for the sorting of particles between two output streams. \fref{fig:focussing_sorting_gate_close_up} is an enlargement of the focusing and sorting electrodes respectively. In the centre are two pairs of overlapping electrodes for impedance spectroscopy of particles and cells, which were not used in this work. 
+
+The electrodes were fabricated by depositing a single (composite) layer of titanium-platinum as described in Section \ref{sec:single_metal_electrode_fabrication}. The microfluidic channel was produced by laminating each substrate with SY320 dry film resist (Elgar Europe, Italy), patterning by development in BMR Developer/Rinse, and compression bonding at elevated temperature, as described in Chapter \ref{Chapter:Fabrication}. The channel had a depth of 26 $\mu$m after bonding. Devices were of the 20 x 15 mm form factor (see Section \ref{Section:Fluid_interfacing}, and so were diced accordingly. All fabrication work was performed by Katie Chamberlain at the Southampton Nanofabrication Centre, University of Southampton.
+
+\subsubsection{Macrofluidic Equipment}
+The microfluidic device was mounted in an appropriately sized fluid manifold (see \fref{fig:electrode_holder_c}). A pressure controller (Fluigent MFCS-4C) was used to control the gas pressure in three sample containers and hence the fluid flow through the particle inlet and the `recovery' and `waste' outlets of the microfluidic channel. The pressure in each channel could be independently varied in increments of 0.25 mBar, which corresponded to adjustments in the fluid flow of approximately 2.5 nL/min with the fluidic configuration used. The volumetric flow rate through each channel was measured (Fluigent Flowell) and a digital readout displayed on the computer. Figure \ref{fig:pressure_control_operation_principle} shows the principle of operation of a single channel of the pressure-controlled system. The other inlet was connected to a 10 mL syringe containing the plain buffer, without any particles. The syringe was mounted in a syringe pump (Cole Palmer 79000) and used to drive fluid through the device before sorting - to clean the device - and after sorting - to recover the sorted populations. An on-off valve (Omnifit) was fitted to each inlet and outlet of the fluid manifold so that the flow could be shut off if required.
+
+\begin{figure}[tbp]
+ \centering
+ \includegraphics{../Figures/pressure_control_operation_principle.pdf}
+ \caption[Schematic of the pressure control system.]{The digital pressure controller controls fluid flow out of the sample container by adjusting the pressure of nitrogen gas above the fluid. The flow rate in each channel is also measured, and the values displayed on the computer through a USB~link.}
+ \label{fig:pressure_control_operation_principle}
+\end{figure}
+
+
+\subsubsection{Automated Control Systems}
+Automated control software was written in the Matlab (Mathworks) environment based on the scripts used to control the ring trap electrodes. The operation of the `Sorter' application is fundamentally similar to the `Trapper' application described in Chapter \ref{Chapter:Autotrapping}. The modular architecture means that a slightly different set of decision algorithms can be substituted into the framework, without substantial modifications to the program operation. The core routines such as processing an image from a video source, removing background noise, identifying particles and comparing colours are identical. Improvements include the addition of maximum particle size threshold to positively identify a particle as a `target' particle, to improve the identification of cell aggregates that could contain a negative cell trapped within. \fref{fig:screenshot_labelRegions_sorter} shows the `labelRegions' application being configured for sorting red and green beads; a detection region has been marked out close to the centre of the electrodes. \fref{fig:screenshot_Sorter} shows a screen-shot of the `Sorter' application during the sorting of red and green beads. The video feed is simultaneously displayed and recorded to hard disk.
+
+\begin{figure}[p]
+	\centering
+		\includegraphics{../Figures/screenshot_labelRegions_sorter.png}
+	\caption[Screenshot of the `labelRegions' application during operation.]{The graphical user interface of the `labelRegions' application permits the detection region location to be defined, as well as adjustment of parameters for the image processing algorithms.}
+	\label{fig:screenshot_labelRegions_sorter}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+		\includegraphics{../Figures/screenshot_Sorter.png}
+	\caption[Screenshot of the `Sorter' application during operation.]{Screenshot of the `Sorter' application during operation. As with the `Trapper' application, the live video feed is the only visual interface produced, so that maximal processing time is available for the real-time image processing algorithms.}
+	\label{fig:screenshot_Sorter}
+\end{figure}
+
+Decision algorithms were based around a conservative strategy, with the aim of maximising the purity of the recovered population. Some `target' particles would be rejected to the `waste' outlet in order to preserve the purity of the recovered population. This might be necessary if, for example, a `target' particle and a `negative' particle approach the sorting gate in close proximity, and recovering the `target' particle would risk also recovering the `negative' particle. The \textit{detectParticles()} function returns a value to the inquisitive function based on its interpretation of the image from the video source - see Table \ref{tab:sorter_response_values}.
+
+\begin{table}[b]
+	\centering
+		\begin{tabular} {c c}
+		\hline
+		Returned Value & Summary \\
+		\hline
+		1 & One or more `target' particles have been detected. \\
+		2 & No particles have been detected \\
+		3 & At least one `negative' particle has been detected. \\
+		\hline			
+		\end{tabular}
+	\caption{Response values from the \textit{detectParticles()} function.}
+	\label{tab:sorter_response_values}
+\end{table}
+
+The sorting gate by default directs all particles down the waste outlet - this is defined as the `closed' condition. The gate is opened (particles diverted to the recovery outlet) in response to values returned from the \textit{detectParticles()} function. The action taken in response to the returned values may differ depending on the sorting priorities:
+\begin{enumerate}
+	\item The usual response would be to open the gate, or keep it open if it is already. All of the identified objects in the detection region fit within the parameters specified for a `target' particle.
+	\item The gate should be closed if open, or kept closed. Any `target' particles that may have triggered the opening of the gate have moved out of the detection region, and the gate should be closed in preparation for a subsequent `negative' particle.
+	\item The gate should be closed if open, or kept closed. An object has been identified with attributes matching a `negative' particle. A more conservative response (that could boost the purity of the recovered population, with a possible reduction in quantity) might be to keep the gate closed for a specified time period. This would negate the possibility of the fluorescent signal fluctuating below the detection threshold for a `negative' particle, which could permit an adjacent `positive' cell triggering the gate to open. This is a possibility, as the illumination is not completely spatially uniform, but was not found to significantly boost the purity of the recovered population when sorting brightly coloured fluorescent beads. A more effective strategy was to enlarge the area of the detection region - see below.
+\end{enumerate}
+
+
+\subsubsection{Operation}
+The fluid flow through the microfluidic device was controlled using the valves on each port and the syringe pump and pressure controller to ensure that the `recovery' outlet was not contaminated with unsorted cells during loading. \fref{fig:sorter1_valve_sequence} shows an overview of the fluid flow during the device during preparation, sorting and recovery of the particles. The syringe pump was used to deliver large volumes of fluid as its maximum flow rate was much higher than what could be achieved using the pressure controller. The pressure controller was required during particle sorting, as it permitted the flow rates in and out of the device to be finely adjusted. It was necessary for the flow to divide evenly between the two outlets for the electrodes to deflect the particles sufficiently, so the pressure on each outlet was independently adjusted.
+
+\begin{figure}[p]
+	\centering
+		\includegraphics{../Figures/sorter1_valve_sequence.pdf}
+	\caption[Valve operation sequence.]{Valve operation sequence used with the sorting gate device during preparation, sorting particles and recovery of the sorted populations.}
+	\label{fig:sorter1_valve_sequence}
+\end{figure}
+
+
+
+\subsection{Designs B and C: Multi-stage Sorting Devices}
+
+A logical extension of the sorting gate concept is the addition of multiple outputs so that more particle sub-types or cell populations can be recovered. \fref{fig:sorter_designs_overview} shows four designs of sorting devices that incorporate negative DEP barriers. All the sorter designs are intended for a common mode of operation (lateral deflection of a focused particle stream) but achieve it by different methods. Design B (the `multi-gate sorting device') effectively combines four sorting gates into a single, more compact five-output sorter. Design C (the `particle router' device) is a further development, intended to more accurately define the path that sorted particles follow, and to increase the separation distance between outputs, combining three sorting gates for four outputs. The remaining two designs develop the single sorting gate concept, by combining three gates sequentially to deflect particles between one of four outputs. All four devices were fabricated within a single microfluidic device, although only Designs B and C were developed for analysis.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/sorter_designs_overview.pdf}
+ \caption[Overview of the four different sorting gate electrodes.]{Close-up views of the mask designs used to fabricate the channel and four different sorting gate electrodes.}
+ \label{fig:sorter_designs_overview}
+\end{figure}
+
+\subsubsection{Microfluidic Device}
+
+The four designs of sorter shown in \fref{fig:sorter_designs_overview} were fabricated on a single device, as shown in \fref{fig:sorting_whole_chip_overview}. Multi-layer electrode structures were fabricated in titanium/platinum on two 700 $\mu$m borosilicate glass wafers using established techniques as described in Section \ref{Section:Electrode_fabrication}. 700 nm silicon nitride was used as an inter-layer dielectric. All fabrication of electrode structures was performed by Nico Kooyman, Mi Plaza, Philips Research Laboratories, Eindhoven, The Netherlands. The microfluidic channel was fabricated by Katie Chamberlain at the Southampton Nanofabrication Centre by laminating each substrate with SY3355 dry film resist (Elgar Europe, Italy), patterning by development in BMR Developer/Rinse, and compression bonding at elevated temperature as described in Chapter \ref{Chapter:Fabrication}. The channel had a depth of 100 $\mu$m after bonding. Anisotropic conductive film was used to make electrical connections between the glass electrodes, a flexible interconnect, and a PCB daughterboard - as described in Section \ref{Section:Foil_bondng}. 
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/sorting_whole_chip_overview.png}
+ \caption[Plan view of the microfluidic device and the four different sets of sorting electrodes.]{Plan view of the microfluidic device showing the channel and electrodes on the top (left) and bottom (right) glass substrates, created from the mask design files. Gray regions are the dry film resist that forms the walls of the microfluidic channel and supporting structures, black regions are the platinum electrodes. The channel and electrodes on the top glass would be on the underside of the substrate, as viewed in the figure. Each substrate is of dimensions 20 x 20 mm, with thickness 700 $\mu$m.}
+ \label{fig:sorting_whole_chip_overview}
+\end{figure}
+
+
+
+\subsubsection{Macrofluidic Equipment}
+
+The microfluidic chip was clamped within a manifold block, as used in the previous experiments with the ring electrodes, and two of the six access ports were used. A syringe pump (Cole Palmer 79000) was used to control fluid flow through the device. Two syringes were used, to permit a range of fluid velocities to be used. A 10 mL plastic syringe was used to clean and flush through the device with large volumes of liquid during setup and cell recovery. A 25 $\mu$L glass syringe (Hamilton) was used during dielectrophoretic particle manipulation, as the smaller diameter permitted flow rates of less than 0.1 $\mu$L min$^{-1}$ to be used without introducing significant pulsations into the flow from the pump. A 3-way valve (Omnifit) at the input to the microfluidic device permitted the flow to be switched between the syringes. An overview of the fluidic equipment used with the system is shown in \fref{fig:sorter2_macrofluidics}.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/sorter2_macrofluidics.pdf}
+ \caption{Schematic of the macrofluidic connections surrounding the microfluidic device.}
+ \label{fig:sorter2_macrofluidics}
+\end{figure}
+
+
+\subsubsection{Experimental}
+
+The microfluidic device was loaded with a solution of 15 $\mu$m diameter fluorescent green microspheres (see below). The electrical excitation was set at 12 Vpp, 1 MHz, and the electrodes were configured to focus the particles into a narrow stream as they were carried by the fluid flow (1 $\mu$L min$^{-1}$) through the device. The polarity of the sorting electrodes was reconfigured to drive the particle stream through each stage of the sorting device in turn. Video data was recorded throughout, and subsequently analysed using particle-image velocimetry (see below).
+
+The DEP force is proportional to the cube of the particle radius ($a_{particle}^{3}$), while the hydrodynamic drag that carries particles through the system is proportional to the particle radius only ($a_{particle}$). As the fluid flow rate increases, smaller particles (due to minor variations within the manufacturing tolerance) will break through the DEP barrier first because the DEP force they experience is less than that experienced by larger particles. Measurement of the speed at which particles break through the DEP barrier permits quantification of the sorter performance and places an upper limit on the fluid flow rate at which it may be operated for a particular particle and size.
+
+The sorting electrodes were again configured to focus the particles into a stream, and direct them through the first output of the gate. The fluid flow was adjusted so that all the particles were correctly sorted, then was gradually increased until 50\% of the particles were breaking through the DEP barriers and were not being sorted correctly. Video footage of the particles was recorded directly on to computer and saved in video files for analysis. 
+
+Custom scripts were written in Matlab 2008a (Mathworks) to interpret the video files and take measurements of particle velocity (particle image velocimetry - PIV). To measure the breakthrough velocity of the particles, a region downstream from the focusing electrodes (that particles would only pass through if they had broken through the DEP barrier) was selected for processing, and all particles passing through this region were identified (by size and colour) on a frame-by-frame basis. Particles were subsequently tracked between frames, and measurements of their displacement were combined with the video timebase and averaged across several frames to calculate their average velocity. \fref{fig:screenshot_piv_tracking_with_area} shows the PIV software tracking two particles that have broken-through the focusing barrier.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/screenshot_piv_tracking_with_area.png}
+ \caption[A screen image of the PIV software, showing deflected particles moving along the DEP barrier.]{A screen image of the PIV software, showing deflected particles moving along the DEP barrier, and particles that have broken through the barrier being tracked through the detection region.}
+ \label{fig:screenshot_piv_tracking_with_area}
+\end{figure}
+
+
+\subsection{Microparticles and Solutions}
+Fluorescent polystyrene microparticles were purchased from Bangs Laboratories (Indiana, USA) - see Table \ref{tab:sorter_fluorescent_beads}. Green and red fluorescent 5.5 $\mu$m beads were mixed to create a heterogeneous population for processing through the sorter device (Design A). Bead solutions were mixed with the ratio of red to green beads of 10:1, at a concentration of 2.26 x 10$^{6}$ mL$^{-1}$. The final ratio of beads was determined by flow cytometry (BD FACSAria) as the bead concentrations in the supplied solutions were not identical. Bead mixtures were resuspended in a sorting buffer of 0.02$\%$ TWEEN-20, 0.1$\%$ PBS in aqueous solution with sucrose added at approximately 12.8\% to adjust the density of the solution to ($\rho_{medium}$) = 1.0533 g $cm^{-3}$. A sample tube containing the bead solution in sorting buffer was placed in the centrifuge for 2 minutes at 10,000g, after which the beads were clearly still present in suspension, indicating the solution was neutrally buoyant. The conductivity of the solution was measured as ($\sigma_{medium}$) = 0.18 mS $m^{-1}$. Green fluorescent 15.61 $\mu$m beads were prepared in a similar solution for use in the particle routing device (Design B). Equation \ref{eqn:CM_factor} was used to model the polarisability of the microparticles in the above solutions, and the Clausius-Mossotti factor was calculated - see \fref{fig:CM_factor_15um_bead_0x18mS_cond}.
+
+\begin{table}[b]
+	\centering
+		\begin{tabular} {c c c c c}
+		\hline
+		Colour & Diameter & St. Deviation & Peak Absorption & Peak Emission \\
+		\hline
+		Flash Red &	5.5 $\mu$m & 0.53 $\mu$m & 660 nm & 690 nm \\
+		Dragon Green & 5.5 $\mu$m & 0.53 $\mu$m &	480 nm & 520 nm \\
+		Dragon Green & 15.61 $\mu$m & 1.52 $\mu$m &	480 nm & 520 nm \\
+		\hline			
+		\end{tabular}
+	\caption{Fluorescently labelled beads purchased from Bangs Laboratories.}
+	\label{tab:sorter_fluorescent_beads}
+\end{table}
+
+
+
+\begin{figure}
+\centering
+\subfigure[5.5 $\mu$m Diameter]{
+\includegraphics[scale=.45]{../Figures/CM_factor_5x5um_bead_0x18mS_cond.pdf}
+\label{fig:CM_factor_5x5um_bead_0x18mS_cond}
+}
+\subfigure[15.61 $\mu$m Diameter]{
+\includegraphics[scale=.45]{../Figures/CM_factor_15um_bead_0x18mS_cond.pdf}
+\label{fig:CM_factor_15um_bead_0x18mS_cond}
+}
+\label{fig:CM_factor_beads_sort_buffer}
+\caption[Clausius-Mossotti factor calculated for beads in a low conductivity buffer.]{Plot of the Clausius-Mossotti factor for 5.5~$\mu$m and 15.61~$\mu$m polystyrene spheres ($\epsilon_{r,p} = 2.5$, $K_{s}$ = 1 x 10$^{-9}$) in aqueous solution ($\epsilon_{r,m} = 78$, $\sigma_{m}$=0.18 mS m$^{-1}$)}
+\end{figure}
+
+
+\subsection{Electrode Control and Signal Generation}
+
+Electrical signals were supplied to the electrodes using a set of equipment similar to that used in the previous chapter. Sinusoidal voltages from a TTI TG2000 signal generator were split between 10 channels of an Omega ERB-48 relay board and connected to the electrodes, so that each channel could be switched between the alternating voltage or ground. The relay board was controlled by custom scripts written in the Matlab (Mathworks) environment through a NI USB-6009 interface. Circuit schematics are shown in Section \ref{Section:Autotrapping_control_systems}.
+
+
+\section{Results}
+
+\subsection{Design A: The Sorting Gate}
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/sorter_facs_control_samples.pdf}
+ \caption[Plots of flow cytometry results of separate samples of fluorescently labelled red and green beads.]{Plots of flow cytometry results showing fluorescent intensity in the FITC and APC-A bands (wavelengths 530 and 660 nm respectively), performed on separate samples of fluorescently labelled red and green beads (5.5 $\mu$m diameter). Populations were defined by labelling particular regions of the plot (particular ranges of fluorescent intensity) with `gates' (P1 and P2).}
+ \label{fig:sorter_facs_control_samples}
+\end{figure}
+
+\fref{fig:sorter_facs_control_samples} shows flow cytometry data for separate (unsorted) samples of the red and green beads. Fluorescent intensity in both the FITC band (530/30 nm) and the APC band (660/20 nm) is analysed. The regions `P1' and `P2' are representative of particular ranges of fluorescent intensity in each band, and are chosen to completely cover measurements for the red and green beads respectively. The red and green populations are separated by approximately two orders of magnitude in both the FITC and APC band. The plots show 5000 measurements for each bead colour, with no beads being detected in the opposite region.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/sorter_facs_original_sample.pdf}
+ \caption[Plots of flow cytometry results of the mixture of fluorescently labelled red and green beads.]{Plots of flow cytometry results showing fluorescent intensity in the FITC and APC-A bands, performed on the mixture of fluorescently labelled red and green beads (5.5 $\mu$m diameter) at a ratio of 10:1. The actual ratio of red to green beads (number of particles) is 10.77:1.}
+ \label{fig:sorter_facs_original_sample}
+\end{figure}
+
+\fref{fig:sorter_facs_original_sample} shows flow cytometry data for the mixed sample of red and green beads used for sorting experiments. The sample was produced from a 10:1 (v/v) mixture of red and green beads in solution; as the figure shows, the actual ratio of red to green beads (ratio of the number of particles) is 10.77:1. A small number of events were detected (0.8\% of the total) with intensities outside of the P1 and P2 ranges. These are not shown.
+
+Mixtures of fluorescently labelled red and green beads (5.5 $\mu$m diameter) at a ratio of 10:1 were sorted, and the contents of the recovery and waste outlets collected, each in 1 mL of the sorting buffer. An additional sample of 1 mL was taken from each of the outlets as a check that all of the beads had been collected. 500 $\mu$L PBS was added to each sample (to decrease the buoyancy) and the samples concentrated down to 100 $\mu$L by centrifugation at 10,000g for 2 minutes and removal of the majority of the supernatant. Samples were then analysed by flow cytometry (BD FACSAria) to obtain counts of the number of red and green beads in each sample.
+
+\fref{fig:graph_sorter_green_fraction} is a plot of the green fraction - the fraction of the beads from the recovery outlet that are green (`target') beads - for sorting operations over a range of fluid flow rates. Data was calculated from the results of flow cytometry analysis on samples recovered from the microfluidic device. A value of 1 represents a sample that contained 100\% green beads. Pure samples (100\% green) were obtained for flow rates up to 60 nL min$^{-1}$.  
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/graph_sorter_green_fraction.pdf}
+ \caption[Plot of the purity of samples (green fraction) recovered after sorting.]{Plot of the purity of samples (green fraction) recovered after sorting. Data taken from FACS analysis.}
+ \label{fig:graph_sorter_green_fraction}
+\end{figure}
+
+\fref{fig:graph_sorter_rate} shows the rate at which particles were sorted through the microfluidic device over a range of fluid flow rates. Data was obtained by counting the number of particles that passed through the sorting gate from analysis of recorded video logs. \fref{fig:graph_sorter_positive_rejection} is a graph of the proportion of green (`target') beads that were not sorted to the recovery outlet, out of the total number of green beads that passed through the sorting gate. The data was obtained by counting the number of particles that entered the recovery and waste outlets from analysis of recorded video logs. 
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/graph_sorter_rate.pdf}
+ \caption[Plot of the average rate at which particles were sorted through the device.]{Plot of the average rate at which particles were sorted through the device. Data taken from video analysis.}
+ \label{fig:graph_sorter_rate}
+\end{figure}
+
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/graph_sorter_positive_rejection.pdf}
+ \caption[Plot of the percentage of positive (green) particles that were not recovered.]{Plot of the percentage of positive (green) particles that were not recovered. Data taken from video analysis.}
+ \label{fig:graph_sorter_positive_rejection}
+\end{figure}
+
+%\begin{table}
+%	\centering
+%		\begin{tabular} {c c c c c c}
+%		\hline
+%		Flow rate & Av. particle Velocity & Min. velocity & Max. velocity & St. Deviation & \\
+%		(nl min$^{-1}$)	& ($\mu$m sec$^{-1}$)	& ($\mu$m sec$^{-1}$) & ($\mu$m sec$^{-1}$) & ($\mu$m sec$^{-1}$) & \\
+%		\hline
+%		30 &  & &	& & SC\\
+%		40 &  & &	& & SC\\
+%		50 &  & &	& & SC\\
+%		60 &  & &	& & SC\\
+%		70 &  & &	& & SC\\
+%		80 &  & &	& & SC\\
+%		90 &  & &	& & SC\\
+%		100 &  & &	& & SC\\
+%		70 &  & &	& & DC\\
+%		80 &  & &	& & DC\\
+%		90 &  & &	& & DC\\
+%		100 &  & &	& & DC\\
+%		\hline			
+%		\end{tabular}
+%	\caption{Summary of measurements of particle velocity for each of the sorting experiments. Key: SC - standard configuration, DC - delay compensation.}
+%	\label{tab:sorter_particle_velocity}
+%\end{table}
+
+
+\subsection{Design B and C: Multi-Stage Sorting Devices}
+
+Both of the multiple-stage sorting devices were able to sort particles between all of their outlets over a range of voltages and flow rates. \fref{fig:particle_knobbler_sequence} shows a sequence of images taken as 15 $\mu$m diameter fluorescent green beads are focused into a stream and sorted by the multi-gate sorter device into each of the output streams. The flow rate is 1 $\mu$L min$^{-1}$ and the electrodes are driven with a 12 Vpp signal at 1 MHz. \fref{fig:particle_router_sequence} shows a sequence of images under similar conditions for the particle router device.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/particle_knobbler_sequence.pdf}
+ \caption[Sequence of photographs taken during operation of the multi-gate sorter device (Design B).]{Sequence of photographs taken during operation of the multi-gate sorter device (Design B). 15 $\mu$m diameter fluorescent green microspheres in suspension flow through the microfluidic device at 1 $\mu$L min$^{-1}$, and are focused into a narrow stream and deflected by DEP between one of five output streams. Electrical excitation is 12 Vpp, 1 MHz. Channel dimensions 900 x 100 $\mu$m.}
+ \label{fig:particle_knobbler_sequence}
+\end{figure}
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/particle_router_sequence.pdf}
+ \caption[Sequence of photographs taken during operation of the particle router (Design C).]{Sequence of photographs taken during operation of the particle router (Design C). 15 $\mu$m diameter fluorescent green microspheres in suspension flow through the microfluidic device at 1 $\mu$L min$^{-1}$, and are focused into a narrow stream and deflected by DEP between one of four output streams. Electrical excitation is 12 Vpp, 1 MHz. Channel dimensions 900 x 100 $\mu$m.}
+ \label{fig:particle_router_sequence}
+\end{figure}
+
+The particle router device was designed to direct particles out of the trap along a predetermined path, set by the electrode geometry. This path should be ideally independent of parameters such as the particle size, the Clausius-Mossotti factor of the system, or the voltage on the electrodes (assuming the DEP force is of sufficient magnitude to correctly deflect the particles). Video data of the operation of both sorting devices was processed using the particle-image velocimetry software, to determine the trajectory of each particle as it passed through and out of the sorting devices. Each video frame was processed to identify bright, moving objects, and the coordinates of the geometric centre of each object was recorded. Each coordinate was plotted as a single point, and an image of the electrode geometry was superimposed. The results of the analysis for the multi-gate sorter device is shown in \fref{fig:particle_knobbler_trajectories} and for the particle router device in \fref{fig:particle_router_trajectories}.
+
+\clearpage
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/particle_knobbler_trajectories.pdf}
+ \caption[Plot of the particle trajectories through the multi-gate sorter device.]{Plot of the bead trajectories through the multi-gate sorter device. Particle position was measured by analysis of pre-recorded video sequences. Each point represents the geometric centre of a single particle in a single frame. An image of the electrodes and channel wall is superimposed, with the top metal layer (from which the DEP force originates) coloured in solid black. Recorded at 40 fps, flow rate 1 $\mu$L min$^{-1}$, electrode voltage 12 Vpp, 1 MHz.}
+ \label{fig:particle_knobbler_trajectories}
+\end{figure}
+
+%\vspace{2em}
+
+\begin{table}[p]
+	\centering
+		\begin{tabular} {c c c c c c c c c c c}
+		\hline
+		Outlet: & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} \\
+		\hline
+		Stream Width ($\mu$m) & \multicolumn{2}{c}{16} & \multicolumn{2}{c}{11} & \multicolumn{2}{c}{10} & \multicolumn{2}{c}{17} & \multicolumn{2}{c}{24} \\
+		Stream Separation ($\mu$m) & &	\multicolumn{2}{c}{96} & \multicolumn{2}{c}{47} & \multicolumn{2}{c}{46} & \multicolumn{2}{c}{41} &  \\
+		\hline			
+		\end{tabular}
+	\caption{Measurements of the output streams leaving the multi-gate sorter device.}
+	\label{tab:particle_knobbler_stream_measurements}
+\end{table}
+
+
+\clearpage
+
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/particle_router_trajectories.pdf}
+ \caption[Plot of the particle trajectories through the particle router device.]{Plot of the bead trajectories through the particle router device. Particle position was measured by analysis of pre-recorded video sequences. Each point represents the geometric centre of a single particle in a single frame. An image of the electrodes and channel wall is superimposed, with the top metal layer (from which the DEP force originates) coloured in solid black. Recorded at 40 fps, flow rate 1 $\mu$L min$^{-1}$, electrode voltage 12 Vpp, 1MHz.}
+ \label{fig:particle_router_trajectories}
+ 
+ \end{figure}
+
+%\vspace{2em}
+
+\begin{table}[p]
+	\centering
+		\begin{tabular} {c c c c c c c c c}
+		\hline
+		Outlet: & \multicolumn{2}{c}{1} & \multicolumn{2}{c}{2} & \multicolumn{2}{c}{3} & \multicolumn{2}{c}{4} \\
+		\hline
+		Stream Width ($\mu$m) &	\multicolumn{2}{c}{4} & \multicolumn{2}{c}{7} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} \\
+		Centre Offset ($\mu$m) &	\multicolumn{2}{c}{4.5} & \multicolumn{2}{c}{12} & \multicolumn{2}{c}{11} & \multicolumn{2}{c}{12} \\
+		Stream Separation ($\mu$m) & &	\multicolumn{2}{c}{170} & \multicolumn{2}{c}{147} & \multicolumn{2}{c}{146} &  \\
+		\hline			
+		\end{tabular}
+	\caption[Measurements of the output streams leaving the particle router device.]{Measurements of the output streams leaving the particle router device. As it was intended for particles to leave the device along a defined path, the lateral distance of the centre of the stream from the centre of the outlet (centre offset) is also calculated.}
+	\label{tab:particle_router_stream_measurements}
+\end{table}
+
+\clearpage
+
+For each output stream, the width was measured after a point 70 $\mu$m from the exit of the sorter. Similarly, the distance between the centre-lines of each adjacent stream (separation) was measured. As the particle router device was designed to direct particles along a predetermined path (the centre-line of the outlet) the offset between the particle stream centre-line and the outlet was also measured for this device. These measurements are presented in \tref{tab:particle_knobbler_stream_measurements} and \tref{tab:particle_router_stream_measurements} for the multi-gate sorter and particle router device respectively.
+
+As the fluid flow rate was increased (or the electrode voltage decreased) particles started to break through the DEP barrier imposed by the focusing electrodes. Particles must be focused into a narrow stream before they enter the sorting gate, so this imposes an upper limit on the rate at which particles can be sorted by the device. The electrode voltage on the focusing electrodes of the particle router device were adjusted from 6.00 - 18.00 Vpp, and for each voltage level the fluid flow was adjusted until 50\% of the particles were breaking through the DEP barrier. Video data was recorded, and subsequently analysed with the particle-image velocimetry software. \fref{fig:sorter_d_rawdata_graph_breakthrough_velocity_vs_vpp} shows a plot of the break-through velocities of particles over a range of excitation voltages. The equivalent data was also calculated from numerical simulation of the electric field (\fref{fig:E2_line_plot_dep_barrier}), for a 15.61 $\mu$m diameter particle in aqueous medium ($\epsilon_{m}$ = 78) experiencing negative DEP ($Re(f_{CM})$ = -0.47). A summary of the measurement data is shown in \tref{tab:breakthrough_testing_number_of_particles}.
+
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/sorter_d_rawdata_graph_breakthrough_velocity_vs_vpp.pdf}
+ \caption[Plot of the velocity of particles breaking through a DEP barrier.]{Plot of the velocity of particles measured after breaking through the DEP barriers of the particle router device, and equivalent data calculated from numerical simulation of the electric field (\fref{fig:E2_line_plot_dep_barrier}). The error bars show the range of the experimental measurements.}
+ \label{fig:sorter_d_rawdata_graph_breakthrough_velocity_vs_vpp}
+\end{figure}
+
+\begin{table}[b]
+	\centering
+		\begin{tabular} {c c c c c c}
+		\hline
+		Voltage	&	Total number & Average particle & Min. velocity & Max. velocity & St. Deviation \\
+		(Vpp)	& of particles & ($\mu$m sec$^{-1}$)	& ($\mu$m sec$^{-1}$) & ($\mu$m sec$^{-1}$) & ($\mu$m sec$^{-1}$) \\
+		\hline
+		6.00	&	16 & 129.2 & 123.1 &	135.1 &	4.0 \\
+		9.44	&	69 & 346.2 & 317.8 &	393.9 &	11.7 \\
+		11.63	&	23 & 567.5 & 459.0 &	608.5 &	29.9 \\
+		15.06	&	40 & 854.5 & 815.3 &	940.4 &	23.7 \\
+		18.00	&	22 & 1234.0 & 1193.1 &	1323.4 &	34.1 \\
+		\hline			
+		\end{tabular}
+	\caption[Summary of the measurements on particles breaking through the DEP focusing barrier.]{Summary of the measurements on particles breaking through the DEP focusing barrier for each voltage level.}
+	\label{tab:breakthrough_testing_number_of_particles}
+\end{table}
+
+
+\section{Discussion}
+
+\subsection{Design A: The Sorting Gate}
+
+The sorting gate was able to sort particles at flow rates of up to 60 nL per minute and produce a recovered sample with 100\% purity (comprised of 100\% green target particles with no non-target particles). As the flow rate was increased, the green fraction made up an increasingly small part of the recovered population as more negative particles were also recovered. 
+
+Analysis of the video files indicated that at higher flow rates (70-100 nL min$^{-1}$) a `target' particle would frequently trigger the gate to open but would instead flow down the waste outlet, and a succeeding `negative' particle would be directed down the recovery outlet. This suggests that the voltage on the electrodes may not be being switched sufficiently quickly to sort the particles correctly. A switching delay is likely to originate within the control software: the `Sorter' application is scripted rather than compiled, and a number of processor-intensive image manipulation tasks must be performed on each frame before a particle can be identified. The maximum rate at which the `Sorter' application could run was 10 frames per second, if simultaneous video display and recording was required. On average, this leads to a delay of 50 ms between the time that a particle enters the detection region and the time at which the software \textit{begins} processing the next frame. 
+
+One solution to this problem is to introduce a delay compensation. In practice, this can be achieved by offsetting the detection region slightly upstream of the sorting gate, so that the voltage on the electrodes is switched earlier. As \fref{fig:graph_sorter_green_fraction} shows, offsetting the detection region to introduce a delay compensation significantly increases the purity of the recovered populations (an increase from 37\% to 83\% at 100 nL per minute, for example). \fref{fig:sorter_region_forward} shows the sorting electrodes with the detection region in its standard configuration, and with delay compensation. An alternative would be to change the control system to reduce the processing time, such as by using a compiled program or a lower level language, or to use a hardware solution such as an application specific integrated circuit (ASIC). Changing the switching elements from mechanical relays to solid state electronics would also help to reduce the delay.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/sorter_region_forward.pdf}
+ \caption[Position of the detection region during the standard sorting configuration and with delay compensation.]{Image of the sorting electrodes with the detection region overlaid in (a) standard configuration and (b) with delay compensation - the region is offset approximately 25 $\mu$m upstream.}
+ \label{fig:sorter_region_forward}
+\end{figure}
+
+At higher flow rates (80-100 nL per minute), it was observed that particles were not being deflected correctly by the sorting electrodes, and were instead coming to a near standstill in front of the central sorting electrode before being slowly pushed down one channel or the other. This is most likely because particles did not spend adequate time in the region in the centre of the sorting electrodes to be sufficiently deflected by the DEP force when being carried by the fluid at high flow rates. This could lead to an accumulation of particles within the active area of the sorting gate, causing multiple `negative' particles to enter the recovery channel. This effect was mitigated by reducing the flow rate, or increasing the gate voltage, suggesting that a higher gate voltage would be more appropriate for these flow rates.
+
+\fref{fig:graph_sorter_positive_rejection} shows the a positive correlation between the positive rejection (a measure of the proportion of `target' particles that were not sorted into the recovery outlet) and the flow rate. Although the particles approach the sorting gate at higher velocities when higher flow rates are used, the average spatial separation distance should remain unchanged for a given concentration of particles. Hence, a mixture of particles should not become more difficult to separate if it is sorted at higher flow rates. This increase in the positive rejection is likely due to particle distortion in each video frame at higher flow rates. The fixed exposure time of the video camera means that particles appear closer together as they are elongated by motion blur at increasing flow rates. The conservative decision algorithms will reject particles to `waste' as soon as negative particles are detected, and this becomes more common as the particles appear closer together at high flow rates.
+
+\fref{fig:graph_sorter_rate} shows, as expected from Equation \ref{eqn:sorter_rate}, a general trend between the fluid flow rate and the rate at which particles were sorted through the device. Any solution of particles is, by its nature, a random and chaotic mixture, and so when a solution is flowing through a microfluidic device only probabilistic methods can indicate when the particles will arrive at the electrodes. The particle rate equation (Equation \ref{eqn:sorter_rate}) provides an indication of the average number of particles flowing through the sorter in unit time, but the actual distribution will be Gaussian with the average value at this rate. Hence, the likelihood of two (or more) particles being within the active area at the same time, and one of them being deflected towards the incorrect output, increases with the concentration of particles ($C_{particles}$).
+
+Comparison with data on alternative sorting technologies (\tref{tab:cell_sorting_device_performance_data} - Chapter \ref{Chapter:Autotrapping}) shows the sorting gate device compares similarly to other published microfluidic sorting devices. It is notable that few groups working on cell and particle separation have chosen to publish data on attempts to recover pure populations from sorting devices - the majority of data concerns achieving enrichment of low purity samples at high rate, with quite significant levels of impurities remaining in the recovered samples. The work of \cite{Dittrich:2003} is significant, as they have produced recovered populations of several thousand particles (red and green fluorescent beads) with purities of 99.1\%, sorted at 0.68 particles per second.
+
+
+\subsection{Design B and C: Multi-stage Sorting Devices}
+All of the sorting devices in this chapter are intended to produce particle separation by lateral displacement of sub-populations into two or more discrete streams within the fluid flow. If the fluid flow can be divided evenly at the correct point, these streams can be recovered as separate samples. The larger the degree of separation, the more likely that the particle will leave the microfluidic device by the correct outlet. Alternatively, further processing may be required on chip, the degree of separation provided by the sorting device will determine the likelihood that a particle enters the correct analysis unit. As an example, a sorting device or design similar to the particle router was provided on the ring trap electrodes used in \cref{Chapter:Autotrapping} - although this was not used as electrodes were only fabricated on the bottom substrate, the design was intended to direct a particular cell into a particular trap. The output streams of the sorting device were aligned with each column of ring electrodes, so it would be necessary to produce a separation of the streams equal to the pitch of the ring electrodes (190 $\mu$m) with the streams offset by a distance less than the radius of the traps (40 $\mu$m).
+
+Asymmetry in the electrode geometry around the outlets of the sorting devices produced a lateral DEP force on particles as they left the vicinity of the sorting device, deflecting the particles within the fluid flow. As is known from \eref{eqn:dep_force}, this force is proportional to the particle radius, its electrical characteristics, and the voltage on the electrodes. A distribution of particle sizes, for example, will produce a distribution in the magnitude by which particles are deflected as they leave the sorting device, and hence the particle stream will be distributed across the width of the channel. Similarly, a reduction in the fluid flow rate will lead to an increase in the amount by which each particle is deflected. A redesign of the sorting electrodes with a more symmetrical output geometry would be likely to reduce the offset displacement of the output streams. Although it is not possible to make the electrodes completely symmetrical about every outlet, as every element in the electrodes will have some influence over each particles trajectory, the geometry closest to the outlet has the most effect on the particle trajectory.
+
+Tables \ref{tab:particle_knobbler_stream_measurements} and \ref{tab:particle_router_stream_measurements} show that the particle router design both confines the output stream more closely and provides significantly more stream separation than the multi-gate sorter design at the expense of requiring more substrate area. The particle router design could be extended simply to provide any degree of separation required. Both designs could be extended to provide additional outputs, limited by the substrate area and requirement for electrical connectivity.
+
+As can be seen from \eref{eqn:stokes_force_against_DEP_barrier}, the magnitude of the hydrodynamic force acting to push a particle through a DEP barrier is proportional to the sine of the angle between the barrier and the direction of fluid flow. Electrodes that cross the channel at a shallow angle produce a barrier able to deflect particles at higher flow rates, at the expense of the electrodes requiring a greater proportion of the channel length.
+
+\fref{fig:sorter_d_rawdata_graph_breakthrough_velocity_vs_vpp} and \tref{tab:breakthrough_testing_number_of_particles} show experimental data for particle breakthrough velocity as the electrode voltage is adjusted. The results of numerical simulation (extracted from \fref{fig:E2_line_plot_dep_barrier}) are also presented. This data was produced by scaling the maximum value of the gradient of the electric field ($\nabla \left | \textbf{E} \right | ^{2}$) - produced by simulation with electrode voltages of 1 V - in proportion to the square of the electrode voltage. Hence, the line of simulated data is a quadratic. Values for the breakthrough velocity calculated from numerical simulation are in close agreement with experimental measurements.
+
+%\fref{fig:parallel_plate_simulation_types} shows the results of simulation of the electric field for parallel plate electrodes by three methods: (a) an analytical method using Equation 2.x, (b) numerical simulation by FEA, with the field assumed to be confined to the microfluidic channel, and (c) numerical simulation by FEA of the entire device including the glass substrates. 
+
+%%\begin{figure}
+% \centering
+% \includegraphics{../Figures/parallel_plate_simulation_types.pdf}
+% \caption[Plots of the electric field between parallel plate electrodes.]{Plots of the electric field between parallel plate electrodes, determined by (a) calculation from analytical solution (semi-infinite parallel plate electrodes, unconstrained), (b) numerical simulation by FEA of the field constrained within the walls of the microfluidic channel, and (c) numerical simulation by FEA of the field within the channel and through the glass substrate. Electrode separation 26 $\mu$m, applied voltage 1 Vpp, 1MHz. Electrode width 40 $\mu$m (half simulated).}
+% \label{fig:parallel_plate_simulation_types}
+%\end{figure}
+
+%\fref{fig:graph_parallel_plate_simulation_results} shows a plot of $\nabla E^{2}$ - the component of the DEP force that is dependent upon the electrode geometry and the electric field - produced by a pair of parallel plate electrodes, 26 $\mu$m apart. Results are shown for data obtained by numerical simulation (finite element analysis using Comsol 3.4) and by analytical methods using the semi-infinite parallel plate model (Equation 2.x). Under the conditions simulated (at 1 MHz), the effect of the electrical permittivity of the glass and fluid within the channel dominates, as it is below the charge relaxation frequency. The electric field is largely confined to within the channel. Hence, the conditions used for the simulation in (b) are a suitable approximation to the general case, represented in (c). The analytical model does not take into account the effect of the glass/liquid interface on constricting the electric field, and hence leads to peak values of the DEP force 29.7\% lower than the numerical model. 
+
+%\begin{figure}
+% \centering
+% \includegraphics{../Figures/graph_parallel_plate_simulation_results.pdf}
+% \caption[Plot of $\nabla E^{2}$ on a centreline through pairs of parallel plate electrodes.]{Plot of $\nabla E^{2}$ on a centreline through a pair of parallel plate electrodes, determined by (a) calculation from analytical solution (semi-infinite parallel plate electrodes, unconstrained), (b) numerical simulation by FEA of the field constrained within the walls of the microfluidic channel, and (c) numerical simulation by FEA of the field within the channel and through the glass substrate. Electrode separation 26 $\mu$m, applied voltage 1 Vpp, 1 MHz. Electrode width 40 $\mu$m (half simulated). The electrical permitivity of the glass (4.2) is much lower than the water within the channel (78), so under these conditions the electric field is largely confined to within the channel, with only a much reduced field strength within the glass substrates. The difference between the results from the two FEA simulations was less than 1\%, so the lines are indistinguishable.}
+% \label{fig:graph_parallel_plate_simulation_results}
+%\end{figure}
+
+
+\section{Conclusions}
+Dielectrophoresis has been proven as a suitable technology for the manipulation and sorting of single particles within a microfluidic device. The recovery of 100\% pure populations is an exciting prospect, and if this can be translated to the sorting of viable cells it would enable isolation of rare cells from a mixed population. With the identification of sufficient cell surface markers, this could be used for the isolation of stem cells from an ex vivo sample.
+
+Image-based particle sorting has been shown to be a practical method for sorting fluorescent particles at relatively low rates, of around one particle per second. The method is advantageous as it negates some of the requirement for the more advanced optical equipment used in many sorting devices, such as photomultiplier tubes, and lessens the required alignment tolerances of the optical system. The device used in this work could also be operated on a standard fluorescence microscope. The use of image-based sorting (rather than threshold detection, as commonly used in commercial FACS machines) means that sophisticated decision algorithms can be used to distinguish `target' from `negative' particles, incorporating factors such as particle size, shape or colour by simple changes to the control software. 
+
+All of the hardware used (most specifically the video camera and laser illumination) would be capable of operating at up to 90 frames per second - nine times more than currently used. With a redesign of the control software, and an increase in the gate voltage, the system could be operated with much higher throughput. The technique of image-based sorting is unlikely to reach the throughput possible by other methods such as FACS, however, with the current technology.
+
+Manipulation of particles at comparatively low flow rates within a microfluidic device may have advantages for cell sorting. Many high throughput FACS machines produce sorted population with reduced viability (\cite{Seidl:1999} reported a reduction in viability of up to 25\% following FACS); shear stresses from hydrodynamic flow and aerosolisation can be sufficient to rupture the cell membrane. FACS machines can compensate for this, however, by sorting many thousands of cells. Although the microfluidic/electrokinetic environment is not without its own cellular stresses - shear stress is still an issue at high flow rates, as are induced transmembrane potentials and thermal effects - there is potential for recovery of pure populations with high viability.

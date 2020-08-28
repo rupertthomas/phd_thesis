@@ -1,0 +1,491 @@
+%% ----------------------------------------------------------------
+%% Introduction.tex
+%% ---------------------------------------------------------------- 
+\chapter{Introduction} \label{Chapter:Introduction}
+
+\section{Microfluidics and the Lab-on-a-Chip}
+
+There has been a trend in analytical chemistry and biochemistry to work with ever decreasing quantities of reagents. Fields of work such as genetics, proteomics and rare cell analysis have now become commonplace, but the analytes involved can often be obtained only in minute quantities without significant expense, and there being no direct benefit in working with larger amounts. With modern laboratory equipment, it is relatively simple to generate sub-microlitre volumes, but containing and processing such volumes in conventional vessels is difficult. Subsequently, there has been significant interest in alternative means for carrying out reactions, and in particular integrated microfluidic systems - or `Lab-on-a-Chip' (LoC).
+
+Early work that can be categorised as part of the LoC field includes a gas chromatograph developed by \cite{Terry:1975}. Etched into a silicon wafer, the device included a capillary column, two sample injection valves and a thermal conductivity detector element, and was a step forward in the use of integrated-circuit fabrication techniques for both miniaturisation and integration of non-electronic systems. 
+
+Continued integration of electrical, mechanical and thermal elements into silicon \citep{Ruzicka:1984,Shoji:1988,Vanlintel:1988} spawned the idea of micro-total-analysis-systems ($\mu$TAS) - a term introduced by \cite{Manz:1990} to describe devices incorporating all the components necessary for performing a biological or chemical analysis. A typical system may include components such as pumps \citep{Green:2004}, valves \citep{Thorsen:2002}, mixers \citep{Sasaki:2006}, reaction chambers and heating elements, all of millimetre or sub-millimetre dimensions, so an entire (bio) chemical reaction can take place on the device. Reaction progress can be monitored optically, or sensors can also be incorporated within the device to provide a direct electrical output \citep{Gerardo:2006}. The use of silicon - either as a substrate for bulk micromachining or by deposition - opens up the possibility of incorporating electronics to control the active elements and process and interpret the sensor data \citep{Manaresi:2003} although this is not common due to the costs involved in prototyping with silicon/CMOS fabrication.
+
+As previously stated, reduction of the size of reactions and the volumes of reagents involved is of great value when reagents are rare or expensive, or as in the case of forensic science, simply unobtainable \citep{Verpoorte:2002}. Thermal cycling, as required for polymerase chain reaction (PCR) DNA amplification, can also be performed more quickly because of the small thermal masses involved and so cycle times as low as 30 seconds can be achieved \citep{Khandurina:2000,Lagally:2001}.
+Miniaturisation of chemical processes also enables analyses to be performed with smaller, sometimes hand-held devices, rather than in a conventional full-scale laboratory. This has been particularly exploited in the medical device sector, where there is both the medical need and the funding available to develop point-of-care (PoC) equipment, to provide real-time or near-real-time measurements \citep{Tüdos:2001}. Of the range of medical tests commonly available, a small number of monitoring tests represent the bulk of tests carried out. These tests are used to monitor the progress of a patient during the course of a disease, and so frequent or sometimes real time measurements are required. With such tests, the value of the results decreases over time, and so the advantage of fast-turnaround point-of-care equipment (such as a bedside monitor) over conventional laboratory-based equipment is greatest \citep{Lauks:1998}.
+
+A range of techniques exist for the fabrication of micron-sized structures that were originally developed for the silicon integrated circuit industry. The use of photolithography for microfabrication is discussed in more depth in Chapter \ref{Chapter:Fabrication} - \nameref{Chapter:Fabrication}. A number of techniques have been used to enclose these microstructures to form fluidic channels \citep{Agirregabiria:2005,Vulto:2005}. Complex systems of interconnections can be produced, in a similar manner to electrical connections on a printed circuit board. Fluidic channels fabricated in this manner have the advantage that they can be produced with a length-scale smaller than is normally possible with conventional machining processes. 
+
+Fluid flow in a micro-channel exhibits markedly different characteristics than on a larger length-scale. Viscous forces significantly outweigh inertial forces in the fluid, a condition described as laminar flow - the flow follows streamlines, with a notable absence of turbulent mixing. Diffusive mixing due to Brownian motion occurs, leading to a gradual mixing of fluids, but this process is normally considered slow given the dimensions and fluid velocities typical of micro-channels. An example is two differently coloured dyes flowing in parallel along a straight channel that is many times longer than it is wide: the fluids flow side-by-side, with no turbulent mixing - see Section \ref{sec:flow_in_microfluidic_systems} - \nameref{sec:flow_in_microfluidic_systems}.
+
+Application of microfabrication to fluidic components has enabled the large-scale integration of microfluidics \citep{Thorsen:2002}, with many thousands of valves and chambers integrated into a fluidic system. Complex sequential mixing operations are possible, producing exponentially increasing numbers of mixtures.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Thornsen2002_large_scale_fluidic_integration.png}
+	\caption[A highly integrated microfluidic circuit.]{A highly integrated microfluidic circuit, with microvalves and mixing chambers. Taken from \cite{Thorsen:2002}.}
+	\label{fig:Thornsen2002_large_scale_fluidic_integration}
+\end{figure}
+
+
+\section{Electrokinetics}
+
+Electrical analysis and manipulation of chemical and bio-chemical processes is widely used on the macroscale, and many processes scale favourably to the microscale. Microelectrodes enable strong electric fields to be created with otherwise comparatively low voltages, and detection and signal processing electronics can be integrated close to their target if there is a requirement to make particularly sensitive measurements.
+
+\subsection{Electrophoresis}
+\label{sec:electrophoresis_intro}
+A charged particle in an electric field experiences a Coulomb force (see Section \ref{sec:concepts_in_electrostatics_and_electrodynamics}). If the particle is not otherwise restrained, it will move - either in the direction of the field or against it, depending on the polarity of the charge on the particle. This effect is known as electrophoresis, and has become the basis of a standard laboratory technique for identifying small, charged particles.
+
+During gel electrophoresis, a thick agarose gel greatly retards the motion of particles. Large particles experience greater drag forces than smaller particles, and so move at slower velocities through the gel. Similarly, particles with greater charge experience a larger force, so move faster through the gel. Species can be identified, and different components of a sample separated and identified, by the distance that they move through the gel in a given time. 
+
+Separation and identification of DNA, RNA and protein molecules is commonly performed using electrophoresis. The negative charge on the sugar-phosphate backbone of nucleic acids causes fragments of DNA and RNA to move towards the negative electrode. The complex folding of proteins can strongly influence their migration through the gel, so they are normally denatured in a surfactant. Separation then occurs based almost purely on molecular weight.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/capilliary_electrophoresis.pdf}
+	\caption[Overview of equipment used for capillary electrophoresis.]{Overview of a typical equipment configuration used for capillary electrophoresis.}
+	\label{fig:capilliary_electrophoresis}
+\end{figure}
+
+Capillary electrophoresis is a similar technique, but separation occurs inside a narrow-bore tube without the stabilising gel \citep{Mikkers:1979,Jorgenson:1981,Jorgenson:1983}. Figure \ref{fig:capilliary_electrophoresis} shows a typical equipment configuration for performing capillary electrophoresis. Capillary electrophoresis was one of the first separation techniques to be successfully translated into the microscale - \cite{Harrison:1992} used a microfabricated device to separate calcein and fluorescein with resolution similar to a conventional device.
+
+Electrophoresis is widely used as a laboratory technique and has been extensively developed in the scientific literature \citep{Kutter:2000,Monton:2005}. While it is not within the scope of this study, it serves as a useful introduction to the field of electrokinetics as the underlying phenomenon can be modelled as a simple physical relationship - discussed in more detail in \cref{Chapter:Background}.
+
+\subsection{Dielectrophoresis}
+An uncharged particle in a uniform electric field will polarise, effectively forming a dipole, but will not move as a charged particle does because the Coulomb force on each half of the dipole is equal and opposite. In a spatially non-uniform electric field, however, variations in the electric field strength across the dipole lead to a net force on the particle (see Section \ref{sec:bg_dielectrophoresis}) - an effect known as dielectrophoresis (DEP). Dielectrophoresis potentially has a wide application area, as unlike electrophoresis, it is effective on all particles - charged or uncharged - but has yet to be exploited on the scale of electrophoresis. This is most likely because dielectrophoresis is only really practical on a microscopic scale, whereas electrophoresis as an analysis technique has been developed with simplicity on the macroscale.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/gray2004_pdep.png}
+	\caption[A particle in a non-uniform electric field experiencing positive DEP.]{A particle in a non-uniform electric field experiencing positive DEP. Taken from \cite{Gray:2004}.}
+	\label{fig:gray2004_pdep}
+\end{figure}
+
+The term dielectrophoresis was first introduced by \cite{Pohl:1951} after observing the motion of graphite and nickel particles in an electric field between two concentric cylindrical electrodes. The technique was also applied to living cells (\textit{S. cerevisiae}), and its use for monitoring and characterisation was observed \citep{Pohl:1970,Pohl:1971}. Pohl noted that age, chemical poisons, or thermal treatment of the cells lead to a clear difference in their motion under DEP, and also refined and reduced the size of the electrodes to produce a stronger DEP force.
+
+More recently, the ability to produce smaller electrodes with micron-sized features has made DEP more practical, as the voltages required to produce useful forces on cells and similarly sized particles is consequently reduced from tens of kilovolts to several volts.  Subsequently, DEP has been used in a wide variety of applications, such as characterisation \citep{Markx:1994,Kriegmaier:2001,Holzel:2002}, separation \citep{Becker:1995,Cheng:1998,Morgan:1999,Gascoyne:2002}, manipulation \citep{Manaresi:2003,Chiou:2005} and trapping of a wide variety of particles, including: cells , bacteria \citep{Markx:1994,Wang:1993,Yang:2002,Markx:1996}, viruses \citep{Green:1997,Hughes:1998}, and DNA \citep{Tuukkanen:2007}.
+
+Numerous electrode designs have been constructed for DEP, some of the most common being the interdigitated \citep{Becker:1994}, castellated \citep{Pethig:1992,Price:1988,Wang:1993}, and quadrupole types \citep{Schnelle:1999,Voldman:2003}. Interdigitated and castellated designs have proved useful for exploiting differential dielectric affinity for the separation of particle mixtures. For example, \cite{Becker:1994} separated HL-60 human leukaemia cells from human blood cells by immobilising the HL-60 cells on to the edges of the electrodes using positive dielectrophoresis. Differences in the polarisability of the cells meant that under the conditions chosen, the blood cells were repelled slightly from the electrodes and could be carried away by the fluid flow. \fref{fig:becker1994_HL60_dep_separation} shows castellated electrodes, with HL-60 cells immobilised on the electrode edges. The use of dielectrophoresis (and other technologies) for cell and particle separation is discussed in more detail in Section \ref{sec:cell_and_particle_separation_techniques}.
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/becker1995_HL60_dep_separation.png}
+	\caption[HL-60 cells retained on the tips of castellated electrodes.]{Becker et al. observed that HL-60 cells (human leukaemia) could be retained on the electrode tips using when an alternating electric field was applied (20-80 kHz) while normal blood cells remained in solution and could be removed with fluid flow. Taken from \cite{Becker:1994}.}
+	\label{fig:becker1994_HL60_dep_separation}
+\end{figure}
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/polynomial_electrodes_200um_silhouette.png}
+	\caption[A quadrupole electrode set.]{A quadrupole electrode set (titanium gold electrodes patterned on a glass substrate). Scale bar is 200 $\mu$m.}
+	\label{fig:polynomial_electrodes_200um_silhouette}
+\end{figure}
+
+The quadrupole design (\fref{fig:polynomial_electrodes_200um_silhouette}) has been studied widely as it can be used to trap and immobilise a particle between the electrodes using negative dielectrophoresis. \cite{Huang:1991} refined the design to create `polynomial' quadrupole electrodes with well defined spatial variations in the electric field that could be modelled with an analytical solution. The electrodes have received particular attention as they can levitate a trapped particle above the surface \citep{Hartley:1999}.  While the hydrodynamic drag forces from fluid motion around the particle do not exceed the DEP force exerted on a particle within the electrodes, the particle will remain trapped \citep{Voldman:2001}. The ability to precisely locate a particle (such as a biological cell) and hold it in that position against a steady flow enables many novel methods of handling cells. Additionally, to be able to isolate the particle from others in the medium can permit single particles to be manipulated - a potentially very useful way to conduct characterisation and analysis. This area is covered in more detail in Section \ref{sec:single_particle_manipulation_and_trapping} - \nameref{sec:single_particle_manipulation_and_trapping}.
+
+While dielectrophoresis has been demonstrated successfully in isolation, it can be more usefully employed when integrated into a microfluidic device \citep{Fiedler:1998,Cummings:2003,Holmes:2003}. \cite{Muller:1999} and many others have demonstrated integrated systems that use DEP for focusing, trapping and sorting of particles, with fluid flow carrying particles through the device and between the active elements. Particles are often focused into a narrow stream to facilitate single particle manipulation and analysis, so that they all pass in single file through the same point in a small detection region, or so that they can all be manipulated by the same electrodes. The most common method is hydrodynamic focusing, where the sample stream is surrounded with a sheath flow and is confined into the centre of the channel - \fref{fig:Holmes2006_focussing} (a). This requires additional fluidic equipment, however, and it can be difficult to confine the particle stream within 2-dimensions using the planar architecture common in microfluidics. Dielectrophoretic focusing using negative DEP barriers is an attractive alternative as it is relatively simple to confine particles within both the horizontal and vertical axes - \fref{fig:Holmes2006_focussing} (b) \citep{Holmes:2006}.
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/Holmes2006_focussing.pdf}
+	\caption[Focusing of a sample stream within a microfluidic channel.]{Focusing of a sample stream within a microfluidic channel. (a) Hydrodynamic focusing confines the stream within the horizontal axis. It is possible to confine within the vertical axis as well, but this requires a more complicated fabrication process. (b) Dielectrophoretic focusing of a particle stream in the horizontal and vertical axes, with no additional fluidic connections. Taken from \cite{Holmes:2006}.}
+	\label{fig:Holmes2006_focussing}
+\end{figure}
+
+\subsection{Electrorotation}
+\label{sec:electrorotation_intro}
+So far only spatially invariant electric fields have been examined, but it is also possible to use three or more out-of-phase alternating electric fields to create a rotating electric field. When a dielectric particle is suspended in a fluid within such a rotating electric field, the interaction between the field and the dipole induced within the particle can produce a torque on the particle, causing it to rotate.
+
+%\begin{figure}[tbp]
+%	\centering
+%		\includegraphics{../Figures/Cristofanili2002_ROT_setup.png}
+%	\caption{A typical setup for electrorotation measurements \citep{Cristofanilli:2002}}
+%	\label{fig:Cristofanili2002_ROT_setup}
+%\end{figure}
+
+Electrorotation (ER) has been used widely as a tool for characterisation, because the speed at which the particle rotates is related to the dielectric properties (electrical conductivity and permittivity) of the particle and the medium and the electrical parameters of the rotating electric field. The technique can be used to calculate electrical properties of cells (such as the membrane capacitance) from measurements of its angular velocity within a rotating electric field \citep{Zhou:1996}. A solution of cells is prepared with a known electrical conductivity and permittivity, and the rotation of a cell is observed under rotating electric fields over a range of frequencies. \fref{fig:Reichle1999_ROT_jurkat_T} shows a photograph of the electrorotation of a single cell within quadrupole electrodes. The detail behind the characterisation of particles by electrorotation is discussed in more detail in Section \ref{sec:electrorotation_and_travelling_wave}.
+
+Similar experiments could be performed using dielectrophoresis, by measuring the linear velocity of a particle under the DEP force to determine its electrical properties. Electrorotation is the most commonly used method, however, because the inherently constant torque on the particle (under a temporally invariant field) makes measurements far simpler. The dielectrophoretic force on a particle is dependent on the spatial gradient of the electric field, meaning the force changes as the particle is displaced by the force; determining the particle properties from such measurements becomes a complex, convoluted process but nevertheless some attempts have been made \citep{Gimsa:1999,Holzel:2002}. 
+
+The complex structure of biological cells means that each structure, interface or organelle has an influence on the overall polarisation of the cell - the electrical properties of each of these must be resolved if the characteristics of the cell as a whole are to be completely determined. In practice, however, simplified electrical models of the cell as a spherical particle with a number of concentric shells \citep{Huang:1992,Chan:1997} are currently the best that the available mathematical models can determine, and indeed are normally sufficient to predict the kinetics of a cell under the electrical conditions found within the lab-on-a-chip environment. Electrical modelling of cells is discussed in more detail in Section \ref{sec:electrical_characteristics_of_biological_cells}.
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics{../Figures/Reichle1999_ROT_jurkat_T.png}
+	\caption[A human T lymphoma cell (Jurkat) trapped and rotating in a quadrupole electrode set.]{Image of a human T lymphoma cell (Jurkat) trapped and rotating in a quadrupole electrode set. Taken from \cite{Reichle:1999}.}
+	\label{fig:Reichle1999_ROT_jurkat_T}
+\end{figure}
+
+\subsection{Travelling-wave Dielectrophoresis}
+The phase relationships exploited by electrorotation can also be used to move particles in a linear motion. \fref{fig:Morgan1997_TWDEP} shows three electrodes from a larger set, in which the phase difference between adjacent electrodes is 90$^{\circ}$ - essentially the electrorotation electrodes have been `flattened out' and repeated. The electric field travels along the electrode set as a wave, and can produce dielectrophoretic forces both perpendicular and parallel to the surface of the electrode set.
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics{../Figures/Morgan1997_TWDEP.png}
+	\caption[Particle levitation and displacement during travelling wave DEP.]{A travelling DEP wave can have a levitating effect on the particle as well as propelling it along the array. Taken from \cite{Morgan:1997}.}
+	\label{fig:Morgan1997_TWDEP}
+\end{figure}
+
+
+A particle in solution above a travelling-wave electrode set will experience a component of its DEP force that is perpendicular to the surface, which can either draw it towards the electrodes (pDEP) or repel it away (nDEP). Rather than induce rotation in the particle, the travelling-wave effect will also induce a component of the DEP force that is parallel to the surface, pushing the particle along the electrode set.
+
+Travelling-wave DEP is particularly attractive because it opens up the possibility of continuous separation and sorting of particles. \cite{Talary:1996} exploited the differences in the dielectrophoretic responses of viable and non-viable yeast cells to separate the two. Viable cells were drawn towards the electrodes by pDEP, while the non-viable cells were repelled by nDEP and pushed along the channel (to the right in \fref{fig:Talary1996_continuous_TWDEP_separation_yeast}). \cite{Morgan:1997} used travelling-wave DEP to separate erythrocytes and leukocytes - both were repelled from the electrodes but the leukocytes experienced a stronger travelling-wave DEP force and so moved faster. 
+
+Although some interesting work has been demonstrated using travelling-wave DEP, it has not been widely exploited. Very controlled conditions are required, such as tight control of medium conductivity, to obtain reproducible results. Induced fluid flow can have a more significant effect on particle motion than the particle DEP force itself, complicating the sorting of particles.
+
+\begin{figure}[htb]
+	\centering
+		\includegraphics{../Figures/Talary1996_continuous_TWDEP_separation_yeast.png}
+	\caption[Continuous separation of viable and non-viable yeast cells.]{Continuous separation of viable and non-viable yeast cells. Taken from \cite{Talary:1996}.}
+	\label{fig:Talary1996_continuous_TWDEP_separation_yeast}
+\end{figure}
+
+\section{Single Particle Manipulation and Trapping}
+\label{sec:single_particle_manipulation_and_trapping}
+As explained above, an analysis technique performed on an entire population of cells simultaneously will return a measurement that is averaged across the entire population. This does not present many problems when a purified sample is being examined, or when the species of interest represents the majority of the population. The effect of sub-populations will not be observed, however, unless their significance in the measurement output can be amplified - as an example, this is sometimes possible with selective fluorescent stains.
+
+To aid single-cell analysis, it is often advantageous to separate and isolate cells of interest from the bulk cell population. \fref{fig:Muller2003_Evotec_single_cell_handling} shows a commercial single-cell handling system (Cytoman, produced by Evotec AG). A dielectric field cage is created in the quadrupole electrode set (see below), shown in the centre of the second picture, where a single particle can be trapped and isolated from the rest of the particle stream. Such a system has been used to measure the calcium flux through single cells in the presence of an alternating electric field, and to observe the effect of DEP manipulation \citep{Muller:2003}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Muller2003_Evotec_single_cell_handling.pdf}
+	\caption[Overview of a commercial single-cell handling system (Evotec AG).]{Overview of a commercial single-cell handling system (Evotec AG). Taken from \cite{Muller:2003}.}
+	\label{fig:Muller2003_Evotec_single_cell_handling}
+\end{figure}
+
+
+\subsection{DEP Trapping}
+\label{sec:DEP_trapping}
+\cite{Price:1988} used a castellated electrode geometry to measure the dielectric properties of bacteria, and observed the cells agglomerating at low field minima when subject to nDEP. The concept of trapping cells in suspension is attractive because they can be retained for further analysis with precise control of their spatial position, while maintaining an environment that is conducive to their continued viability. One particular application for the precision positioning of living cells is the manufacturing of cell-based biosensors, and \cite{Gray:2004} developed a microelectrode array with this in mind. Using pDEP, cells were drawn to the electrodes, and attached to the surface using patterned fibronectin. 
+
+%\begin{figure}
+%	\centering
+%		\includegraphics{../Figures/Gray2004_pdep_registration_endothelial_cells.png}
+%	\caption{Dielectrophoretic `registration' of living arterial endothelial cells on to gold}
+%	\label{fig:Gray2004_pdep_registration_endothelial_cells}
+%\end{figure}
+
+Positive DEP is useful for patterning cells to a substrate, as the electrode geometries and electrical interconnections required are very simple, but it has potential to cause damage to the membranes of viable cells. Under pDEP, cells are drawn towards high field regions - the resulting field distribution can cause a large potential difference across the insulating cell membrane, large enough to permeate the membrane and cause loss of cell viability. Also, media with a low conductivity (and hence low ionic content) is required to create the electrical condition for cells to experience pDEP. This does not mirror the physiological conditions that are required for extended cell viability, and it creates stress on the cells as ions diffuse out.
+
+The quadrupole electrode configuration (\fref{fig:polynomial_electrodes_200um_silhouette}) is a popular arrangement that is particularly useful as a particle trap. When the four electrodes are energised with alternating voltages so that adjacent electrodes are out of phase, a low-field region is created in the centre of the trap, at a distance above the surface. This can create a stable nDEP trap, levitating a particle above the surface. 
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Voldman2001_single_particle_dep_trap.png}
+	\caption[A single particle immobilised and levitated in a quadrupole DEP trap.]{A single particle immobilised and levitated in a quadrupole DEP trap. Taken from \citep{Voldman:2001}.}
+	\label{fig:Voldman2001_single_particle_dep_trap}
+\end{figure}
+
+Provided the vertical component of the DEP force is sufficiently strong to raise the particle, the particle settles at a point where a force equilibrium exists between gravity and the DEP force. Negative DEP levitation at a stable equilibrium, termed passive levitation by \cite{Hartley:1999}, has advantages over active pDEP systems \citep{Jones:1986,Qian:2002} because complicated sensor-feedback systems are not required. Levitating traps are an attractive method of handling particles, as they are inherently non-contact. Surface interactions are reduced, particularly useful for the manipulation of adherent cells.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Voldman2001_single_particle_dep_trap2.png}
+	\caption[The quadrupole DEP trap relies on gravity to keep the particle contained.]{The quadrupole DEP trap directs a particle to a low-field region above the centre of the trap, but relies on gravity to keep the particle contained. Taken from \cite{Voldman:2001}.}
+	\label{fig:Voldman2001_single_particle_dep_trap2}
+\end{figure}
+
+A potential limitation of the quadrupole design as a trap is that the electric field forms a `force funnel' rather than a closed dielectrophoretic cage - see \fref{fig:Voldman2001_single_particle_dep_trap2}. Particles can be pushed out of the funnel if the DEP force becomes much stronger than the sedimentation force (gravity) or if the particles are less dense than the medium. Such traps also have a tendency to accumulate particles in the presence of a prevailing flux.
+
+\cite{Schnelle:1999} developed quadrupole electrode designs into an octopole structure to create closed nDEP cages. Octopole designs have a lengthier fabrication procedure, as electrodes must be fabricated on top and bottom surfaces - see \fref{fig:Schnelle1993_octopole_cage}. The packaging requirements are also more complex, as both surfaces must be aligned and mated before use. Micron-scale alignment is required for single-cell traps. Nevertheless, such alignment is well within the reach of modern production techniques, and octopole traps have been implemented in many DEP systems \citep{Muller:1999,Reichle:1999}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Schnelle1993_octopole_cage.png}
+	\caption[The octopole configuration requires electrodes on both top and bottom surfaces, but creates a closed well-defined cage.]{The octopole configuration requires electrodes on both top and bottom surfaces, but creates a closed well-defined cage. Taken from \cite{Schnelle:1993}.}
+	\label{fig:Schnelle1993_octopole_cage}
+\end{figure}
+
+\fref{fig:Rosenthal2005_single_particle_square_traps} shows an array of nDEP traps developed by \cite{Rosenthal:2005} for patterning single particles on a surface. An alternating electric field between the two tracks creates a DEP field cage with a field minima close to the centre of the square region. The shared electrical connections between the traps make obvious the purpose of the design was to trap large numbers of particles, without the need for individually addressing the traps. A similar design could be produced, however, with the traps connected individually, and only a single electrical connection per trap would be required - the second, straight electrode can still be shared between many individually addressable traps, as this electrode would typically be grounded. Minimising the number of connections required per trap is a key requirement for parallel operation of multiple traps.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Rosenthal2005_single_particle_square_traps.pdf}
+	\caption[Negative DEP traps for single-particle patterning.]{Negative DEP traps for single-particle patterning. Adapted from \cite{Rosenthal:2005}.}
+	\label{fig:Rosenthal2005_single_particle_square_traps}
+\end{figure}
+
+Negative DEP traps have also been developed for a number of specialist purposes - an example being the `horseshoe' design by \cite{Seger:2004} (see \fref{fig:Seger2004_cell_dipping_horseshoe}). The trap has an open front, and relies on hydrodynamic pressure from fluid flow to keep the particle contained. The design has the advantage that particles can be immobilised from a flow without a controlling input - while the trap is energised it will remove particles from the flow. This system was used to temporarily hold cells while they were `dipped' in a medium different from their native culture medium, with potential applications for cell lysis or chemical assays.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Seger2004_cell_dipping_horseshoe.png}
+	\caption[A single cell held against a fluid flow by a semi-open `horseshoe' trap.]{A single cell held against a fluid flow by a semi-open `horseshoe' trap. Electrodes are required on both the top and bottom surfaces. Taken from \cite{Seger:2004}.}
+	\label{fig:Seger2004_cell_dipping_horseshoe}
+\end{figure}
+
+\subsection{Massively-Parallel Control of DEP Traps}
+\label{Section:Massively_Parallel_Traps}
+Immobilisation of single cells is in itself interesting as a tool for developing analysis techniques, but for useful result it may be required to trap large numbers of cells, with single-cell resolution. With larger numbers of particle traps implemented within a device, it becomes increasingly difficult to provide electrical connectivity while maintaining independent control of each trap. A number of novel techniques have been implemented to address these problems.
+
+Matrix addressing techniques enable traps to be operated by a reduced number of control lines. Row/column addressing is used, so that (m x n) traps can be controlled by (m + n) control lines. The obvious application of this concept has been thin-film transistor (TFT) liquid crystal displays (LCDs), in which a matrix of pixels is controlled by row and column data buses. This requires integration of a transistor into each pixel, however, so that only simultaneous signals from both the row and column inputs will switch the pixel - otherwise it would not be possible to address single pixels.
+
+The dot-ring structures developed by \cite{Taff:2005} are particularly suitable for matrix addressing. Using pDEP, cells are trapped at the high-field region at the exposed `dot' in the centre of the traps. The geometry and field plot is shown in \fref{fig:Taff2005_ring_dot_pdep}. Trapped cells can be selectively removed from the array by connecting the appropriate control lines to ground (\fref{fig:Taff2005_ring_dot_pdep2}) in the presence of a fluid flow. Other traps on the same axes are weakened (DEP force reduced by a factor of 4 as the potential difference across the traps is halved), but provided the trapping force exceeds the hydrodynamic drag by at least four times, the other cells will remain trapped. 
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Taff2005_ring_dot_pdep.png}
+	\caption[The dot-ring pDEP trap creates a region of very strong electric field strength directly above the centre of the trap.]{The dot-ring pDEP trap creates a region of very strong electric field strength directly above the centre of the trap:(a) SEM of the electrode structure and (b) plot of the electric field strength on a plane 1 $\mu$m above the surface of the electrodes. Taken from \cite{Taff:2005}.}
+	\label{fig:Taff2005_ring_dot_pdep}
+\end{figure}
+
+This mode of operation provides a convenient method to control a large number of traps without resorting to an exorbitant number of parallel control lines, and the strong trapping forces required are not unreasonable when working with pDEP. The limitations of such a system are clear, however, as cells are trapped at high-field regions on the electrodes where they are vulnerable to damage, and the use of pDEP limits the choice of media to low ionic-content solutions rather than physiological media. Without any closed field cages or repulsive effect, there is also little to limit the retention of multiple cells on a single electrode, although this problem was not evident in the published data. While it is not the ideal choice, however, work has shown that pDEP can be used effectively without catastrophic cellular disruption \citep{Archer:1999}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Taff2005_ring_dot_pdep2.png}
+	\caption[Operation of the dot-ring particle traps.]{Operation of the dot-ring particle traps: (a) with all lines energised, the traps are filled. (b) A trap is switched off by its row and column lines being grounded, other traps that share addressing space have their DEP force weakened but not removed. Taken from \cite{Taff:2005}.}
+	\label{fig:Taff2005_ring_dot_pdep2}
+\end{figure}
+
+\cite{Voldman:2002} envisage using single particle dielectrophoretic traps as part of a screening cytometer (\fref{fig:Voldman_screening_cytometer_concept}), whereby fluorescence measurements can be made repeatedly on each cell, and their response to a particular stimulus observed. Such an arrangement would be a useful component of a highly automated cell-based assay system, for example.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Voldman_screening_cytometer_concept.png}
+	\caption[The concept of a screening cytometer.]{The concept of a screening cytometer. As the spatial location of each cell is tightly controlled by an array of DEP traps, repeated fluorescence measurements can be made on each cell. Taken from \cite{Taff:2005}.}
+	\label{fig:Voldman_screening_cytometer_concept}
+\end{figure}
+
+CMOS fabrication techniques have been used to develop a true active matrix of DEP electrodes by \cite{Manaresi:2003}. Integration of a transistor into each element of the array enables row/column addressing, so that each of the 102,400 elements can be switched individually. Groups of electrode elements have been used to create closed nDEP cages - see \fref{fig:Manaresi2003_cmos_dep_matrix}. Optical sensors have also been embedded into each element, for a direct (albeit low resolution) image of particle position.
+
+Compatibility with standard IC fabrication processes is of great advantage for further production, as CMOS is a widely adopted and well understood technology. A silicon substrate enables easy switching and sensor integration, and all the control electronics can be packaged on the same chip. Little data has been published on work carried out with the system, but it has numerous applications for cytometry, sorting, cell culture and drug discovery assays. CMOS fabrication is, nevertheless, expensive and time consuming with many sequential steps - probably not suitable for the disposable devices in which there is much recent interest. A silicon substrate also complicates optical measurements, as it is not transparent.
+
+In its present state, the CMOS electrode matrix has an electrode pitch of 20 $\mu$m and is composed entirely of square electrode matrix elements. Particles are moved across the matrix by expanding and shifting the dielectric field cages, although this was found to be relatively slow, with particles moving at approximately 20 $\mu$m/sec. Development of the technology through reducing the size of the features, and integration of other fluidic/electrokinetic elements, may mean devices of this type are more widely used.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Manaresi2003_cmos_dep_matrix.png}
+	\caption[A CMOS electrode array incorporating 320x320 elements.]{The CMOS electrode array incorporated 320x320 elements, each with an optical sensor. Taken from \cite{Manaresi:2003}.}
+	\label{fig:Manaresi2003_cmos_dep_matrix}
+\end{figure}
+
+A novel method of trapping particles has been developed using optical images to stimulate a photoconductive layer (\fref{fig:Chiou2005_optical_images_dep}), which overcomes some of the limitations of CMOS-based devices \citep{Chiou:2005}. Transparent electrodes (indium tin oxide) on the top and bottom of the microfluidic channel are driven by an alternating voltage source, but the bottom layer is insulated from the fluid by layers of doped and undoped amorphous silicon that present a poor conduction path in their native state. A digital micromirror device (DMD ) unit - thousands of tiny microfabricated mirrors that can be individually manipulated - is used to project an image on to the bottom glass substrate, switching the silicon in the illuminated regions into a more conducting state, creating `virtual electrodes'. 
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/Chiou2005_optical_images_dep.png}
+	\caption[Manipulation of microparticles using optical images.]{Manipulation of microparticles using optical images. Taken from \cite{Chiou:2005}.}
+	\label{fig:Chiou2005_optical_images_dep}
+\end{figure}
+
+The system has been used to produce and control 15,000 nDEP traps simultaneously, each with a diameter of 4.5 $\mu$m. Various trapping and sorting operations have been demonstrated, as well as the controlled movement of particles. Live cells can also be manipulated. The microfluidic portion of the device has relatively simple fabrication requirements, and none of the deposited layers are patterned. This is attractive if disposable fluidic elements are desired, such as single-use sample analysis chips. The use of a digital micromirror device necessitates the presence of an optical system, however, limiting its use in miniaturised or point-of-care-equipment. 
+
+\subsection{Optical Techniques}
+\label{sec:optical_trapping}
+The use of focused beams of light to manipulate particles was demonstrated by \cite{Ashkin:1970}, whereby radiation pressure directs a particle towards the apex of a tightly-focused cone of light. \fref{fig:laser_tweezers_beam_paths} shows a beam of converging laser light with Gaussian profile passing through a microparticle near to the beam waist. The light is refracted as it crosses into and out of the particle, and a corresponding force is applied to the particle as it affects the momentum of photons passing through. In the case of \fref{fig:laser_tweezers_beam_paths} (a) the beam paths 1 and 2 have different intensities due to the intensity profile of the laser beam, and so the corresponding forces are unequal, leading to a net force directing the particle towards the centre of the beam. When in the centre of the beam - \fref{fig:laser_tweezers_beam_paths} (b) - the forces are equal. Optical traps have been successfully used to manipulate and analyse a variety of synthetic and biological particles, including cells \citep{Ashkin:1987:cells,Grimbergen:1993}, viruses and bacteria \citep{Ashkin:1987:viruses_bacteria,Sato:1996}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/laser_tweezers_beam_paths_redrawn.pdf}
+	\caption[A particle trapped at the apex of a tightly focused laser beam.]{A particle near to the apex of a tightly focused laser beam (with Gaussian intensity profile) experiences a force due to the imbalance of radiation pressure on each side of the particle (a), directing the particle towards the centre of the beam (b).}
+	\label{fig:laser_tweezers_beam_paths}
+\end{figure}
+
+A development of optical trapping technology is the use of diffractive optical elements (DOE) to create complex 3-dimensional interference patterns that can trap many particles simultaneously, or even be used for sorting. \fref{fig:Macdonald2003_optical_lattice_equipment} shows the equipment used by \cite{MacDonald:2003} - the principal element being the DOE that splits the incident beam and is the source of the interference pattern.
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/Macdonald2003_optical_lattice_equipment.png}
+	\caption[A diffractive optical element can be used to produce a 3D interference pattern suitable for optical trapping.]{A diffractive optical element can be used to produce a 3D interference pattern suitable for optical trapping. Taken from \cite{MacDonald:2003}.}
+	\label{fig:Macdonald2003_optical_lattice_equipment}
+\end{figure}
+
+Manipulation of optical elements in the light path (cover slips for simple beam steering and neutral density filters for intensity adjustments) was used to create different configurations of interference patterns in a microfluidic channel - \fref{fig:Macdonald2003_optical_lattice_patterns} shows two examples. Particles within the microfluidic channel experience radiation pressure, directing them towards local maxima in the intensity field. The technology has been demonstrated as suitable for trapping single particles, as well as sorting particles (including biological particles) by size or refractive index - see Section \ref{sec:particle_manipulation_optical}. As a trapping technology, the system is useful as it allows cell patterning on any plain glass substrate, without the need to fabricate electrodes or mechanical traps. Trap locations can be easily reconfigured, and the method could be easily scaled to trap much larger numbers of particles. The inability to address individual traps does place limitations, however, on its usefulness as a platform for single particle manipulation. 
+
+\begin{figure}[btp]
+	\centering
+		\includegraphics{../Figures/Macdonald2003_optical_lattice_patterns.png}
+	\caption[Intensity maps of the optical lattices produced by manipulation of the interference pattern.]{Intensity maps of the optical lattices produced by manipulation of the interference pattern, (a) isolated maxima produce a lattice of discrete optical trapping locations including and (b) conjoined maxima produce `extended guides' or paths of equipotent force along which particles can move in conjunction with fluid motion. Taken from \cite{MacDonald:2003}.}
+	\label{fig:Macdonald2003_optical_lattice_patterns}
+\end{figure}
+
+\subsection{Hydrodynamic Techniques}
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/DiCarlo2006_hydrodynamic_traps.png}
+	\caption[Hydrodynamic single cell trapping arrays.]{Hydrodynamic single cell trapping arrays. Taken from \cite{Di_Carlo:2006}}
+	\label{fig:DiCarlo2006_hydrodynamic_traps}
+\end{figure}
+
+The hydrodynamic trapping arrays developed by \cite{Di_Carlo:2006} have the advantage that they are inherently passive - requiring only the continued passing of fluid to locate and hold cells into shaped wells (see \fref{fig:DiCarlo2006_hydrodynamic_traps}). Small gaps above each trap permit fluid to flow over the trap, guiding cells in. Once located in the trap, hydrodynamic pressure keeps the cell pressed against the well. Accurate sizing of the well to the cells for trapping means that only single cells are trapped. Reliable and repeatable trapping of single cells in precise locations has been demonstrated, as well as cell adherence and proliferation. Traps are, however, not individually addressable. Cells can be released by flow reversal (before adherence), but release of a single cell is not possible.
+
+\section{Cell and Particle Separation Techniques}
+\label{sec:cell_and_particle_separation_techniques}
+Biological cells naturally occur in heterogeneous populations, with multiple specialised cell types in codependence. While study of cells in their natural environment is an important discipline in its own right, it can be difficult to determine the cause-effect relationships within such a system. Hence, the first step in many cell biology experiments is to isolate or purify the cells of interest \citep{Eisenstein:2006}. There is also much interest in cell isolation as a tool for medical therapeutic use. An example is the group of cells known as stem cells, which are pre-cursor cells to all the differentiated cell types found in the human body (and other species). Isolation of stem cells could enable tissues for transplant to be grown in vitro, with a broad range of subsequent therapies made possible. Mesenchymal stem cells can be obtained from samples of bone marrow, typically obtained from the femur or iliac crest by biopsy, but are typically a minority subpopulation that comprises less than 0.01\% of the total number of cells. A method to efficiently isolate the stem cells must be found if they are to be widely used as a theraputic tool. Another example is autologous bone marrow transplants, in which a highly efficient method of separation is required to remove tumour cells from the graft product before it can be returned to the patient \citep{Dainiak:2007}.
+
+\cite{Orfao:1996} defines laboratory cell separation techniques as having two parts: a classification stage, where cells are identified by one or more discernible parameters, and a sorting/separation stage, in which cells are physically separated. Furthermore, separation techniques can be categorised as either bulk or single-cell techniques, with reference to the manner in which cells are processed.
+
+\subsection{Bulk Techniques}
+A wide variety of laboratory processes fall into the category of `bulk' separation, such as centrifugation, filtration and cell affinity methods. The process of cell separation is applied to all of the cells in the sample simultaneously, and the classification and separation stages usually occur within a single step and exploit a single distinguishing cellular characteristic such as size or density as the mechanism of separation. The development of monoclonal antibodies has seen a rapid increase in the use of immunological methods of cell separation, including MACS (see below) which uses separate classification and separation stages. This category of techniques are often used as the first stage in obtaining a purified cell population as they offer high levels of enrichment and high throughput, in a relatively simple process. As an example, to isolate human bone marrow cells (HBMCs) from an ex vivo sample, the homogenised tissue would be centrifuged through a density gradient medium (such as Ficoll-Paque) to quickly separate the erythrocytes from the mono-nuclear cells. Although this method does not have the specificity to isolate the target cells in one stage, erythrocytes are by far the most numerous cell type present, so this method quickly allows $\>99$\% of the cells in the sample to be separated out.
+
+\subsubsection{Immunomagnetic Sorting}
+Cell populations that present particular surface antigens can be identified by attachment with antibody-labelled paramagnetic beads, and removed from solution by passage through a magnetic separator. The process is commonly known as magnetic-activated cell separation (MACS) - a trademark name for the separation systems developed by Miltenyi Biotec GmbH (Germany). 
+
+In conjunction with a strong magnet around the outside, large gradients in the magnetic field within the separator are created by ferrous obstructions such as steel wire or ball bearings. Cells labelled with the magnetic beads are retained within the separator, and can be subsequently recovered by removing the magnetic field and flushing through with the suspending medium. Cell populations can be purified by positive selection (direct labelling of the target cells expressing a particular antigen), negative selection (removal of cell populations that express a particular antigen), or a combination of both. Enrichment rates of more than 100-fold (positive selection) and depletion rates of several 1,000-fold (negative selection) can be achieved. Typically, 50nm beads are used, which have little effect on further analysis steps (such as FACS) or cell culture. It is difficult to perform further MACS separations on sub-populations once the parent population has been labelled with magnetic beads, however, as the separation is inherently a binary process \citep{Miltenyi:1990}.
+
+The throughput of a MACS system can be difficult to define, as a typical sorting operation may take approximately 30 minutes to set up and perform, but virtually all of this time is spent in preparation and incubation stages with the number of cells sorted having little influence. Purity of recovered populations typically exceeds 90\%, although this is dependent on the combination of surface antigens that are used to select the population \citep{Willasch:2009}. Modern automated immunomagnetic separation systems (autoMACS, Miltenyi Biotec) have throughputs in the region of 10$^{7}$ cells per second.
+
+
+\subsection{Single-Cell Sorting}
+The analysis of large numbers of single cells, one after the other, removes the averaging effect that occurs when cells are analysed as a bulk population. It is particularly useful when the cell type of interest is a minority sub-population, whose significance would normally be overshadowed by more numerous cell types. During single-cell based sorting, cells are first categorised by an analysis technique, and then separated by a manipulation technique, so the whole process occurs through two distinct stages.
+
+\subsubsection{Fluorescence-Activated Cell Sorting}
+
+The technique of fluorescence activated cell sorting (FACS) was developed by \cite{Herzenberg:1976} as an extension of existing methods of flow cytometry. Becton Dickinson Immunocytometry Systems introduced commercial systems in the 1970s, and it is estimated that there are now approximately 30,000 of the machines in use world-wide \citep{Herzenberg:2002}.
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/FACS_overview.pdf}
+	\caption[Overview of an early FACS machine.]{Overview of an early FACS machine, comprising of a single laser with two optical detectors. Adapted from \cite{Herzenberg:1976}.}
+	\label{fig:FACS_overview}
+\end{figure}
+
+\fref{fig:FACS_overview} shows an overview of the equipment used for FACS. The sample (a solution of cells or other particles) is pumped into the flow chamber, confined into a narrow stream by the sheath flow, and electrically charged by the droplet-charging electrode. The stream is forced through a narrow aperture, and is broken into a stream of droplets by a vibrating nozzle. Each droplet passes through a detection region and is illuminated by one or more laser beams, and emitted fluorescent signals are detected by the surrounding optical sensors. These fluorescent signals are used to switch the polarity on the high-voltage deflection plates, which direct each individual droplet into one or more collection chambers below. 
+
+The flow rate is maintained so that the probabilistic distance between each particle is large, to reduce the likelihood of multiple particles being confined within the same droplet. Some machines use software algorithms that can detect `doublets', so that they can be rejected to a waste output to avoid contaminating the purified sample, although this must be deduced from the fluorescent signals and generally calculations are based on the peak amplitude and width of the fluorescent pulse. Modern FACS machines are able to process and sort many thousand fluorescence events every second, depending on the particle flow rates and concentrations used; specialist machines can operate at up to 70,000 particles per second \citep{Eisenstein:2006}. 
+
+While some organisms, such as plankton and marine algae, have sufficient autofluorescence for useful measurements to be made on the cells in their native phenotype, it is more common to detect fluorescent signals from artificial fluorophores such as dyes or labels. Fluorescent dyes attach to particular regions of cells (such as the membrane, or nucleic material) and are useful to track cells as they are reintroduced to a mixed populations. Although dyes are generally not very selective, some can also be used as a means of viability assessment. Fluorescent conjugated antibodies can be used instead to identify particular surface antigens on a cell - the magnitude of the fluorescent signal for a particular cell reflects the number of antibodies bound to its surface. 
+
+Green fluorescent protein (GFP) has a single emission peak at 509 nm when excited with a blue light over a broad range of wavelengths. Originally isolated from the jellyfish \textit{Aequorea victoria} by \cite{Shimomura:1962}, the protein has become a mainstay of biochemical research into gene expression. The GFP gene contains all the information necessary for the post-translational synthesis of the fluorophore, and no jellyfish-specific enzymes are needed \citep{Tsien:1998}. Expression of the gene in other organisms produces fluorescent characteristics and unlike many other small fluorescent molecules (such as FITC) which are highly phototoxic, GFP within live cells can be illuminated without causing significant harm. Transfection of the gene into a particular regulatory sequence causes GFP to be simultaneously expressed with any other proteins that are coded for, so fluorescent measurements can be made on the expression of a whole range of other proteins \citep{Chalfie:1994}. Shimomura, Chalfie and Tsien shared the 1998 Nobel Prize for Chemistry for their work on GFP.
+
+Cell isolation is often an early step in the investigation of a particular cell type, so it is important that the phenotype of sorted populations is unchanged as a result of the sorting process. Concern has been raised about the effects of FACS sorting on cell health, particularly with regard to the hydrodynamic shear stresses that the cells experience on passing through the machine and during collection. \cite{Seidl:1999} found an immediate decrease in cell viability following sorting (20-25\% of population not viable, compared to $<$10\% in control samples) of both N1 fibroblastic cells and BT474 breast carcinoma cells. While the loss of a certain proportion of the cell population can be compensated for by the considerable throughput possible with modern machines, the possibility exists of physiological changes within the remaining population. Disruption of the cellular membrane was detected in the remaining viable cells, possibly caused by the triggering of pressure-dependant ion channels, with membrane polarisation gradually returning to normal over the course of several hours following sorting. Changes in the membrane potential were also observed following MACS sorting, although the viability of recovered populations did not appear to be significantly affected. It was concluded that the majority of changes apparent after FACS and MACS sorting could be attributed to shear stress effects following passage through the sorting nozzle/magnetic separator. There are also safety concerns regarding sample aerosolisation as droplets are ejected from the FACS flow cell. This is of particular issue if pathogenic organisms are being handled.
+
+A number of alternatives to the electrostatic deflection of droplets used in conventional FACS machines have been developed, with the intention of sorting larger and potentially more fragile particles, with a high viability of recovered populations. An example is the COPAS family of instruments (Union Biometrica, MA, USA) that are designed for separation of cell clusters, embryos, and small organisms such as \textsl{C. elegans}. Particles are analysed using conventional flow cytometry, but are sorted into collection chambers by short pulses from jets of compressed air. Sorting rates of 100-300 particles per second are typical \citep{Eisenstein:2006}. It is possible that microfluidic technologies may hold the future for cell processing with minimal disruption to the homeostatic processes of sorted cells, as it is possible to manipulate single cells within a microfluidic environment without producing the jets of high velocity droplets in air that are used in conventional FACS machines.
+
+\subsection{Microfluidic Techniques}
+Many classification and separation methods have been mirrored in the microfluidic environment, in particular the detection of fluorescent signals to identify cell types during single-cell sorting. Due to the reduced scaling, processes that have previously been described as \textit{bulk} separation may be better termed \textit{continual} separation when performed within a microfluidic device, as the entire population of cells is generally not sorted simultaneously; an example would be the use of magnetic microparticles by \cite{Adams:2008} (see Section \ref{sec:magnetic_microfluidics}) that is analogous to MACS. Advantages of moving cell separation process to a microfluidic platform can include more sensitive optical detection (through small detection volumes), smaller devices with lower cost, and innovative sorting methodologies \citep{Fu:1999}. It also enables new methods of cell classification that are not possible with macroscale devices, such as single cell impedance spectroscopy \citep{Gawad:2001,Morgan:2007}.
+
+\subsubsection{Flow Manipulation - Electrokinetic}
+A simple method to control the trajectory of a cell within a microfluidic device is to direct the flow of fluid within the device. \cite{Fu:1999} used electroosmotic pumping to carry cells through the device and control their trajectory at a microfluidic junction. Electrodes were inserted into chambers at the inlet and each of the outlets, as shown in \fref{fig:Fu1999_channel} (a). This required voltages of 150 V to be applied to the electrode, producing a field of approximately 100 V cm$^{-1}$ in the channel. Fluorescent measurements of particles and cells passing through the system were made using laser illumination and optical detection by a photomultiplier tube. 
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/Fu1999_channel.pdf}
+	\caption[An overview of a microfluidic channel used for cell sorting using electroosmotic flow.]{(a) An overview of the microfluidic channel used for cell sorting using electroosmotic flow. The large circular reservoirs can be seen at each of the inlets and outlets. (b) The use of a microfluidic flow cell enables innovative sorting methodologies to be used. The conventional method (forward sorting) is to direct particles to the appropriate output as they pass through the detection region. An alternative method that offers higher throughput and becomes practical if the target cells represent a small fraction of the total population is reverse sorting. Cells are carried through the device by the fluid flow at high speed towards the waste outlet. If a target cell is detected the flow is reversed to bring the cell back into the detection region at lower speed, and the flow is switched to direct the cell into the collection outlet. This method allows the sorting of cells moving at velocities that exceed the normal operating limit of the device (the switching speed). Taken from \cite{Fu:1999}.}
+	\label{fig:Fu1999_channel}
+\end{figure}
+
+Direct control of the fluid also enables innovative sorting strategies to be implemented for efficient, high-speed sorting. The `reverse sorting' strategy - \fref{fig:Fu1999_channel} (b) - involves flowing cells through the device towards the waste output at speeds greater than at which cells can be reliably sorted. When a target cell is detected passing through the sorting junction, the flow is driven in reverse at a lower speed until the cell has been returned to the junction, at which point the cell is directed towards the collection output. This permits cells to be sorted at a rate that exceeds the normal system constraints imposed by the switching speed. Such strategies are not possible using conventional FACS machines. Red fluorescent beads were enriched by 80x, to a purity of 95.7\% at approximately 10 beads per second; GFP E. coli were enriched by 38x, to a purity of 30.7\% at approximately 17 cells per second. The use of electroosmosis does impose some limitations on the system, however. The large voltages required necesitate the use of high voltage amplifiers, and it was found that the voltage levels needed to be frequently adjusted to compensate for ion depletion and pressure imbalances within the system \citep{Fu:2002}. The viability of recovered populations was approximately 20\%; \cite{Dittrich:2003} observed a similar reduction in cell health at such electric field strengths.
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/Dittrich2003_channel.pdf}
+	\caption[Fluorescent beads deflected by electroosmosis as they flow through a microfluidic channel.]{A sequence of images of a highly concentrated solution of fluorescent beads flowing through the microfluidic channel. Application of the electroosmotic flow produces a small displacement in the particles trajectory, sufficient to deflect them into either the left or right outlet. Taken from \cite{Dittrich:2003}.}
+	\label{fig:Dittrich2003_channel}
+\end{figure}
+
+Electroosmosis was also used by \cite{Dittrich:2003} to sort fluorescent beads and cells within a microfluidic channel, although a cross-channel flow was used to deflect the particles laterally in the main channel (see \fref{fig:Dittrich2003_channel}). This would have alleviated some of the problems of ion depletion within the media usually encountered when electroosmosis is used, as fresh medium (cell suspension) was being continually pumped through the device. Electric field strengths of 100 V cm$^{-1}$ were required. Fluorescent beads were enriched by 4.5x, to a purity of 94.8\% at approximately 0.79 beads per second. \textit{E. coli} cells were also sorted with a viability of 80-90\% at electric field strengths of 30 V cm$^{-1}$, although data on the rate or purity was not presented.
+
+\subsubsection{Flow Manipulation - Valve Control}
+The fluid flow within a microfluidic device can also be manipulated with flow control valves. \cite{Fu:2002} demonstrated an integrated device with valves and peristaltic pumping fabricated on chip in multi-layer PDMS structures, controlled by compressed air through external pneumatic solenoid valves. Fluorescence observations were made as a stream of cells flowed through the device and target particles were selected by momentarily reconfiguring the flow control valves so that the fluid and cell passed through the recovery outlet. By keeping the pumping equipment on-chip, it was possible to quickly reconfigure the direction and velocity of the flow, so innovative `reverse sorting' methodologies could be implemented - see \fref{fig:Fu1999_channel}. GFP-transfected \textit{E. coli} were sorted from the wild-type using this method, and data was presented on a variety of sorting configurations, most notably cells sorted at 2.16 cells sec$^{-1}$ with a recovered purity of 34\% (an enrichment of 13x), and 44 cells sec$^{-1}$ with a recovered purity of 3.6\% (an enrichment of 83x). 
+
+\cite{Wolff:2003} used a similar technique to sort fluorescent latex beads from chicken red blood cells, although the fluid flow was controlled directly by an external fluid solenoid valve. Although the target particle was not a biological cell, the overall throughput was 12,000 cells sec$^{-1}$ with a recovered purity of 0.24\% (an enrichment of 100x). Although the fabricated device was quite complex, as it contained a number of components including an integrated cell culture chamber, this shows that cell populations can be significantly enriched using a commercial microvalve, and that custom built on-chip valves or electrodes are not always required. It is not clear, however, if the use of an external valve restricted the purity of the recovered population that could be achieved. The reported values (0.24\%) are quite low, and this could be caused by the switching speed of the valve and its internal volume being such that a large volume of fluid flows into the collection channel each time it is opened, meaning that selection of an individual particle is not possible. Alternatively, the concentration of negative cells within the cell suspension may have been so high that selection of an individual cell was not possible regardless.
+
+
+\subsection{Particle Manipulation}
+An alternative method of particle separation is to manipulate the particles directly, rather than the fluid that suspends them. Many of the manipulation technologies that fall into the category, such as dielectrophoresis, have only been made practical as a result of the development of microfabrication technologies, as the forces that can be produced scale favourably with a reduction in the spacing of the electrodes. A principal advantage of using microelectrodes and dielectrophoresis is the ability to manipulate single cells and particles.
+
+\subsubsection{Particle Manipulation - Electrokinetic}
+The potential to use dielectrophoresis to separate mixtures of cells and particles was recognised early on, and many different methods have been attempted. Cells with different sizes or electrical properties exhibit differing electrokinetic responses (also known as dielectric affinity), so it is possible to use dielectrophoresis to separate cell populations based on these properties. \cite{Becker:1995} used this method to separate human metastatic breast cancer cells (MDA231) from normal peripheral blood cells using dielectrophoresis and a castellated electrode. By measuring the response of cells to electrokinetic manipulation using electrorotaion (see Section \ref{sec:electrorotation_and_travelling_wave}), a frequency window was observed in which the breast cancer cells would experience positive DEP and the peripheral blood cells would experience negative DEP. Hence, the breast cancer cells were drawn towards the edges of the electrodes, and immobilised in the high-field regions, while the normal peripheral blood cells were repelled from the electrodes and could be removed from the device by fluid flow. This technique provides a simple method to separate cells, although as one population is retained on the electrodes there is a practical limit to the number of cells that can be separated before the electrodes become saturated with cells and must be removed. 
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/Wang2000_FFF_channel.pdf}
+	\caption[Cross-sectional view along the central axis of the microfluidic channel used for dielectrophoretic field flow fractionation.]{Cross-sectional view along the central axis of the microfluidic channel used for dielectrophoretic field flow fractionation. Particles above the microelectrode array patterned on the bottom of the channel experience negative DEP, lifting them towards the centre of the channel. At a certain height, a force equilibrium is reached with the sedimentation forces. Particles move through the channel at the local velocity of the fluid, so particles nearer the centre move faster. Taken from \cite{Wang:2000}.}
+	\label{fig:Wang2000_FFF_channel}
+\end{figure}
+
+\cite{Morgan:1997} used large arrays of travelling-wave electrodes (see Section \ref{sec:electrorotation_and_travelling_wave}) for the continual separation of erythrocytes and leukocytes from human blood samples. Cells were levitated above the electrodes by negative DEP, and transported along the array by travelling-wave forces. Data on throughput or purity is not available, as samples were not recovered from the device for further analysis, but cell types were observed moving in opposite directions, with mean velocities of 32 $\mu$m s$^{-1}$ for the erythrocytes and 20 $\mu$m s$^{-1}$ for the leukocytes. This method has the advantage that cells are not retained on the electrodes, so providing cells can be correctly transported to the electrode array and sorted cells carried array from its ends, it represents a true continuous sorting process.
+
+Particle separation on the basis of dielectric affinity has been shown capable of differentiating between cell types, and is of interest as it is a label-free technique - requiring no modification of the cells, such as fluorescent labelling. The technique is not widely used, however, as it is necessary to perform the dielectrophoretic manipulation with the cells suspended in a medium of artificially low conductivity in order to create the conditions in which cells can experience both positive and negative DEP. Although the medium can be rendered isotonic by additional sugars, the lack of essential ionic constituents is not conducive to long term cell viability. It is also necessary to accurately map the response of each cell type to electrokinetic manipulation, an involved and laborious process. 
+
+Field flow fractionation, described by \cite{Giddings:1976}, is a family of techniques that uses the parabolic flow velocity profile produced by laminar flow in microfluidic systems to separate particles under the action of a cross field at right-angles to the channel. The cross field distributes particles into different positions across the parabolic flow profile, based on their mobility within the cross field. Particle species separate as they move with the velocity at which the fluid is moving at that position in the flow profile. Particles with a higher mobility in the cross field are distributed closer to the centre of the channel and so travel faster than particles with a lower mobility that are positioned closer to the wall. The cross field can be any phenomenon that exerts a force on particles within the channel, such as electrical, magnetic and gravitational forces, a thermal gradient, or a cross fluid flow. \cite{Huang:1997} used dielectrophoresis within a microfluidic channel to induce field flow fractionation, with an interdigitated array of microelectrodes along the bottom surface of the channel to lift cells into the fluid flow, and separate HL-60 cells from peripheral blood mononuclear cells. \cite{Wang:2000} used a similar system to separate human breast cancer cells (MDA-435) from normal T-lymphocytes and CD34+ hematopoietic stem cells with purities in excess of 90\%. \fref{fig:Wang2000_FFF_channel} shows a cross-sectional view through the microfluidic channel used for field flow fractionation.
+
+The methods described above are useful as they enable cell populations to be separated continuously without complicated external hardware or control systems, but fall down when cell sub-populations cannot be well distinguished by their electrical properties (such as in high conductivity physiological medium, where all cells experience negative DEP). An alternative approach for the continuous separation of cells is to bind differingly-sized synthetic particles on to cells using immunological methods. \cite{Kim:2008} used this method to separate three different strains of \textit{E-coli} bacteria, using nDEP barriers at different angles across a microfluidic channel (\fref{fig:kim2008_channel}). Much stronger DEP forces were produced than would have otherwise occurred if the bacteria alone were processed, as they were attached to large polystyrene particles. Cells were sorted at a rate of approximately 1.5 x 10$^{7}$ cells hour$^{-1}$ (about 4.2 x 10$^{3}$ cells sec$^{-1}$, although samples contained a large number of non-target cells (99.559\%). The population of `target A' cells in outlet A increased from an initial population of 0.071\% to 66\% corresponding to a 930-fold enrichment. Similarly, the `target B' cell population in outlet B was enriched 260-fold from 0.37\% to 96\%.
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/kim2008_channel.pdf}
+	\caption[Overview of the microfluidic channel used for dielectrophoretic separation of \textit{E. coli} cells labelled with polystyrene microparticles.]{Overview of the microfluidic channel used for dielectrophoretic separation of \textit{E. coli} cells labelled with polystyrene microparticles. The angle of the DEP barriers meant that only the larger Tag A experienced sufficient force to be deflected by Electrode Set A towards Outlet A. The smaller Tag B was deflected by Electrode Set B towards Outlet B, while the unlabelled bacteria were not deflected and were carried by the flow towards the waste outlet. Taken from \cite{Kim:2008}.}
+	\label{fig:kim2008_channel}
+\end{figure}
+
+Numerous systems have also been produced for single-cell processing and sorting. \cite{Fiedler:1998} describes a system for the cell processing in which particles are focused, trapped and sorted by switching negative DEP barriers. Fluorescent observations were made through a microscope system, although these signals were not used to automatically switch the sorting electrodes. Synthetic 15 $\mu$m latex particles in low conductivity buffer (100 $\mu$S cm$^{-1}$) were manipulated, as well as L929 mouse cells in RPMI, 5\% FCS ($\sigma_{m}$ = 1.3 S m$^{-1}$), although no data on throughput or purity was presented.
+
+\cite{Baret:2009} used positive DEP to separate fluorescent aqueous droplets suspended in oil. \fref{fig:Baret2009_channel} shows an overview of the channel and electrodes used. The electrodes are outside of the channel and hence are insulated from the liquid. This meant that large voltages were required to sufficiently deflect the droplets, 1.4-1.6 kV at 30 kHz. Nevertheless, droplets could be deflected at rates of up to 2000 sec$^{-1}$ under these conditions. Laser illumination with photomultiplier detection was used for fluorescence measurements. The use of droplets as a carrier mechanism for particles helps optimise the sorting process, as droplets arrive at the sorting junction at regular intervals and their spacing can be controlled.
+
+Droplets containing small groups of \textit{E. coli} cells were also sorted, based on the activity of a fluorogenic enzyme, at 300 droplets sec$^{-1}$. The concentration of cells was reduced to avoid the co-encapsulation of multiple cells within a single droplet, the final ratio being approximately one cell per 50 droplets. Although detailed data on the purity of recovered populations is not presented, the false positive error ratio was estimated at less than 1 in 10,000 (or $>$99.99\% purity). It was noted that the major limit on the efficiency of the operation arose due to co-encapsulation of multiple cells within a single droplet rather than due to the sorting equipment itself. The use of a fluorogenic enzyme aids the detection process, as its action releases fluorescein that causes the entire droplet to fluoresce brightly - an easier target to detect than a single fluorescent bacterial cell.
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/Baret2009_channel.pdf}
+	\caption[Overview of the microfluidic channel used for sorting droplets with positive DEP.]{Preformed droplets were dispensed into the channel within a sheath flow of fluorinated oil and surfactant (a). Droplets naturally flow down the larger waste channel (lower, see inset) unless deflected towards the electrodes (above the channel) by pDEP and into the smaller recovery channel (b). Scale bar 100 $\mu$m. Taken from \cite{Baret:2009}.}
+	\label{fig:Baret2009_channel}
+\end{figure}
+
+
+\subsubsection{Particle Manipulation - Magnetic}
+\label{sec:magnetic_microfluidics}
+
+It is also possible to use magnetic microparticles to separate cells within a microfluidic environment. \cite{Adams:2008} demonstrated the separation of bacterial strains bound to 2.8 and 4.5 $\mu$m diameter magnetic beads functionalised with monoclonal antibodies. Termed `magnetophoresis', as large gradients in the magnetic field (from an external permanent magnet) are created locally by microfabricated ferromagnetic strips (MFS), the technique has been used to separate bacterial cell types with $>$90\% purity and $>$500-fold enrichment at a throughput of 10$^{9}$ cells per hour, although a large excess of non-target cells made up the bulk of the processed cells. \fref{fig:Adams2008_channel_overview} shows an overview of the microfluidic system used - MFS barriers are positioned upstream of outlets 1 and 2, first at a large angle to the fluid flow to catch the larger particles that experience a stronger force, and then at a shallow angle for the smaller particles.
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/Adams2008_channel_overview.pdf}
+	\caption[An overview of the microfluidic channel used for the separation of \textit{E. coli} MC1061 cells bound to magnetic beads.]{An overview of the microfluidic channel used for the separation of \textit{E. coli} MC1061 cells bound to 2.8 and 4.5 $\mu$m diameter magnetic beads functionalised with monoclonal antibodies. The larger beads (Tag 1) were most affected by the magnetic field gradient, so were deflected by MFS1 which is inclined at a large angle to the flow, and left the device through outlet 1. The smaller beads (Tag 2) passed through the barrier but were deflected by MFS2, which is at a shallower angle to the flow, and left the device through outlet 2. The non-target cells (unattached to magnetic beads) were not affected by the magnetic field gradient, so were carried by the fluid flow to the waste outlet. Taken from \cite{Adams:2008}}
+	\label{fig:Adams2008_channel_overview}
+\end{figure}
+
+The technique is interesting as it permits multiple different cell types to be positively selected (see above) for recovery in a single stage. Although it would require multiple separation cycles to perform this operation with standard (macroscale) MACS, this would still be faster than microfluidic separation, as both methods require lengthy preparation and incubation steps, but the physical cell separation step requires minutes with standard MACS to achieve what may take an hour with the microfluidic system. The commonly used 50 nm diameter MACS beads have been shown to have little effect on subsequent processing such as FACS - the larger particles necessary for the microfluidic system may interfere with some measurements of scattered light. As the microfluidic device is a continuous sorting system, magnetic particles are not retained within the separation device as is the case with conventional MACS. Hence, there is no risk of saturation of the magnetic separator if large numbers of cells are processed. 
+
+
+\subsubsection{Particle Manipulation - Optical}
+\label{sec:particle_manipulation_optical}
+
+Detection of fluorescent signals for particle classification is widely used, but optical forces can also be used during the physical separation stage of particle sorting. \cite{MacDonald:2004} produced a 3-D interference pattern to create a network of connected optical traps (described in Section \ref{sec:optical_trapping}), which was used to sort erythrocytes and lymphocytes based on differences in size and refractive index, with efficiencies achieved in excess of 95\%. An advantage of optical systems is that the interference pattern can be rapidly reconfigured, and tailored to the particle sizes. If a blockage occurs, the laser can simply be switched off. An optical system is often required around a microfluidic system for observations, so the additional equipment for creating the optical lattice may only require a few additional components. 
+
+\cite{Wang:2005} used optical forces to drive a microfluidic single-cell sorting platform. Fluorescence measurements were made on a hydrodynamically focused stream of cells as they passed through a detection region. Target cells were selected from the stream by momentarily switching (2-4 ms, by acousto-optical modulation) a focused laser beam on to the channel, slightly offset from the stream. Radiation pressure drew the selected cells towards the centre of the beam, and into a flow streamline that would carry them through to the collection outlet. The system was used to sort GFP-transfected HeLa cells (human cervical carcinoma) from non GFP HeLa cells, with recovered sample purities of 88.6\% (105.9 cells sec$^{-1}$) to 98.5\% (22.9 cells sec$^{-1}$). The transfer of all switching hardware off-chip means that the microfluidic device only comprises a simple three inlet, two outlet channel, and can be constructed from any optically-clear material. Quite significant optical power was necessary to achieve the specified sorting rates - a 20 W ytterbium fibre laser (1070 nm) was the source for the switching element, typically used for engraving or micro-welding.
+
+\cite{Kovac:2007} used a combination of hydrodynamic, gravitational and optical forces to sort fluorescent cells. An array of microwells was moulded in PDMS, which formed the bottom of a microfluidic channel. A mixture of cells was introduced into the device, and were allowed to settle to the bottom of the channel. Fluid was passed through the device, and cells which had not settled into the bottom of the wells were washed out of the device. The remaining cells were sorted by levitating non-target cells out of their microwells using a focused laser beam so that they were washed out of the device. \fref{fig:Kovac2007_trap_array} shows an overview of the device. The technique was coined `image-based' cell sorting, as sorting decisions were based on the interpretation of microscopy images of cells produced by a colour CCD camera, rather than the signals from a photomultiplier tube that are used in most other fluorescence-based cell sorting equipment. This allows a large range of additional data to be collected on each cell, such as size and morphological features, as well as the fluorescent intensity. As cells are immobilised at fixed positions, measurements can be made repeatedly, in a similar manner to the screening cytometer, described in Section \ref{Section:Massively_Parallel_Traps}. As a cell sorting technique, it is markedly slower than most other methods, with approximately 70 cells being sorted per hour, and a purity of 89\% being achieved. It was not possible to recover all of the sorted cells from the microfluidic device into culture, with the recovery ratio varying between 26 and 74\%. 
+
+\begin{figure}[tbp]
+	\centering
+		\includegraphics{../Figures/Kovac2007_trap_array.png}
+	\caption[A cell being removed from a microwell by a focused laser beam during cell sorting.]{A cell is removed from a microwell by a focused laser beam during cell sorting. Taken from \cite{Kovac:2007}.}
+	\label{fig:Kovac2007_trap_array}
+\end{figure}
+
+\subsection{Summary of Sorting Techniques}
+
+\tref{tab:cell_sorting_device_performance_data} shows a summary of the key parameters of the microfluidic sorting devices discussed above, for which data concerning throughput and the purity of recovered populations is available. As can be seen from the multiple entries present for some devices, there is generally a relationship between sorting rate and the purity of recovered populations. Usually a compromise between the two must be sought, with reference to the intended application for the sorted cells. For example, the impressive throughput achieved by \cite{Wolff:2003} of 12,000 cells sec$^{-1}$ must be weighed against the low purity of the recovered population: the particle solution was most likely almost saturated with chicken red blood cells, and every fluorescent particle that was sorted was accompanied by approximately 400 other, non-target cells. Nevertheless, this still represents an enrichment of 100 times, and with multiple sorting stages such a system may represent a practical route to high-throughput, high-purity sorting. 
+
+Data from \cite{Baret:2009} is not included in \tref{tab:cell_sorting_device_performance_data} as insufficient data was presented for an accurate comparison. Fluorescent droplets containing \textit{E. coli} bacterial cells were sorted at a rate equivalent to 6 cells per second, however, with a false positive error ratio estimated at less than 1 in 10,000. Such droplets are a very suitable target for fluorescence-activated sorting as they are large, bright, and reasonably uniform in intensity. Droplet technology offers many advantages to microfluidic cell sorting devices, as it provides a means to control the rate and regularity at which cells arrive at the sorting junction. The droplets can also provide an enclosed microenvironment conducive to cell viability, so that a suspending medium can be chosen that is optimised for DEP manipulation, such as a fluorinated oil that has very low conductivity and permits high voltages to be used without causing significant heating of the medium.
+
+Bulk sorting technologies such as immunomagnetic \citep{Adams:2008} and immunodielectrophoretic \citep{Kim:2008} dominate the table in both the sorting rate and the enrichment possible. The main concern with both of these methods is that the cells are bound to synthetic particles that are larger than the cells themselves, which may complicate further processing and analysis. The most commonly used method to isolate specific cell types with high purity remains a two step process: bulk separation using immunomagnetic techniques, followed by single-cell separation such as FACS. 
+
+\vspace{15 mm}
+
+\begin{table}[h]
+	\centering
+		\begin{tabular} {c c c c c c}
+		\hline
+		Originators 		& Year 		& Method		& Sorting Rate							& Max. Purity	& Enrichment \\
+		\hline
+		Fu et al. 			&	1999		& Electroosmosis 	& 20 cells sec$^{-1}$ 			& 30.8\% 					& 30x \\
+		Fu et al. 			&	2002		& Valve Control 	& 2.16 cells sec$^{-1}$ 		& 34\% 						& 13x \\
+										&					&								& 44 cells sec$^{-1}$ 			& 3.6\% 					& 83x \\
+		Dittrich et al. & 2003 		& Electroosmosis 	& 0.68 beads sec$^{-1}$ 		& 99.1\% 					& 1.1x \\
+										&					&								& 0.79 beads sec$^{-1}$			& 94.8\%					& 4.5x \\
+		Wolff et al. 		& 2003		& Valve Control 	& 12,000 cells sec$^{-1}$ 	& 0.24\% 					& 100x \\
+		Wang et al.			& 2005		& Optical				& 22.9 cells sec$^{-1}$			& 98.5\%					& 1.9x \\
+										&					&								& 105.9 cells sec$^{-1}$		& 88.6\%					& 8.3x \\
+		Kovac et al 		&	2007		& Optical				& 70 cells hour$^{-1}$			& 89\%						& 155x \\						
+		Adams et al.		&	2008		& Magnetic			& 2.7 x 10$^{6}$ cells sec$^{-1}$ & 93.9\%		& 245x \\
+		Kim	et al.			&	2008		&	DEP						& 4200 cells sec$^{-1}$			& 96\%						& 260x \\	
+		\hline			
+		\end{tabular}
+	\caption[Performance data for several microfluidic sorting devices published in scientific literature.]{Performance data for several microfluidic sorting devices published in scientific literature. Where data for multiple combinations of speed/purity existed, the data sets with the highest purity and highest sorting rate are listed.}
+	\label{tab:cell_sorting_device_performance_data}
+\end{table}

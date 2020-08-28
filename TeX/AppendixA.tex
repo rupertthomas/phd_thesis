@@ -1,0 +1,173 @@
+%% ----------------------------------------------------------------
+%% AppendixA.tex
+%% ---------------------------------------------------------------- 
+\chapter{Solution to the Navier-Stokes Equation using Fourier Series}
+ \label{Chapter:derivation_of_HD_flow_profile_Fourier}
+
+As discussed in \cref{Chapter:Background}, fluid within a microchannel exhibits laminar flow, and the interaction between the fluid and the walls of the channel produces a variation in the fluid velocity across the channel cross-section. The fluid velocity profile can be determined by solving the Navier-Stokes equation. If the aspect ratio of the channel is near to~1, however, the fluid velocity varies across two dimensions, and the boundary conditions alone do not sufficiently constrain the solution to solve the equation by integration. The equation can be solved by introducing a Fourier series, and a full derivation of this method is presented below, which was produced with the assistance of Dr Nicolas Green at the University of Southampton. \fref{fig:fourier_channel_coordinates} shows a cross-section through a microfluidic channel, with the dimensions and coordinate system used during calculation of the fluid velocity profile.
+
+\vspace{7.5mm}
+
+\begin{figure}[h!]
+	\centering
+		\includegraphics{../Figures/fourier_channel_coordinates.pdf}
+	\caption[Schematic of the dimensions and coordinate system on a cross-section across the microfluidic channel.]{Schematic of a cross-section across the microfluidic channel, showing dimensions and coordinate system used during analysis of the flow profile. Fluid flow is solely along the x-axis.}
+	\label{fig:fourier_channel_coordinates}
+\end{figure}
+
+\pagebreak[4]
+
+A continuous Newtonian fluid flowing under low Reynolds number conditions can be modelled using the equation: \nopagebreak[4]
+\begin{equation}
+ \rho_{m} \frac{\partial \mathbf{u}}{\partial t} + \rho_{m} (\mathbf{u} \cdot \nabla)\mathbf{u} = -\nabla p + \eta \nabla^{2}\mathbf{u} + f
+\label{eqn:1}
+\end{equation}
+
+Under steady-state conditions, with no external force acting on the fluid, \eref{eqn:1} reduces to:
+\begin{equation}
+ \rho_{m} (\mathbf{u} \cdot \nabla)\mathbf{u} = -\nabla p + \eta \nabla^{2}\mathbf{u}
+\label{eqn:2}
+\end{equation}
+
+The fluid flow is unidirecional along the $x$ axis ($\textbf{u}=(u,0,0)$), and varies as a function of the position in the $y$ and $z$ axes ($\textbf{u}(y,z)$).
+
+Continuity Equation:
+\begin{equation}
+ \frac{\partial u}{\partial x} + \frac{\partial \left (0  \right )}{\partial y} + \frac{\partial \left (0  \right )}{\partial z} = 0  \Rightarrow  \frac{\partial \textbf{u}}{\partial x} = 0
+\label{eqn:3}
+\end{equation}
+
+From \eref{eqn:2}:
+\begin{equation}
+ \rho_{m} (\mathbf{u} \frac{\partial \mathbf{u}}{\partial x}) = \frac{\partial p}{\partial x} + \eta \nabla^{2}\mathbf{u}
+\label{eqn:4}
+\end{equation}
+
+
+\begin{equation}
+ \Rightarrow \nabla^{2}\mathbf{u} = \frac{1}{\eta}\frac{\partial p}{\partial x}
+\label{eqn:5}
+\end{equation}
+
+\begin{eqnarray}
+\textrm{With boundary conditions: }& 
+\left\{\begin{matrix}
+u=0 \textrm{ @ } y=0,d\\ 
+u=0 \textrm{ @ } z=0,h
+\end{matrix}\right.
+\label{eqn:6}
+\end{eqnarray}
+
+
+Hence, the equation to solve is the diffusion equation:
+\begin{equation}
+ \frac{\partial^2 \mathbf{u}}{\partial y^2} + \frac{\partial^2 \mathbf{u}}{\partial z^2} = \Omega = \frac{1}{\eta}\frac{\partial p}{\partial x}
+\label{eqn:6b}
+\end{equation}
+
+The fluid velocity profile ($\mathbf{u}$) can be equated to a two-dimensional Fourier series:
+\begin{equation}
+ \mathbf{u} = \sum_{n=1}^{\infty } \sum_{m=1}^{\infty } a_{nm} (\sin ny + \cos ny) (\sin mz + \cos mz)
+\label{eqn:7}
+\end{equation}
+
+Applying the boundary conditions (\eref{eqn:6}), \eref{eqn:7} reduces to:
+\begin{equation}
+ \mathbf{u} = \sum_{n=1}^{\infty } \sum_{m=1}^{\infty } a_{nm} (\sin ny) (\sin mz)
+\label{eqn:8}
+\end{equation}
+
+
+\begin{eqnarray}
+ u=0 \textrm{ @ } y=d \Rightarrow nd=k\pi \textrm{ where } k=1,2,3... \Rightarrow n=\frac{k\pi}{d} \nonumber \\
+ u=0 \textrm{ @ } z=h \Rightarrow mh=l\pi \textrm{ where } l=1,2,3... \Rightarrow m=\frac{l\pi}{h}
+\label{eqn:9}
+\end{eqnarray}
+
+
+
+\begin{equation}
+ \Rightarrow \mathbf{u} = \sum_{n=1}^{\infty } \sum_{m=1}^{\infty } a_{kl} \left (\sin \frac{k\pi}{d}y  \right ) \left(\sin \frac{l\pi}{h}z \right)
+\label{eqn:11}
+\end{equation}
+
+
+The coefficients can be determined by integration to check for orthogonality:
+\begin{equation}
+ \int_{0}^{d}\int_{0}^{h} \mathbf{u} \sin \frac{p\pi y}{d} \sin \frac{q\pi z}{h} dy dz = \sum_{k=1}^{\infty } \sum_{l=1}^{\infty } \int_{0}^{d}\int_{0}^{h} a_{kl}  \sin \frac{k\pi y}{d}  \sin \frac{p\pi y}{d}  \sin \frac{l\pi z}{h}  \sin \frac{q\pi z}{h} dy dz
+\label{eqn:12}
+\end{equation}
+
+LHS:
+\begin{equation}
+ \left\{\begin{matrix}
+\frac{2d}{p \pi}\frac{2h}{q \pi}\mathbf{u} & \textrm{if p,q odd}\\ 
+0 & \textrm{if p,q even} \nonumber
+\end{matrix}\right.
+\label{eqn:13}
+\end{equation}
+
+
+\begin{equation}
+ \Rightarrow \frac{4dh}{pq\pi^{2}}\mathbf{u} \textrm{ if p,q odd}
+\label{eqn:14}
+\end{equation}
+
+RHS:
+\begin{equation}
+  \left\{\begin{matrix}
+0 & \textrm{if p} \neq \textrm{k or q} \neq \textrm{l}\\ 
+a_{kl} \tfrac{d}{2} \tfrac{h}{2} & \textrm{if p} = \textrm{k \& q} = \textrm{l} \nonumber
+\end{matrix}\right.
+\label{eqn:15}
+\end{equation}
+
+
+\begin{equation}
+ \Rightarrow \frac{dh}{4} a_{kl} \textrm{ if p} = \textrm{k \& q} = \textrm{l}
+\label{eqn:16}
+\end{equation}
+
+
+\begin{equation}
+ \therefore \frac{4dh}{pq\pi^{2}}\mathbf{u} = \frac{dh}{4} a_{kl} \textrm{ if p} = \textrm{k, q} = \textrm{l and all odd}
+\label{eqn:17}
+\end{equation}
+
+
+\begin{equation}
+ \Rightarrow  a_{kl} = \frac{4dh}{kl\pi^{2}}\frac{4}{dh}\mathbf{u} = \frac{16}{kl\pi^{2}}\mathbf{u}
+\label{eqn:18}
+\end{equation}
+
+From \eref{eqn:6}:
+\begin{equation}
+ \frac{\partial^2 \mathbf{u}}{\partial y^2} + \frac{\partial^2 \mathbf{u}}{\partial z^2} = \Omega = - \left [ \left ( \frac{k\pi}{d} \right )^2 + \left ( \frac{l\pi}{h} \right )^2 \right ] \mathbf{u}
+\label{eqn:19}
+\end{equation}
+
+
+\begin{equation}
+ \mathbf{u} = \frac{-\Omega}{\left [ \left ( \frac{k\pi}{d}^2 \right ) + \left ( \frac{l\pi}{h}^2 \right ) \right ] }
+\label{eqn:20}
+\end{equation}
+
+From \eref{eqn:18}:
+\begin{equation}
+ a_{kl} = \frac{16}{kl\pi^{2}}\mathbf{u} = \frac{16}{kl\pi^{2}} \frac{-\Omega}{\left [ \left ( \frac{k\pi}{d}^2 \right ) + \left ( \frac{l\pi}{h}^2 \right ) \right ] }
+\label{eqn:21}
+\end{equation}
+
+From \eref{eqn:11}:
+\begin{equation}
+ \Rightarrow \mathbf{u} = \sum_{n=1,3...}^{\infty } \sum_{m=1,3...}^{\infty } a_{kl} \sin \left (\frac{k\pi}{d}y  \right ) \sin \left(\frac{l\pi}{h}z \right)
+\label{eqn:22}
+\end{equation}
+
+The volumetric flow rate can be determined by a surface integral across the fluid velocity profile:
+\begin{eqnarray}
+Q &=& \sum_{n=1,3...}^{\infty } \sum_{m=1,3...}^{\infty } a_{kl} \int_{0}^{d} \int_{0}^{h} \sin \left (\frac{k\pi}{d}y  \right ) \sin \left(\frac{l\pi}{h}z \right) \nonumber \\ 
+ &=& \sum_{n=1,3...}^{\infty } \sum_{m=1,3...}^{\infty } a_{kl} \frac{2d}{k\pi}  \frac{2h}{l\pi} \nonumber \\ 
+ &=& \sum_{n=1,3...}^{\infty } \sum_{m=1,3...}^{\infty } a_{kl} \frac{4dh}{kl\pi^{2}}
+\label{eqn:24}
+\end{eqnarray}

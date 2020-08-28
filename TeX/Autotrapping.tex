@@ -1,0 +1,451 @@
+\chapter{Automated Control of Dielectrophoretic Traps for Cell Separation} 
+\label{Chapter:Autotrapping}
+
+\section{Introduction}
+
+The ability to separate cells is key step in many biomedical, analytical and therapeutic processes, and requires two key competences: the ability to recognise and distinguish between cells of different types, and the ability to differentially manipulate cells so that they can be isolated. The identification of sufficient cell surface markers can permit a particular cell type to be identified, and it is common practice to use fluorescently labelled antibodies to determine the presence of surface markers within a population of cells. Fluorescence-activated cell sorting (FACS) is an established technique for the separation of cells with fluorescent labels, generally by deflection of cells within a fluid stream into one of a number of different outputs. Electrostatic deflection of small droplets (each containing a single cell) is commonly used to separate cells in commercially available FACS machines, typically operating in the range of several thousand cells per second, although the viability of recovered populations can be affected by the manipulation techniques used.
+
+Cells can also be separated by differential attachment to magnetic microparticles, such as by immunological coupling. The cellular conditions encountered during magnetic-activated cell sorting (MACS - see \cref{Chapter:Background}) generally have less impact on cell health, as cells are separated by passing through a magnetic mesh, and are not exposed to high-voltage electric fields or aerosolised by passing at high velocity through a nozzle. The introduction of MACS revolutionised laboratory preparation of purified cell samples, as it permits large numbers of cells to be separated with relative ease, with purities in excess of 90\% being commonplace \citep{Willasch:2009}. The inability to recover a 100\% pure sample places some limitations on the extent of its use, however, such as the selection of stem cells from donor samples for tissue regeneration therapies.
+
+A number of cell sorting systems have also been developed within a microfluidic environment. Methods for directing the motion of particles include controlling the flow of the carrier fluid by electro-osmotic switching \citep{Fu:1999}, flow switching with external solenoid valves \citep{Wolff:2003} or on-chip pressure-driven valves \citep{Fu:2002}, and manipulation of particles using dielectrophoresis \citep{Holmes:2005}. The ability to manipulate single cells has potential for the separation of particles with particularly high purity. Isolation of cells by immobilisation of target cells within a microfluidic device has advantages over conventional cell sorters that separate cells from a particle stream into multiple outputs, particularly if cells are to be maintained on chip for further culture or analysis. Such a device can also act as a concentrator, increasing the number of cells within a given volume of liquid.
+
+In the previous chapter, ring electrodes were used to trap and isolate single HeLa cells suspended in physiological medium. Here, similar electrodes are used to separate and purify osteosarcoma cells (MG63) by automated detection of fluorescent labelling. Cells with a particular fluorescent label are identified by optical detection and are trapped within the ring electrodes. Non-target cells are then washed away by fluid flow, leaving a purified population of cells that can be recovered or maintained on chip for further analysis.
+
+
+\section{Materials and Methods}
+
+\subsection{Electrode Fabrication}
+Multi-layer electrode structures were fabricated on 700 $\mu$m borosilicate glass wafers using established techniques as described in Section \ref{Section:Electrode_fabrication}. 700 nm silicon nitride was used as an inter-layer dielectric. All fabrication of electrode structures was performed by Nico Kooyman at Philips Research Laboratories, Eindhoven. \fref{fig:ring_array_device_overview} shows an overview of the electrode geometry.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring_array_device_overview.pdf}
+	\caption[An overview of the electrode geometry on the ring trap devices.]{An overview of the electrode geometry on the ring trap devices (a), and an enlarged view of the array of ring electrodes themselves (b).}
+	\label{fig:ring_array_device_overview}
+\end{figure}
+
+Anisotropic conductive film was used to make electrical connections between the glass electrodes, a flexible interconnect, and a PCB daughterboard - as described in Section \ref{Section:Foil_bondng}. An assembled device is shown in \fref{fig:foil_bonded_device_overview_PDMS}. Two designs of microfluidic channel and associated macrofluidic systems were developed to handle cells as they were introduced into the dielectrophoretic traps.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/foil_bonded_device_overview_PDMS.pdf}
+	\caption[A completed device incorporating anisotropic conductive film connections.]{A completed device incorporating anisotropic conductive film connections between PCB daughterboard, flexible interconnect, and the glass electrodes.}
+	\label{fig:foil_bonded_device_overview_PDMS}
+\end{figure}
+
+
+
+\subsection{Design A: Dry Film Resist Channel with Sample Injection}
+
+\subsubsection{Sample Injection}
+Although microfluidic systems are ideal for handling small samples, challenges exist when such samples must be introduced and moved around the system. The volume of liquid in surrounding macrofluidic equipment such as valves and pumps can easily dwarf the useful sample. As described previously, the flow within microfluidic channels (and also tubing with micron-sized diameters, commonly used for interconnections) is within the laminar regime. There is a fluid velocity profile across the channel cross-section, with fluid flowing faster at the centre of the channel. This acts to disperse the sample, reducing its concentration.
+
+A modified microfluidic manifold (Figure \ref{fig:ring2_injection_manifold}) was developed with a sample injection port. This meant that very small volumes (typically 1 $\mu$L) could be injected directly at the inlet of the microfluidic device. A sealing nut kept the port closed when it was not in use. To introduce cells into the system, the sealing nut was unscrewed  so that the needle of a 10 $\mu$L syringe (Hamilton) could be inserted towards the inlet of the microfluidic device. A sample was injected, and the nut replaced. An exploded schematic of the fluid manifold assembly is shown in \fref{fig:electrode_holder_b}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring2_injection_manifold.pdf}
+	\caption[A cross-section through the fluidic manifold.]{A cross-section through the manifold used to provide fluidic connections to the microfluidic device.}
+	\label{fig:ring2_injection_manifold}
+\end{figure}
+
+\subsubsection{Microfluidic Channel}
+The microfluidic channel shown in \fref{fig:ring2_whole_chip_overview} was fabricated in dry film resist using techniques described previously by Katie Chamberlain at Southampton Nanofabrication Centre. A single inlet is used, with a sample of cell suspension injected at this point directly on to the device. Suspending medium flowing into the device at this point carried the cells through the device. Two outlets were provided: a general outlet for unsorted `waste' cells, and a dedicated `recovery' outlet for sorted `target' cells. Macrofluidic valves on the tubing connected to each outlet controlled the fluid flow through each outlet.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring2_whole_chip_overview2.pdf}
+	\caption[Overview of the microfluidic channel used with the ring array device.]{Overview of the microfluidic channel used with the ring arrays.}
+	\label{fig:ring2_whole_chip_overview}
+\end{figure}
+
+\subsubsection{Macrofluidic Equipment}
+The microfluidic chip was clamped within the fluidic manifold, and connections to external tubing were made via threaded connectors. Six inputs and outputs were available, although only three were required for this work. A syringe pump (Cole Palmer 79000) was used to control fluid flow through the device. Two sizes of syringe were used, to permit a range of fluid velocities to be used. A 10ml plastic syringe (BD) was used to clean and flush through the device with large volumes of liquid during setup and cell recovery. A 25 $\mu$L glass syringe (Hamilton) was used during trapping operations, as the smaller diameter permitted flow rates of less than 0.1 $\mu$L to be used without introducing significant pulsations into the flow from the pump. A 3-way valve (Omnifit) at the input to the microfluidic device permitted the flow to be switched between the syringes. An overview of the fluidic equipment used with the system is shown in \fref{fig:ring2_macrofluidics}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring2_macrofluidics.pdf}
+	\caption{Schematic of the macrofluidic connections surrounding the microfluidic device.}
+	\label{fig:ring2_macrofluidics}
+\end{figure}
+
+An on-off valve (Omnifit) was used on each of the outputs to isolate the flow. Suspending medium and untrapped cells were collected from the `waste' outlet into a collection jar. A similar container was used on the `recovery' outlet to collect fluid during cleaning and preparation, but during the recovery of sorted cell populations the tube was removed from the container and droplets were dispensed directly into a 384-well microplate (Corning CellBind).
+
+The fluidic manifold was mounted on a custom-built stage with Peltier thermoelectric elements and water cooling. This enabled approximately 10 W of cooling power or 20 W of heating power to be applied to the manifold by adjusting the voltage on the Peltier elements from a DC power supply. A thermocouple (J-type, insulated junction) was placed within the fluidic manifold, and the stage and manifold covered in insulating wadding. A digital readout of the temperature of the manifold was obtained by a volt-meter through an interface box. This permitted the temperature of the manifold to be controlled over a range of approximately 2-45$^\circ$C.
+
+\subsubsection{Operation}
+Red and green labelled cells (see below) were mixed to achieve a final ratio of red to green of approximately 4:1, suspended in DMEM + 4\% Dextran-70 at a concentration of approximately 5 x 10$^{5}$ cells per mL. 1 $\mu$L samples of cell solution (approximately 500 cells) were dispensed at the inlet to the microfluidic channel, and the system resealed. The sequence of operation was:
+\begin{enumerate}
+	\item Suspending medium flowed through the inlet at 0.1 $\mu$L/min, carrying cells through the device.
+	\item Green cells were trapped in the ring electrodes; untrapped cells carried away through the `waste' output.
+	\item After at least 20 minutes, all the cells suspended in medium had been carried through the device.
+	\item The valve on the `waste' output was closed, and the `recovery' channel opened. Cells were released from the traps (the voltage is turned off), and flushed towards the `recovery' outlet.
+	\item Cells were recovered onto a microplate in 40 $\mu$L droplets at 1 mL min$^{-1}$. 
+\end{enumerate}
+
+40 $\mu$L DMEM + 20\% FCS + Penicillin/Streptomycin (1x) was added to each well, and the microplate placed in a cell culture incubator. 
+
+
+\subsection{Design B: Moulded PDMS Channel with Bulk Sample Handling}
+
+\subsubsection{Microfluidic Channel}
+
+Work on the previous design of microfluidic channel highlighted a number of limitations in its operation. The single inlet was used for both cells and plain medium, so it was difficult to perform a washing step to remove untrapped cells from the device, as it was not possible to be sure that all the cells that had been injected at the inlet had already passed through. The channel was redesigned to provide separate inlets for cells and medium. A second inlet was added so that the `recovery' outlet could be washed with suspending medium to prevent cells entering that channel during normal use, and so that target cells could be flowed down the recovery outlet with little risk of drawing other cells from the main `cells' inlet.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring3_pdms_whole_chip_overview.pdf}
+	\caption[Overview of the moulded PDMS microfluidic channel.]{Overview of the microfluidic channel layout (a) and a microphotograph of the device area around the ring electrodes (b) used in Design B.}
+	\label{fig:ring3_pdms_whole_chip_overview}
+\end{figure}
+
+Microfluidic channels were molded in PDMS (Sylgard 184, Dow Corning) using established techniques as described in Section \ref{Section:PDMS_molding}. Two layers of 55 $\mu$m dry film resist were patterned to form the master, producing channels of 95 $\mu$m depth after processing.
+
+\subsubsection{Macrofluidic Equipment}
+A similar set of external fluidic equipment was used, with a syringe pump driving fluid around the system and the same fluid manifold. A sample loop was added to the `cells' inlet and a number of valves incorporated, so that the pump could drive fluid through any of the the three inputs. As described above, the fluidic manifold was mounted on a temperature controlled stage, adjustable through the range of approximately 2-45$^\circ$C. An overview of the system is shown in \fref{fig:ring3_macrofluidics}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring3_macrofluidics.pdf}
+	\caption{Schematic of the macrofluidic connections surrounding the microfluidic device.}
+	\label{fig:ring3_macrofluidics}
+\end{figure}
+
+\subsubsection{Operation}
+Red and green labelled cells (see below) were mixed to achieve a final ratio of red to green of approximately 4:1. Cells suspended in DMEM + 4\% Dextran-70) were introduced into the device at a concentration of 5 x 10$^{5}$ cells per mL. A cell injection protocol was developed to maximise the recovery of the trapped cells and minimise the potential for contamination with unwanted cells. Fluid valves were connected to each inlet/outlet to control the flow of fluid, the sequence of operation is depicted in Figure \ref{fig:ring3_valve_sequence}:
+
+\renewcommand{\labelenumi}{\roman{enumi}.}
+\begin{enumerate}
+	\item Cells were introduced into the system through A.
+	\item Cells were pumped through the system at a constant rate and trapped in the ring electrodes. At the same time the `recovery' channel was washed (C to E) with cell-free medium.
+	\item Untrapped cells were flushed through the device from B.
+	\item Cells remaining in the inlet channel were removed by flushing medium back towards A.
+	\item Cells were released from the traps (the voltage was turned off), and flushed towards the recovery outlet (D).
+	\item Cells were recovered onto a microplate by flushing fluid from C.
+\end{enumerate}
+
+40 $\mu$L DMEM + 20\% FCS + Penicillin/Streptomycin (1x) was added to each well, and the microplate placed in a cell culture incubator. 
+
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring3_valve_sequence.pdf}
+	\caption[Valve operation sequence.]{Valve operation sequence during the sorting (i-ii), washing (iii-iv) and recovery (v-vi) stages.}
+	\label{fig:ring3_valve_sequence}
+\end{figure}
+
+
+\subsection{Automated Control Systems and Electronics}
+\label{Section:Autotrapping_control_systems}
+To trap a cell in a trap, it was necessary to switch the trap on as the cell was passing over the top of the trap. Traps were controlled by an automated system using custom scripts written in the Matlab (Mathworks) environment, using the image acquisition and image processing toolboxes. 
+
+The trapping system is setup and initiated using a graphical user interface created by an application called `labelRegions'. A screenshot of the interface is shown in \fref{fig:screenshot_labelRegions}. The main functions of this application are to:
+
+\begin{itemize}
+	\item Set a reference image (background) for the image processing algorithms.
+	\item Mark the centre and extents of each trap.
+	\item Produce a trap hierarchy, so that traps would be filled in a particular order.
+	\item Set values for the target colour and minimum size for a cell.
+	\item Start a log file to record the experimental conditions.
+	\item Test the entered values through the image processing algorithms.
+\end{itemize}
+
+It was necessary to fill traps in a particular order, as the traps are arranged in an array, and the filling of one trap would deflect cells away from all the other traps downstream. Hence, the downstream traps were filled first, and the software maintained a list of each trap and its place in the hierarchy.
+
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/screenshot_labelRegions.png}
+	\caption[The graphical user interface of the `labelRegions' application.]{The graphical user interface of the `labelRegions' application permits trap locations to be entered, as well as adjustment of parameters for the image processing algorithms.}
+	\label{fig:screenshot_labelRegions}
+\end{figure}
+
+Real-time processing and control algorithms are contained in an application called `Trapper', along with video display and record features. The application does not enable any user interaction, to avoid the processing overhead associated with a graphical user interface (GUI). A screenshot of the running of the application is shown in \fref{fig:screenshot_Trapper}. A flow chart of the program sequence of operation is depicted in \fref{fig:operation_flowchart_Trapper}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/screenshot_Trapper.png}
+	\caption[The live video feed produced by the `Trapper' application.]{The live video feed is the only visual interface produced by the `trapper' script, so that maximal processing time is available for the real-time image processing algorithms.}
+	\label{fig:screenshot_Trapper}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/operation_flowchart_Trapper.pdf}
+	\caption[The program operation sequence of the `Trapper' application.]{The program operation sequence of the `Trapper' application, represented as a flow chart. A timed trigger passes video frames into the image processing algorithms every 0.1 seconds. Regions of the image that have been previously marked as trap locations (using labelRegions) are compared against a stored background image to identify discontinuities. A threshold function is applied, and continuous regions of the image are identified. Each region is compared against size, colour and luminosity targets, and if it is within a specified range it is identified as either a target or negative cell.}
+	\label{fig:operation_flowchart_Trapper}
+\end{figure}
+
+A set of decision algorithms was used to control the electrodes using the information presented concerning the cells detected. Crucially, the detection of a single green cell would trigger the trap to be switched on, with the intention of trapping the cell. The trap would not be activated if a red cell was detected. Traps would be checked every cycle for the following 30 seconds to determine if the cell had been correctly trapped and was still trapped - if a cell had escaped the trap would be switched off. After the 30 seconds, the cell was considered successfully trapped, and the trap `locked'. This time limit for checking was imposed to compensate for photobleaching of the fluorescent cell stains, which after an extended period of time could cause the fluorescent intensity of the cells to drop below the detection threshold.
+
+Sinusoidal voltages produced by a TTI TG2000 signal generator were split across 20 channels of a relay board (Omega ERB-48), into the normally open (NO) terminal. The ring electrode from each ring trap was independently switched between connection to ground (normally closed, NC) or the sinusoidal voltage. Software control of the relay board was through a USB interface box (National Instruments USB-6009). A break-out board connected to the microfluidic device provided separate connections for each channel. Voltages at the board were confirmed using an oscilloscope (Agilent 54641D) prior to each experiment, to ensure the voltage on each channel was close to the specified value. An electrical schematic of a single channel of the equipment is depicted in \fref{fig:electrical_schematic_single_channel_ring_autotrapping}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/electrical_schematic_single_channel_ring_autotrapping.pdf}
+	\caption[The electrical circuit for a single channel of the ring trap device.]{Schematic of the electrical circuit for a single channel of the ring trap device.}
+	\label{fig:electrical_schematic_single_channel_ring_autotrapping}
+\end{figure}
+
+A cell in an alternating electric field experiences a potential induced across its cellular membrane (see Section \ref{Section:transmembrane_potential}). Calculations of cellular transmembrane potential indicate that the induced potential is inversely proportional to the frequency of the applied field, so it is advantageous to use as high a frequency as is feasible to avoid damaging the trapped cells. The cabling and switching elements that are present between the function generator and the electrodes have a certain capacitive coupling to ground, which causes increasingly large signal losses as higher frequencies are used.
+
+\fref{fig:graph_ring_voltage_drop_HF_cold} is a graph of the voltage measured close to the electrodes as the source frequency is changed and the number of traps used is increased. The source is set at a constant 5.0 Vpp, and the voltage is measured at the circuit board to which the microfluidic device is connected via a flexible interconnect. The measured voltage was observed to drop significantly below the set level when multiple traps were used simultaneously with a frequency set above 5 MHz. Therefore, the frequency used in all cell trapping experiments was 5 MHz.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/graph_ring_voltage_drop_HF_cold.pdf}
+	\caption{Plot of the voltage present on the ring electrodes as different frequencies and numbers of traps are used.}
+	\label{fig:graph_ring_voltage_drop_HF_cold}
+\end{figure}
+
+
+\subsection{Cell culture}
+
+MG63 (osteosarcoma) cells were cultured in tissue culture flasks in DMEM (Dulbecco's Modified Eagle's Medium - 4 mM L-glutamine, Hepes buffer, no Pyruvate) at 37$^{\circ}$C, 5\% CO$_{2}$. To maintain growth, the cultures were split every 3rd or 4th day by trypsinisation, and fresh culture medium added. Cultures were kept at below approximately 80\% confluence, as cells harvested from fully confluent cultures were observed to be more prone to coagulate into small groups of cells when in suspension; the device was designed to handle monodisperse cell solutions, and the recovered populations were more likely to be pure if such a population was used.
+
+\subsubsection{Labelling procedure}
+A number of commercial cell staining products were used to fluorescently label the cells. Stains were analysed to determine their staining efficiency and effect on cell viability. Target cells were labelled with a green colour: CellTracker Green, Vybrant DiO and Alexa GFP transfection were used. Negative (non-target) cells were labelled with a red colour: CellTrace Far-Red and Vybrant DiD were used. 
+
+\begin{table}[b]
+	\centering
+		\begin{tabular} { c c c c c c }
+		\hline			
+			Label	& Manufacturer &	Colour	& Abs (nm)	& Em (nm)	& Equivalent Filter	 \\
+		\hline
+			CellTracker CMFDA & Invitrogen, US &	Green &	490 &	517 &	FITC \\
+			Vybrant DiO & Invitrogen, US &	Green &	484 &	501 &	FITC \\
+			pmaxGFP & Amaxa &	Green &	489 &	508 &	FITC \\
+			CellTrace DDAO & Invitrogen, US &	Red &	647 &	657 &	Cy-5 \\
+			Vybrant DiD & Invitrogen, US &	Red &	644 &	665 &	Cy-5 \\
+		\hline			
+		\end{tabular}
+	\caption[Summary of cell labelling products and their fluorescent properties.]{Summary of cell labelling products and their fluorescent properties: Abs~-~peak absorption, Em~-~peak fluorescent emission.}
+	\label{tab:cell_labelling_products}
+\end{table}
+
+Labelling solutions of each dye were prepared by suspending the dry powder in 20 $\mu$L DMSO, and adding to 20 mL DMEM (serum-free). The medium was aspirated from cell cultures in T75 flasks, which were then washed in PBS, and one labelling solution added to each flask. Flasks were incubated at 37$^{\circ}$C for 45 minutes (CellTracker/CellTrace) or 10 minutes (Vybrant), the medium replaced with fresh DMEM (with 10$\%$ FCS), and incubated for a further 30 minutes. A dual-band (FITC and Cy-5 compatible) fluorescence filter set (dichroic mirror and emission filter) was used for simultaneous observation of both target and negative cells, with lasers of 473~nm and 635~nm for excitation.
+
+\subsubsection{Harvesting and Sample Preparation}
+After labelling, cells were removed from culture by trypsinisation, resuspended in DMEM (with 10$\%$ FCS and incubated at $37^{\circ}$C. Samples from each population were counted, and their concentrations adjusted to 5 x 10$^{5}$ cells mL$^{-1}$. 200 $\mu$L of the green-labelled cells were combined with 800 $\mu$L of the red-labelled cells to form a mixed population of ratio 1:4. Cells were used within 3 hours of harvesting.
+
+\subsection{Experimental}
+\label{Section:ExperimentalWork}
+\subsubsection{System Preparation}
+Prior to use, a 0.2 $\mu$m filter device was fitted to the main fluidic inlet, and the entire microfluidic system was sterilised by flushing with 10$\%$ sodium hypochlorite solution, followed by distilled water and ethanol, to remove any residual gas bubbles. PBS was then flowed through the system at a rate of 400 $\mu$L min$^{-1}$ for 10 minutes to remove the cleaning agents.
+
+During preliminary experiments, cells were found to spontaneously attach to surfaces within the device. These cells could be positive or negatively-stained, and were prone to detaching during recovery of target cells when the fluid flow rate was increased, leading to contamination of the recovered population. To reduce this non-specific attachment, three methods were employed simultaneously:
+\begin{enumerate}
+	\item BSA was flushed through the device at 400 $\mu$L min$^{-1}$ for 10 minutes and incubated for 30 minutes.
+	\item Dextran-70 was added to the medium (4\%) to increase its buoyancy, thereby increasing the time taken for cells to sediment out of solution and contact the glass substrates. Dextran-70 is a large molecular weight polysaccharide, unable to be metabolised by the MG63 cells.
+	\item The fluid manifold was cooled to approximately 10$^\circ$C using the temperature-controlled stage. Macroscale tests using glass slides refrigerated to 4$^\circ$C showed that this significantly reduced cell attachment to glass surfaces in comparison with slides maintained at room temperature.
+\end{enumerate}
+
+The system was filled with DMEM + 4\% Dextran-70 by flushing through at 400 $\mu$L min$^{-1}$ for 10 minutes before cells were introduced.
+
+\section{Results}
+
+The CellTracker CMFDA and CellTrace DDAO products demonstrated a staining efficiency $>90\%$, although the receiving cells exhibited poor viability when returned to culture after staining. Cells retained spherical morphology, and did not appear to spread out on the surface of a tissue-culture treated microplate or under go further cell division.
+
+Cell stained using Vybrant DiO or DiD typically had a $>90\%$ staining efficiency (Figures \ref{fig:MG63_labelled_vybrant_gfp} a, b). GFP transfection was 60-70 $\%$ efficient as determined by the percentage of cells expressing GFP (\fref{fig:MG63_labelled_vybrant_gfp}c). All the populations exhibited viability and proliferation.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/MG63_labelled_vybrant_gfp.pdf}
+	\caption[Fluorescently-labelled MG63 cells.]{Fluorescent microphotographs of (a) Vybrant DiD (Red) stained (b) Vybrant DiO (Green) stained and (c) GFP-transfected cells after 24 hours in culture}
+	\label{fig:MG63_labelled_vybrant_gfp}
+\end{figure}
+
+The ring electrodes were able to trap and isolate cells from a suspension flowing at up to 0.3 $\mu$L min$^{-1}$. The flow was maintained at 0.2 $\mu$L min$^{-1}$ so that cells of a range of sized could be trapped, and so that cells were not displaced by the fluid flow close to the edge of the electrodes. \fref{fig:ring_MG63_red_green_trapping_sequence} shows a sequence of images of the trap array during its operation.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring_MG63_red_green_trapping_sequence.pdf}
+	\caption[Image sequence taken during cell sorting using the ring electrodes.]{A sequence of photographs showing (a) red and green fluorescently-labelled MG63 cells flowing over the traps, (b) green fluorescently-labelled MG63 cells trapped within the ring electrodes while the red cells are repelled and (c) the green fluorescently-labelled MG63 remain trapped in the ring electrodes as the red cells are washed away.}
+	\label{fig:ring_MG63_red_green_trapping_sequence}
+\end{figure}
+
+In a typical experiment, up to ten cells were captured from a mixed population of 4:1 red to green cells. Using Design A, it was possible to recover the trapped cells, although more cells were recovered than originally trapped, with a high number of impurities. Using Design B, 100\% pure populations of green cells were recovered in 8 separate experiments, with only one experiment containing a single red cell. This data is summarised in \tref{tab:recovered_MG63_populations}. On average 70\% of the cells trapped were recovered into the tissue-culture microplate. Cells stained with Vybrant DiO Green stain failed to readhere to the microplate surface or demonstrate further cell division. Cells transfected with GFP readhered to the microplate surface, but failed to demonstrate significant cell divison. \fref{fig:gfp_MG63_recovered} shows photographs of two GFP+ cells that have readhered to the microplate and spread across the surface, (a) 24 hours after sorting and (b) 72 hours after sorting.
+
+\begin{sidewaystable}[p]
+	\centering
+		\begin{tabular} { c c c c c c c c c c c }
+		\hline			
+			Run & Channel & Green cells &	Red & Red & Green & Green & Green & Red & Green & Green adhered \\
+			no. & design & trapped & stain & recovered & stain & recovered & purity $\%$ & adhered & adhered & after 72 hours \\
+		\hline
+			1 & Design A & 9 &	DiD &	12 &	DiO &	15 &	56 &	0 &	0 &	0 \\
+			2	& Design A & 5 &	DiD &	6 &	DiO &	9 &	60 &	0 &	0 &	0 \\
+			3 & Design B & 4 &	DiD &	0 &	DiO &	4 &	100 &	0 &	0 &	0 \\
+			4	& Design B & 2 &	DiD &	1 &	DiO &	2 &	67 &	0 &	0 &	0 \\
+			5 & Design B & 5 &	DiD	& 0	& DiO	& 2	& 100 &	0	& 0	& 0 \\
+			6	& Design B & 5	& DiD	& 0	& DiO	& 3	& 100	& 0	& 0	& 0 \\
+			7	& Design B & 3	& DiD	& 0	& DiO	& 3	& 100	& 0	& 0	& 0 \\
+			8	& Design B & 4	& DiD	& 0	& GFP	& 4	& 100	& 0	& 2	& 2 \\
+			9	& Design B & 6	& DiD	& 0	& GFP	& 5	& 100	& 0	& 4	& 5 \\
+			10	& Design B & 7	& DiD	& 0	& GFP	& 3	& 100	& 0	& 1	& 0 \\
+			11	& Design B & 4	& DiD	& 0	& GFP	& 2	& 100	& 0	& 1	& 1 \\
+		\hline			
+		\end{tabular}
+	\caption[Summary of sorted and recovered populations of MG63 cells.]{Summary of recovered populations after 24 and 72 hours. Key: DiD, Vybrant DiD; DiO, Vybrant DiO.}
+	\label{tab:recovered_MG63_populations}
+\end{sidewaystable}
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/gfp_MG63_recovered.pdf}
+	\caption[GFP-transfected MG63 cells after sorting.]{Photographs of GFP-transfected MG63 cells taken (a) 24 hours and (b) 72 hours after sorting, that have been recovered into a microplate. The cells have re-adhered to the surface of the plate.}
+	\label{fig:gfp_MG63_recovered}
+\end{figure}
+
+\subsection{Cell Health and Viability}
+
+\fref{fig:graph_MG63_viability_controls} is a graph of cell viability of control samples taken at points throughout the experiment. Samples were diluted and dispensed into a 384-well plate at approximately 10 cells per well. 40 $\mu$L DMEM + 20\% FCS + Penicillin/Streptomycin (1x) was added to each well, and the microplate placed in a cell culture incubator. 
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/graph_MG63_viability_controls.pdf}
+	\caption[Cell viability of Vybrant-stained and GFP-transfected populations.]{Cell viability from Vybrant-stained and GFP-transfected populations at various stages of the microfluidic process when seeded at approximately 10 cells/well, samples were viewed 24 hours after seeding. The error bars show the range of viability recorded.}
+	\label{fig:graph_MG63_viability_controls}
+\end{figure}
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/MG63_controls_proliferation_cell_density.pdf}
+	\caption[Photographs of MG-63 control populations.]{Photographs of MG-63 control populations after 12 days, demonstrating (a) proliferation in wells seeded at $>$10 cells/well and (b) lack of proliferation, resulting in cell death and detachment in wells seeded at $<$10 cells/well.}
+	\label{fig:MG63_controls_proliferation_cell_density}
+\end{figure}
+
+\section{Discussion}
+
+\subsection{Design A: Dry Film Resist Channel with Sample Injection}
+
+The sample injection system permitted sub-microlitre volumes of cell suspension to be injected directly at the entrance to the microfluidic device. In the experiments performed, 1 $\mu$L samples containing approximately 500 cells were used. Initially, the inlet contains a mixture of cells and medium, and as the cells are carried through and out of the device the inlet reverts to supplying plain medium. Such a system has the limitation, however, that it cannot be said with certainty if the medium flowing in the inlet contains cells or otherwise is plain medium. It was found that as trapped (target) cells were being released and recovered with a corresponding increase in fluid velocity, a number of non-target cells that were present in the microfluidic channel were recovered with the target cells, reducing the purity of the recovered population. The fluid path constricts strongly around the inlet to the microfluidic device, so it is likely that cells had become lodged around the entrance to the microfluidic channel, and were subsequently released into the flow. As Table \ref{tab:recovered_MG63_populations} shows, the purity of green target cells could be increased from 20$\%$ at the input to 60$\%$ in the recovered population, but it was not possible to recover a pure population using this device. Such a system, could still be useful however, if it was required to trap a particular population of cells and maintain them on chip for further analysis and culture.
+
+
+\subsection{Design B: Moulded PDMS Channel with Bulk Sample Handling}
+
+The modified design of microfluidic channel used in Design B enabled the recovery of a purified population of sorted cells. As shown in \tref{tab:recovered_MG63_populations}, from a total of 9 separate experiments, 8 had 100\% pure populations.
+
+\subsubsection{Cell Health and Viability}
+
+\begin{table}[b]
+	\centering
+		\begin{tabular} {c c c}
+		\hline
+		Well &	Initial adhered	& Adhered cell count  \\
+					& cell count			& after 12 days \\
+		\hline
+		A &	11	& 0 \\
+		B	&	16	&	$>$50 \\
+		C	&	8	&	0 \\
+		D	&	7	&	0 \\
+		E	&	15	&	$>$50 \\
+		F	&	11	&	$>$20 \\
+		G	&	4	&	3 \\
+		H	&	10	&	0 \\
+		I	&	9	&	0 \\
+		J	&	14	&	$>$50 \\
+		K	&	9	&	0 \\
+		L	&	6	&	0 \\
+		\hline			
+		\end{tabular}
+	\caption{Summary of cell growth and proliferation in control cultures of MG-63 cells.}
+	\label{tab:MG63_controls_proliferation_cell_density}
+\end{table}
+
+After trapping experiments were performed it was discovered that in all cases, recovered cells stained with Vybrant DiO failed to adhere to tissue culture plastic, whilst most GFP-transfected cells remained viable and adhered after trapping.
+	
+Cell viability control data (\fref{fig:graph_MG63_viability_controls}) was taken at each stage of the protocol; 10 samples of the cell solution (40 $\mu$L) were aliquoted into a microplate at a density of approximately 10 cells/well. There was no difference in viability between unstained cells and cells stained with the Vybrant DiO (green) stain. Cell viability was slightly lower for cells resuspended in the medium containing 4$\%$ Dextran-70 (to control the buoyancy), but this reduction in viability was not observed for cells resuspended in the DMEM/Dextran medium and passed through the microfluidic system, so is probably not significant. It is likely that the failure of the cells stained with the Vybrant DiO stain to readhere in culture was not due to any one process, but rather the combined effects of multiple stimuli. 
+
+MG63 cells were transfected with GFP while adhered to a tissue culture flask, and remained in culture for a further 24 hours. The viability of cells when removed from culture was 50-60\%, which is in line with typical results from GFP transfection. Recovered populations showed similar viability (57\%) after trapping and sorting, suggesting that the electrokinetic/microfluidic system had little effect on cell health.
+
+Control tests (see Table \ref{tab:MG63_controls_proliferation_cell_density}) identified an issue with MG63 cell proliferation at low seeding densities. Using 384-well plates (80 $\mu$L per well) cell populations with less that 10 cells per well failed to proliferate. Trapped GFP+ cells were recovered into a microplate by aliquoting 40 $\mu$L of the collection medium per well, with an additional 40 $\mu$L DMEM + 20$\%$ FCS added. This resulted in cell densities of approximately 1-3 cells per well, too low to maintain a healthy population. Although GFP-transfected cells readhered to the surface of the microplate after recovery, further growth and proliferation was not observed. 
+
+\subsubsection{Device Operation}
+A number of technical issues remain to be addressed if the technology is to be useful. For example, actuation of the flow control valves during washing stages introduced a small displacement of the fluid, often sufficient to dislodge trapped cells. Hence, a certain proportion of the trapped cells could not be recovered as they dislodged from the traps. It was also not possible to fill all 20 ring traps in a reasonable time (e.g. 10-15 minutes), so the number of recovered cells for each sorting operation represents less than 25\% trap occupancy. Increasing the length of time cells remained in the device (at 10$^\circ$C) would inevitably lead to lower cell viability. Greater numbers of cells could be recovered by increasing the number of traps on the device, and by distributing the traps to ensure greater coverage across the microfluidic channel.
+
+Separate inlets were used for injection of cells and medium, so that non-target cells could be flushed away effectively. Additionally, separate outlets were used for recovery of target cells and waste (non-target cells).  An additional washing inlet was provided to flow medium into the device along the recovery outlet, preventing cells entering the recovery outlet until non-target cells had been sufficiently flushed out (\fref{fig:ring3_valve_sequence}).
+
+\subsubsection{Cell/Surface Attachment}
+Cells in contact with, or moving near a surface occasionally became attached. These cells could detach at a later time when the flow rate was increased and contaminate the sample, leading to non-target cells being recovered. The microfluidic network and flushing procedure implemented in Design B was designed to minimise contamination with unwanted cells. To limit cell-surface interactions, the microfluidic channel was designed so that it is constricted in areas away from the ring electrodes, increasing fluid velocity and reducing the likelihood of cell attachment. The techniques discussed in Section \ref{Section:ExperimentalWork} in conjunction with the redesign of the microfluidic channel appear to have been successful, and subsequent attachment of cells to the channel was not a significant problem. 
+
+\subsection{Transmembrane Potential}
+\label{Section:transmembrane_potential}
+The dielectrophoretic traps produce a large gradient in the electric field in the region surrounding the traps, which will alter the electrical potential across the membrane of a cell. The membrane has a natural `resting' potential across it of approximately 70 mV. Application of a significant potential across the membrane can lead to temporary or permanent poration of the cell membrane, the later causing cell lysis. Equation \ref{eqn:transmembrane_potential_Grosse_11} was derived by \cite{Grosse:1992} using a model of a cell with partially insulating membrane:
+
+\begin{equation}
+ \Delta U = \frac{3/2 Ea \cos \theta}{1 + a(G_{m} + i \omega C_{m}) \left[ \rho_{i} + \frac{\rho_{m}}{2} \right]} 
+\label{eqn:transmembrane_potential_Grosse_11}
+\end{equation}
+
+$ \Delta U $ is the potential generated across the cellular membrane, $ E $ is the magnitude of the electric field, $ \theta $ is the polar angle, measured with respect to the direction of the field, $ \omega $ is the angular frequency of the electric field, $ G_{m} $ is the membrane conductance,  $ C_{m} $ is the membrane capacitance, $\rho_{i} $ is the resistivity of the interior of the cell and $ \rho_{a} $ is the resistivity of the electrolyte.
+
+As detailed values for the electrical properties of MG63 cells were not available, typical values for the membrane capacitance and conductance of HeLa cells were used - another adherent, immortalised carcinoma cell derived from a human source. The parameters are listed in Table \ref{tab:transmembrane_potential_calculation_parameters}.
+
+\begin{table}[b]
+	\centering
+		\begin{tabular} {c c c c}
+		\hline
+		Characteristic & Symbol & Value & Note\\
+		\hline
+		Cell Radius & $ a $ & 9.75 $\mu$m & 1 \\
+		Membrane Capacitance & $ C_{m} $ & 19 mF m$^{-2}$ & 2 \\
+		Membrane Conductance & $ G_{m} $ & 0.95 S m$^{-2}$ & 2 \\
+		Electric Field  & $ E $ & 44314 V m$^{-1}$ & 3 \\
+		Field Angle (polar) & $ \theta $ &  0 rad  & 4 \\
+		Angular Frequency of Electric Field & $ \omega $ & 31415926 rad s$^{-1}$ & 5 \\
+		Resistivity of the Cell Interior & $ \rho _{i} $ &  5 $ \Omega $ m & 6 \\
+		Resistivity of the medium  & $ \rho _{m} $ & 1.25 $ \Omega $ m & 7 \\
+		\hline			
+		\end{tabular}
+		\captionsetup{justification=justified}
+	\caption[Parameters used for the calculation of transmembrane potential.]{Parameters used for the calculation of transmembrane potential on cells immobilised within the ring trap electrodes.\\
+	\hspace*{0.3cm} Notes:\\
+	1: Measurement of 20 MG63 cells in DMEM, average value using Nikon Digital Sight \\
+		\hspace*{0.3cm} instrument. Range 15.6-23.8 $\mu$m, St. dev 1.68 $\mu$m. \\
+	2: Taken from \cite{Asami:1990}, value for HeLa cells.\\
+	3: Numerical simulation (FEA) using Comsol Multiphysics 3.4\\
+	4: Worst case value, where $\cos \theta$ = 1, when field is perpendicular to the membrane.\\
+	5: Value for $f = 5$ MHz, $\omega = 2\pi f$.\\
+	6: Taken from \cite{Kotnik:1997}, calculated from typical value of $\sigma _{m}$ = 0.2 S m$^{-1}$.\\
+	7: Measurement using Hanna EC215 Conductivity, $\sigma _{m}$ = 0.81 S m$^{-1}$ at $10^{\circ}C$
+		}
+
+	\label{tab:transmembrane_potential_calculation_parameters}
+\end{table}
+
+\fref{fig:graph_MG63_transmembrane_potential} is a plot of the approximate transmembrane potential induced on MG63 cells immobilised in the ring electrodes. At 5 MHz, the magnitude of the potential is 20~mV. Such a value is generally considered to have little effect on cell viability: \cite{Glasser:1998} found mouse fibroblast cells continued to proliferate at induced transmembrane potentials up to 130 mV.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/graph_MG63_transmembrane_potential.pdf}
+	\caption[Plot of the approximate transmembrane potential induced on MG63 cells immobilised in the ring electrodes.]{Plot of the approximate transmembrane potential induced on MG63 cells immobilised in the ring electrodes, calculated using \eref{eqn:transmembrane_potential_Grosse_11} and the parameters in \tref{tab:transmembrane_potential_calculation_parameters}.}
+	\label{fig:graph_MG63_transmembrane_potential}
+\end{figure}
+
+Although parameters for membrane capacitance and conductance are taken from a different cell line, this approximation serves to give an indication of the size of the transmembrane potential likely to be induced on the cells. \cite{Kotnik:1997} showed that for high frequency electric fields with cells suspended in physiological media, variations in the the values of membrane and media conductivity had small effects. The conductivity of the media was reduced from a typical value of 1.65 S m$^{-1}$ for DMEM at room temperature to 0.81 S m$^{-1}$ as the device was cooled to 10$^{\circ}C$, but the overall effect of this was a reduction in the transmembrane potential of 1 mV. The membrane conductance was found to have little effect on the calculated value of the transmembrane potential, and could be neglected without having a significant impact. The membrane capacitance and radius of the cell have significant impact on the induced transmembrane potential, the latter being simple to accurately determine using microscopic imaging. Membrane capacitance can be measured using the patch clamp technique, or by electrorotaion, both long and involved processes. The induced transmembrane potential would reach levels believed to be harmful if the membrane capacitance was ten times smaller than the estimate used here.
+
+\subsection{Thermal Effects}
+Localised heating of the medium around the cell may also occur. The high electrical conductivity of physiological media means that Joule heating in the vicinity of the ring electrodes may raise the temperature sufficiently that cell viability may be affected due to thermal effects. The thermal environment was modelled by finite element analysis using \eref{eqn:thermal_energy_balance_reduced}.
+
+\fref{fig:ring_thermal_simulation_contour_plot} is a plot of the simulation of the temperature in the vicinity of the ring electrodes, performed in the FlexPDE software package using the geometry shown in \fref{fig:ring_thermal_simulation_geometry}. With the device cooled to approximately 10$^{\circ}$C, the temperature in the centre of the ring was 19.9$^{\circ}$C, and the maximum temperature was 21.9$^{\circ}$C, above the electrodes. These temperatures are unlikely to cause significant changes to the viability of the cells.
+
+\subsection{Comparison with Alternative Technologies}
+A whole industry has developed around producing equipment for the separation of cells, so any new technology must meet a demanding set of criteria if it is to be useful. The key metrics that cell separation devices are measured against are: speed (often measured in thousands of cells per second for high throughput devices), purity of the recovered populations (or degree of enrichment over the original sample), and viability of the recovered cells.
+
+Of the 11 sorting operations conducted using the ring trap electrodes, 5 cells were trapped on average per run, with each run taking approximately 15 minutes. As this equates to approximately 3 minutes per cell, it can be seen that the ring trap devices are not suitable for high throughput cell sorting. There are few examples in the literature of similar devices that sort cells by trapping, the most significant being the work of \cite{Kovac:2007} that uses optical forces to sort cells from microwells. This study was also one of the first uses of `image-based' sorting. Slightly higher sorting rates were produced (70 cells per hour), although a much larger array was used, containing 10,000 trapping locations. In comparison, the rate at which particles can be sorted with the ring electrodes scales favourably with the number of traps available, as each individual trap can operate independently. It would be difficult to control such a similarly large number with the current technology, however. Populations of sorted cells were recovered with purities of up to 89\%, and this was believed to be as a result of limited control of non-specific cell adhesion to the inner surfaces of the microdevice.
+
+Care must be taken to understand the particular conditions under which a device has been operated before a comparison can be drawn. The device produced by \cite{Fu:1999} sorted cells at a rate of 20 per second, producing enriched populations of GFP E. coli cells at a purity of 30.8\%. Hence, for every individual target cell that was sorted, 2 of the non-target cells were also recovered. The concentration of cells passing through the sorting device was sufficient that it was not possible to sort individual cells. It would be possible to reduce the concentration of particles by a factor of 10, and the purity of the recovered population would be closer to 100\%, but the rate at which cells were recovered would then be much lower. The value in the ring trap electrodes is that they typically recover 100\% pure populations, and allow individual cells to be selected from a hetergeneous population. \tref{tab:cell_sorting_device_performance_data} (\cref{Chapter:Introduction}) lists performance characteristics from several cell sorting devices published in the literature. 
+
+\subsection{Alternative Uses}
+\subsubsection{Particle Concentration}
+Another useful advantage of the ring trap electrodes is that they concentrate cells during sorting. As an example, a fully populated array would have 20 cells within an 80 nL volume - equivalent to a density of 2.5 x 10$^{8}$ cells mL$^{-1}$. If cells were injected at a density of 5 x 10$^{5}$ cells mL$^{-1}$ as used in these experiments, this would be a concentration of 500 times. This is analogous to concentration by centrifugation, often performed on cells and particles on the macroscale. Of course, it is difficult to recover the concentrated cells from the device without diluting them, so this is most useful if cells are to be maintained within the microfluidic device, such as for use in a cell-based assay.
+
+\subsubsection{Image-based Fluorescence Measurements}
+Conventional cytometers perform fluorescence measurements at a single time point only. Although a population of cells can be measured again at a later point, it is not possible to associate a particular measurement with a particular cell. Only large scale changes that affect the general population can be detected. The ability to fix the spatial location of multiple single cells (such as with an array of ring traps) within a cytometer would permit fluorescence measurements to be repeatedly made on a single cell with a wide temporal distribution. This technique has been discussed by \cite{Voldman:2002,Kovac:2007} in the concept of a `dynamic array cytometer' using a number of different electrokinetic and hydrodynamic trapping technologies, and used to measure dynamic calcein loading in HL60 cells.
+
+\section{Conclusions}
+The device demonstrates that isolation and recovery of specific cell types is possible using dielectrophoretic ring traps. Sorted populations remained viable, but did not exhibit further proliferation. Control tests indicate that the numbers of cells recovered were below the threshold needed to restart a population of MG63 cells in culture, and simulations indicate that the thermal and electrophysiological conditions produced by the ring electrodes were unlikely to affect the viability of cells trapped by the device. This would suggest that the sorted cells did not proliferate as insufficient cells were recovered, but this could only be confirmed by repeating the experiments with a larger or more densely populated array of cell traps so that greater numbers of cells could be recovered. 
+
+Whilst the low numbers of recovered cells prevented re-establishment of somatic cell populations, this device offers potential for the isolation and recovery of stem cells because they maintain viability and proliferation even when cultured as single cells. The determination of sufficient markers to fluorescently label a stem cell could enable the system to be used to isolate and recover such a cell. This technology is also a potentially useful component of an integrated cell analysis platform, as cells can be sorted, concentrated and maintained within a microfluidic device, removing the need for external processing steps.

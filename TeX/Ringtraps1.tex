@@ -1,0 +1,208 @@
+\chapter{Single Particle Dielectrophoretic Traps}
+\label{Chapter:Ring_traps_1}
+
+\section{Introduction}
+Dielectrophoresis is particularly suited for trapping and immobilising particles within a microfluidic device, as it is able to manipulate the particles with minimal disturbance to the suspending medium. Isolation of cells by confinement within a particle trap is one route towards single cell manipulation and analysis. There are also applications for cell patterning, an important step in the production of biosensors, and cell processing such as co-culture. The ability to trap single cells as required can also be used to separate rare or important cells from a heterogeneous population. Target cells can be immobilised in an array of traps, while unwanted cells are removed by fluid flow.
+
+A condition of cell viability and proliferation is the presence of ionic solutes, that render the surrounding environment isotonic. These conditions are found both \textit{in vivo} and \textit{in vitro} physiological solutions such as for cell culture. Due to the high electrical conductivity of physiological medium, positive DEP does not occur. Hence, dielectrophoretic devices that operate in these conditions must utilise negative DEP. Concern must also be given to the power dissipation within the device, as thermal energy will be distributed within the medium in direct proportion to the electric field strength and the medium conductivity, as shown in Equation \ref{eqn:joule_heating}.
+
+From these requirements, we can postulate that an ideal dielectrophoretic cell trap should have the following characteristics:
+\begin{itemize}
+	\item Operate in (high conductivity) physiological media.
+	\item Have minimum power dissipation (avoid fluid heating).
+	\item Limit the exposure of cells to high electric fields
+	\item Operate at high frequencies to minimise induced transmembrane potentials.
+	\item Capture a single cell in a closed cage.
+	\item Be scalable to an array, ideally with a single wire connection per trap.
+\end{itemize}
+
+The ring trap electrodes are a novel design of dielectrophoretic particle trap that potentially meets all of these requirements. The electric field between a ring electrode and a surrounding ground plane curves above the electrodes to create a closed DEP trap against the substrate. The ground plane can be shared between many traps, so only a single electrical connection is necessary to control the trap. As cells are trapped in the centre of the ring, they are kept away from the high field regions at the electrode edges. The central ring is completely surrounded by the ground plane. This means that the trapping force is equal in every direction, but necessitates a multiple metal layer fabrication process to provide electrical connection to the ring and bypassing the ground plane.
+
+\subsection{Forces on a Trapped Particle}
+
+\fref{trapped_particle_force_equilibrium_diagram} shows forces on a particle in a DEP trap - if the particle is immobilised then a force equilibrium will exist in the horizontal plane:
+
+\begin{equation}
+F_{DEP-x} = F_{HD-x}
+ \label{trapped_particle_force_equilibrium_x}
+\end{equation} 
+
+\begin{equation}
+mg + F_{DEP-y}= F_{B} + F_{L} + F_{N}
+ \label{trapped_particle_force_equilibrium_y}
+\end{equation}
+
+where the force ($F$) subscripts correspond to: $DEP$ - dielectrophoretic, $HD$ - hydrodynamic (Stokes) drag, $B$ - buoyancy, $L$ - hydrodynamic lift, $N$ - normal surface reaction.
+
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/trapped_particle_force_equilibrium_diagram.pdf}
+	\caption{Forces on a particle immobilised in a DEP trap against a fluid flow.}
+	\label{trapped_particle_force_equilibrium_diagram}
+\end{figure}
+
+As was shown in Section \ref{sec:ring_trap_simulation}, the electric field strength varies greatly across the centre of the ring array, with a zero value in the centre and maximum at the electrode edges in the gap between the electrodes.  At any given height above the substrate, the lateral DEP force $F_{DEP,x}$ is zero in the centre, and increases to a maximum over the ring electrode.  Hence, a trapped particle in a fluid flow is displaced a certain distance from the centre of the ring. This position is given by the balance of the Stokes drag force and the DEP trapping force. The hydrodynamic drag on a spherical particle in a uniform flow field can be calculated by Stokes law:
+
+\begin{equation}
+F_{HD}= -6 \pi a \eta \textbf{v}
+ \label{eqn:stokes_law}
+\end{equation}
+
+In the case of a particle within a shearing flow, Stokes Law can be modified to incorporate the shear rate:
+
+\begin{equation}
+F_{HD}= -6 \pi a \eta h S
+ \label{eqn:stokes_law_shearing_flow}
+\end{equation}
+
+where $h$ is the height of the particle within the shear field (distance from the zero point at the channel wall) and $S$ is the shear rate within the flow. Such a calculation assumes that the flow around the particle is unrestricted, however, and becomes unreliable for a particle near to a plane wall. \cite{Goldman:1967} found that wall effects increased the hydrodynamic drag on a spherical particle in a laminar shear flow, and the effect could be modelled by a non-dimensional coefficient that is proportional to the distance of the particle from the wall:
+
+\begin{equation}
+F_{HD}= -6 \pi a \eta h S K
+ \label{eqn:stokes_law_goldman_correction}
+\end{equation}
+
+where $K$ is a coefficient that incorporates wall effects, and for the case where the particle is in contact with the wall ($h/a = 1$), this coefficient has a value of 1.7005.
+
+\section{Materials and Methods}
+
+\subsection{Electrode Fabrication}
+The electrodes were fabricated on 150mm diameter, 700 $\mu$m thick glass wafers by Nico Kooyman at Philips Research Laboratories, Eindhoven. Electrode layers were made from layers of titanium (for adhesion) and platinum, patterned using photolithography and ion beam milling. To fabricate a ring electrode in the ground plane, two metal layers separated by a dielectric insulator were required.  The dielectric was a 1 $\mu$m thick layer of benzocyclobutene (BCB) patterned using reactive ion etching. Wafers were diced into individual chips, 20 mm square.  The ring electrodes were fabricated with internal diameters of 40 and 80 $\mu$m, the width of the ring electrode was 10 $\mu$m and the gap between the ring and the ground plane was 10 $\mu$m - as shown in \fref{fig:ring2_fabrication}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring2_fabrication.pdf}
+	\caption[Overview of the fabrication of multi-layer electrodes.]{Overview of the fabrication of the multi-layer electrodes. A dielectric layer of benzocyclobutene separated and insulated the two metal layers, enabling a more complex interconnection strategy than would be possible with a single metal layer.}
+	\label{fig:ring2_fabrication}
+\end{figure}
+
+\subsection{Microfluidic Channel}
+The microfluidic channel was fabricated separately on each chip, from a layer of Ordyl SY355 dry film resist (Elga Europe), bonded between the chip and a glass lid.  One layer of resist was laminated on to each of the two surfaces (chip and glass lid) by hot-rolling at 100$^{\circ}$C. The laminate was patterned by exposure to UV radiation through a negative contact mask and developed in BMR developer (Elga Europe) using a process similar to that described by \cite{Vulto:2005}. A closed microfluidic channel was produced by bonding the two resist layers together at $200^{\circ}$C. Inlet and outlet holes (1 mm diameter) were drilled in the glass lid after bonding using a tungsten carbide spade drill bit (Drill Service, Horley, UK).
+
+\subsection{Macrofluidic Equipment}
+A fluidic manifold was used to interface macroscale fluidic connections to the microdevice and also provided electrical contact via spring contacts mounted on a printed circuit board. Bead suspension was driven through the device using a Cole-Palmer 79000 syringe pump with flow rates in the range 0.25 to 20 $\mu$L min$^{-1}$. 
+
+\subsection{Ancillary Electronics}
+Sinusoidal voltages produced by a TTI TG2000 signal generator were split across 20 channels of a custom produced switch board into the normally open (NO) terminal. The ring electrode from each ring trap was independently switched between connection to ground (normally closed, NC) or the sinusoidal voltage. Voltages at the board were confirmed using an oscilloscope (Agilent 54641D) prior to each experiment, to ensure the voltage on each channel was close to the specified value. %\fref{fig:ring2_equipment_photo} shows a photograph of the equipment.
+
+%\begin{figure}
+%	\centering
+%		%\includegraphics{../Figures/ring2_equipment_photo.png}
+%	\caption{Photograph of the equipment used, showing the signal generator and switch board connected to a circuit board on the fluidic manifold.}
+%	\label{fig:ring2_equipment_photo}
+%\end{figure}
+
+\subsection{Microscopic Observations}
+Particles were imaged and tracked using a custom-built fluorescence microscope, using around a Nikon 10x Plan Fluor objective lens and a Panasonic AW-E600E colour camera. A blue LED (Lumiled Luxeon, peak output 470nm) provided illumination for (FITC/GFP compatible) fluorescence observations, while broadband illumination from a `white' LED (5500K CCT) mounted underneath the target was used for transmitted-light measurements. 
+
+\subsection{Cells and Microparticles}
+Latex test particles were suspended in a solution of 0.1 mM KCl containing 0.02 $\%$ (v/v) TWEEN-20, prepared in deionised water. The conductivity was measured at 1.9 mS m$^{-1}$ (25$^{\circ}$C) using a (Hanna EC215) conductivity meter. Polystyrene microspheres (Polybeads, Polysciences Ltd) were purchased from Park Scientific Inc, with a mean diameter of 15.61 $\mu$m (CV $\leq$ 15$\%$, density 1.05.). For trap characterisation, a 100 $\mu$L aliquot of bead suspension (1.35 x 10$^{7}$ beads mL$^{-1}$, or 2.5\% solids) was washed three times in the 0.1~mM KCl/TWEEN solution by centrifugation and resuspension. Bead solutions were passed through a 41~$\mu$m filter (Whatman) prior to use. \fref{fig:CM_factor_15um_bead_1x9mS_cond} shows a plot of the Claussius-Mossotti factor for the beads suspended in the 0.1~mM KCl/TWEEN solution, calculated using \eref{eqn:CM_factor}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/CM_factor_15um_bead_1x9mS_cond.pdf}
+	\caption[Plot of the Clausius-Mossotti factor for 15.61 $\mu$m polystyrene spheres in aqueous solution.]{Plot of the real and imaginary parts of the Clausius-Mossotti factor for 15.61 $\mu$m polystyrene spheres ($\epsilon_{r,p}$ = 2.5, $K_{s}$ = 1 x 10$^{-9}$ S) in aqueous solution ($\epsilon_{r,m}$ = 78, $\sigma_{m}$ = 1.9 mS m$^{-1}$)}
+	\label{fig:CM_factor_15um_bead_1x9mS_cond}
+\end{figure}
+
+GFP-modified HeLa (Human epithelial carcinoma) emit green fluorescence when illuminated with light in the 450-500~nm region. Cells were cultured in DMEM (Dulbecco's Modified Eagle's Medium - 4mM L-glutamine, Hepes buffer, no Pyruvate) with 10$\%$ foetal calf serum and 100 $\mu$g mL$^{-1}$ Penicillin/Streptomycin, at 37$^{\circ}$C. To maintain growth, the cultures were split every 3rd or 4th day by trypsinisation, and fresh culture medium added. For experiments, the cells were removed from culture, incubated at 37$^{\circ}$C and used within 3 hours. The cells were concentrated by centrifugation in culture medium to a density of $10^{6}$ cells mL$^{-1}$.  Prior to use, the chip was flushed through with DMEM, and a sample of HeLa cell suspension injected at a flow rate of 10 $\mu$L min$^{-1}$. 
+
+\subsection{Characterisation of Trapping Force}
+
+A bead suspension was pumped through the channel, and a single bead immobilised in a ring trap using a signal of 1~MHz at 5~Vpp. With a bead trapped, the flow rate was increased in steps from 0 to 5.5 $\mu$L min$^{-1}$, and the position of the bead recorded. Data was recorded for 10 seconds for each flow rate, and 20 frames from each clip at 0.5 second intervals were analysed. Bead position relative to the centre of the trap was measured (in pixels, and converted to $\mu$m) for each frame, and an average value for all 20 frames was obtained.  This experiment was repeated four times.   
+
+For comparison with experimental data, the force on a 15.61 $\mu$m diameter polystyrene particle was calculated using \eref{eqn:dep_force} and the simulated electric field, setting $Re(f_{CM})$ = -0.475 (with $\epsilon_{r}$ =2.5, $\sigma_{p}$=0.27 mS m$^{-1}$, V = 5 Vpp and f = 1 MHz). Only the horizontal component of the DEP force is considered, as this is the only component that can be determined directly from the hydrodynamic drag force. 
+
+\section{Results}
+
+Single 15.61 $\mu$m polystyrene microparticles were immobilised from a fluid flow and trapped in the 80 $\mu$m diameter ring traps - \fref{fig:beads_ring_trap_array_blue_green} (a). Once energised, the trap was closed and surrounding particles were deflected around or over the trap. Particles could be held within the trap at flow rates of up to 5.5 $\mu$L min$^{-1}$ (with electrical excitation of 5~Vpp, 1~MHz), above which they were displaced from the trap by hydrodynamic drag. The particles were also held in an array of eight 40 $\mu$m diameter traps - \fref{fig:beads_ring_trap_array_blue_green} (b). The smaller size of the electrodes produced stronger DEP forces, and particles could be held within the trap at flow rates of up to 20 $\mu$L min$^{-1}$. 
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/beads_ring_trap_array_blue_green.png}
+ \caption[Trapping single 15.61 $\mu$m polystyrene microparticles in the ring electrodes.]{(a) A single 15.61 $\mu$m polystyrene microparticle trapped within an 80 $\mu$m diameter ring trap. (b) An array of four 40 $\mu$m diameter ring traps each with a single polystyrene microparticle trapped inside. Metallised regions reflect episcopic illumination, so appear blue. Transparent regions appear green due to white diascopic illumination through the fluorescence filter set.}
+ \label{fig:beads_ring_trap_array_blue_green}
+\end{figure}
+
+Measurements of the trapping force were made by gradually increasing the fluid flow rate from 0.25 $\mu$L min$^{-1}$ until the particle was removed from the trap by fluid flow. Video of the particle position was analysed using custom-produced image processing/feature recognition algorithms written in the Matlab environment (Mathworks). \fref{fig:ring2_particle_displacement} shows three frames from the recorded video, and their subsequent analysis. The data is plotted in \fref{fig:graph_rawdata_ring_trap_force}, showing bead displacement against volumetric flow rate. The displacement from the centre of the array increases with increasing flow rate, but the rate of increase slows as the particle approaches the ring due to the rapidly increasing DEP force. At an applied voltage of 5 Vpp, the beads escaped from the trap when the flow rate exceeded 5.5 $\mu$L min$^{-1}$.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/ring2_particle_displacement.pdf}
+ \caption[A single 15.61 $\mu$m polystyrene particle trapped in the ring electrodes is displaced by hydrodynamic drag.]{Hydrodynamic drag displaced 15.61 $\mu$m polystyrene particles trapped in the ring electrodes, until an equilibrium was reached with the DEP force closer to the edge of the electrodes. Automated image recognition software was used to track the location of the particle with reference to the static features of the electrode edges.}
+ \label{fig:ring2_particle_displacement}
+\end{figure}
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/graph_rawdata_ring_trap_force.pdf}
+	\caption[Plot of the displacement of single 15.61 $\mu$m polystyrene particles by hydrodynamic drag while trapped in the ring electrodes.]{15.61 $\mu$m diameter polystyrene particles were trapped in the centre of a ring trap (electrical excitation 5 Vpp, 1 MHz) but were increasingly displaced by hydrodynamic drag as the volumetric flow rate of the fluid was increased.}
+	\label{fig:graph_rawdata_ring_trap_force}
+\end{figure}
+
+The fluid flow velocity profile within the microchannel was calculated from the volumetric flow rate using a Fourier series approximation of the Navier-Stokes law in 2-dimensions for each of the flow rates used in the experimental tests. The results of the calculation for one of the flow rates (5.5 $\mu$L min$^{-1}$) are plotted in \fref{fig:ring2_simulation_fluid_flow_5x50ulmin}. Due to the aspect ratio of the channel being very small (much wider than deep) the lateral position within the channel (x-axis) does not have a significant effect ($<$0.05\%) on the fluid velocity within the the central 90\% of the channel width. Hence, the fluid velocity is almost entirely a function of the vertical position within the channel. An approximation of the flow with variation in one dimension only (the y-axis) is shown in \fref{fig:ring2_1d_flow_profile} with a 15.61 $\mu$m diameter particle to scale. 
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring2_1d_flow_profile.pdf}
+	\caption{Approximation of the fluid flow velocity through the microchannel at 5~$\mu$L min$^{-1}$.}
+	\label{fig:ring2_1d_flow_profile}
+\end{figure}
+
+To estimate the hydrodynamic drag on a particle immobilised in a ring electrode using Stokes law, it was necessary to approximate the flow field to a linearly shearing flow. The fluid velocity field was averaged over the surface of the particle by splitting the particle into a 0.5 $\mu$m square grid, and calculating the average of the fluid velocity at each grid intersection. The shear rate for each volumetric flow rate (0.25-5.5 $\mu$L min$^{-1}$) was then calculated. This was used to calculate the hydrodynamic drag force on a particle for each flow rate using \eref{eqn:stokes_law_goldman_correction}. \fref{fig:graph_processed_data_ring_trap_force} shows the hydrodynamic drag data cross-referenced with the measurements of particle displacement. The velocity of the fluid is shown on the opposite axis; as the particle is in a shear flow this is the velocity impinging on the centre of the particle.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/graph_processed_data_ring_trap_force.pdf}
+	\caption[Plot of the trapping force developed by the ring traps on 15.61 $\mu$m diameter polystyrene beads.]{The trapping force developed by the ring traps on 15.61 $\mu$m diameter polystyrene beads was calculated from models of the fluid velocity profile, and was found to be similar to values derived from FEA simulations of the electric field distribution. The fluid velocity, at a distance from the channel wall equal to the particle radius, is shown on the alternate axis.}
+	\label{fig:graph_processed_data_ring_trap_force}
+\end{figure}
+
+Single HeLa cells (suspended in DMEM, $\sigma_{m}$ = 1.6 S m$^{-1}$) were also trapped in the ring traps - \fref{fig:Hela_cell_GFP_ring_trap} (a) shows a single GFP-positive HeLa cell immobilised in a 40$\mu$m diameter ring trap. \fref{fig:Hela_cell_GFP_ring_trap} (b) shows a development of the original ring trap electrode design, with the ground plane replaced with a ground ring. The ring-ring electrode traps could hold 15.61 $\mu$m polystyrene particles against flow rates of up to 2.06 $\mu$L min$^{-1}$ (mean value, s.d. = 0.15, with electrical excitation of 5~Vpp, 1~MHz), and HeLa cells against flow rates of up to 1.03 $\mu$L min$^{-1}$ (mean value, s.d. = 0.11, with electrical excitation of 5~Vpp, 20~MHz). The microfluidic channel on the ring-ring device was smaller than on the ring-plane device, with dimensions of 1600 x 100 $\mu$m, so a given volumetric flow rate produced a higher flow velocity and hydrodynamic drag force. The average peak trapping force produced was 27.5 pN for the polystyrene microparticles and 13.8 pN for the HeLa cells (given an average diameter of 15.9 $\mu$m, s.d. = 1.2). The use of this electrode design is explored further in \cref{Chapter:Autotrapping}.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/Hela_gfp_ring_ring.pdf}
+ \caption[Single HeLa cells immobilised in the ring electrodes.]{A single HeLa cell (Cervical cancer, GFP-modified) suspended in DMEM culture medium immobilised in (a) a ring trap with ground plane (electrical excitation 20 Vpp, 20 MHz) and (b) a ring trap with ground ring (electrical excitation 5 Vpp, 20 MHz).}
+ \label{fig:Hela_cell_GFP_ring_trap}
+\end{figure}
+
+
+\section{Discussion}
+
+Single particles have been trapped within the ring electrodes, with up to 8 particles trapped in separate traps simultaneously. The requirement for a single electrical connection (and shared ground plane) per trap means that only one control line was required for each trap. This means that the design can be scaled to larger arrays of traps quite simply, and would be suitable for arrayed operation if driven from a transistor matrix such as a TFT device.
+
+In the absence of fluid flow, trapped particles are directed towards the centre of the ring electrodes by the dielectrophoretic force. Motion of fluid around the trapped particle produces a hydrodynamic drag force that displaces the particle from the central position. The displacement from the centre of the trap increases with flow rate, but the rate of increase slows as the particle approaches the edge of the ring electrode due to the rapidly increasing DEP force. The displacement of the particle was measured as the fluid flow rate was adjusted, the results are plotted as a line in Figure \ref{fig:graph_processed_data_ring_trap_force}.
+
+Comparison of the experimental data with the simulated force (FEA) shows excellent agreement, with small deviations in the centre and edge of the trap. The discrepancy at small displacements may be due to errors in measurement of small displacements and the difficulty in controlling low flow rates.  At the edge of the trap the error may be due to the limitations of the dipole approximation used to calculate the force. Assumptions regarding the distribution of charge around the particle being equivalent to a dipole become less accurate if the particle is located in the highly divergent field close to the edges of the electrodes. A near perfect agreement ($R^{2}$=0.9958) is obtained if the applied voltage used in the simulation is reduced to 4.8~Vpp, suggesting that a small voltage drop could have occurred along the interconnects - \fref{fig:graph_fitted_data_ring_trap_force}.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/graph_fitted_data_ring_trap_force.pdf}
+	\caption[Plot of the trapping force developed by the ring traps at 4.8~Vpp.]{Data from numerical simulations fits closely with experimental results ($R^{2}$=0.9958) is obtained if the applied voltage used in the simulation is reduced to 4.8~Vpp, suggesting that a small voltage drop could have occurred along the interconnects.}
+	\label{fig:graph_fitted_data_ring_trap_force}
+	\end{figure}
+
+The maximum trapping force developed on a 15.61 $\mu$m polystyrene microparticle was 23 pN, sufficient to immobilise the particle against a flow of 5.5 $\mu$L min$^{1}$. To put this into context, this exceeds the particle's weight force of 20.51 pN (assuming density = 1.05 g ml$^{-3}$, particle mass = 2.09 x $10^{-12}$ kg). In aqueous solution, the particle would also receive a buoyancy force of approximately 19.5 pN. Hence, in the absence of a flow, the particle would remain trapped if the trap array were to be held vertically. The DEP trapping force scales with the third power of particle radius ($a^{3}$, \eref{eqn:dep_force}), while the hydrodynamic drag scales with the first power of radius ($a$, \eref{eqn:stokes_law_goldman_correction}). This means that larger particles can be trapped at higher flow rates than smaller particles, for a given value of applied voltage and trap size. 
+
+The DEP forces produced by the ring-ring electrodes are similar to the ring-plane electrodes (up to 27.5 pN on a 15.61 $\mu$m diameter latex particle with 5~Vpp, 1~MHz, compared with 23 pN for the ring-plane design). The dimensions of the microfluidic channel were smaller, leading to higher fluid velocities for a given volumetric flow rate. The ring-ring electrode traps could hold the HeLa cells against a fluid flow of 1.03 $\mu$L min$^{-1}$ (mean value, s.d. = 0.11) with an applied signal of 5 Vpp at 20 MHz. This corresponds to a trapping force of 13.8 pN for a 15.9 $\mu$m diameter cell (mean value, s.d. = 1.2 $\mu$m). The maximum flow rate against which biological cells can be held is generally lower than for similarly sized polystyrene particles, because the Clausius Mossotti factor for cells suspended in physiological media is lower than for polystyrene particles at frequencies suitable for nDEP.
+
+Numerical simulation of the electric field - \fref{fig:plot_arrow_plot_full_ring_plane} - shows the location of the region of field gradient minimum (the trapping location) in the centre of the ring electrodes. A second minimum can be seen above the electrodes at the top water-glass interface. Comparison of the two trapping locations indicates that the upper trap is at least two orders of magnitude weaker than the lower trap within the ring electrodes. As can be seen from the arrow plot in \fref{fig:plot_arrow_plot_full_ring_plane}, the DEP force around the minimum at the top of the channel acts in a substantially vertical direction. The lack of a horizontal component to the DEP force suggests that hydrodynamic flow will carry particles through this location and they will not be trapped. No particles were observed to trap in the upper trap location during operation of the ring electrodes.
+
+The ring electrodes form a closed dielectrophoretic trap when driven with a sinusoidal voltage. This is very different to quadrapole electrode traps (see Section \ref{sec:DEP_trapping} - \nameref{sec:DEP_trapping}) which form a `force funnel' and must be confined with another electrode set to form an octopole set if the particle position is to be accurately defined. Particles that are not trapped within the electrodes are repelled by the field, passing around or over the top of the trap. The trajectories of particles around the trap is simulated in \fref{fig:3d_particle_trajectories_DEP_HD_ring_plane}. Because the trap is closed, particles must be located within the trapping region before the trap is activated, or they will be repelled from the vicinity of the trap. Hence, the ring traps are unlike designs such as the `horseshoe' electrodes - \fref{fig:Seger2004_cell_dipping_horseshoe} - which are self-filling. A control system (automated of manual) is required to fill the traps with particles, by activating the traps when a particle is directly above the trapping region. 
+
+HeLa cells suspended in physiological medium (DMEM) were trapped using voltages of 5 Vpp, 20 MHz. Higher frequencies were used as damage to the electrodes was observed when the device contained DMEM and the traps were driven with signals in the region of 1 MHz at 5 Vpp. \fref{fig:ring1_electrode_damage} shows two images of the ring electrodes are used in DMEM media. The damage to the electrodes was believed to related to the ionic content of the medium and the frequency of the applied electric fields. At 20 MHz, the rate of damage to the electrodes was much slower, and cells could be manipulated for over one hour before noticeable damage to the ring electrodes was observed. The developed design of ring electrodes with a double ring structure were fabricated from titanium-platinum with a silicon nitride dielectric (see Chapter \ref{Chapter:Fabrication}), rather than titanium-gold-titanium with a BCB dielectric, and these appeared far more resilient, although this could be as a result of better metal adhesion rather than a better choice of materials. 
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ring1_electrode_damage.pdf}
+	\caption[Damage to electrode structures as a result of electrokinetic manipulation.]{Damage to electrode structures as a result of electrokinetic manipulation, illustrating two modes of failure: (a) delamination of the metal layers has led to the entire ring electrode detaching from the substrate, and (b) electrochemical attack with degradation of the metal layer around the edges.}
+	\label{fig:ring1_electrode_damage}
+	\end{figure}
+
+\section{Conclusions}
+
+Dielectrophoretic ring electrodes have been shown suitable for the trapping and immobilisation of single particles and cells within a microfluidic device. Values for the trapping forces calculated from numerical simulation of the electric field agree closely with the measured results. This validates both the use of numerical simulation of the electric field to determine DEP forces, and the calculation of hydrodynamic drag through velocity flow profile analysis. With knowledge of the electrical parameters or dimensions of a particle, either of these methods can be used to determine the flow rates at which the particle can be trapped.
+
+The trapping of multiple single cells is an exciting concept, as it opens up the possibility of new ways of working with cells. Rather than treating cells as a bulk population that must be described by statistical terms, single cells can be isolated and analysed. The ability to isolate single cells is of interest in its own right, but has many more possibilities when it is combined with other components into an integrated system. An array of ring traps can be used as a particle concentrator, to position cells for culture, or to isolate cells within a cell-based assay. Particle immobilisation can also be used as a separation technique. By trapping particles of interest, the remaining particles can be washed away with fluid flow to leave a purified population. This method of separation is explored in the next chapter.

@@ -1,0 +1,131 @@
+\chapter{Measurement of Electrical Characteristics of Cells} 
+\label{Chapter:Measurement of Electrical Characteristics of Cells}
+
+\section{Introduction}
+As discussed in Section xxx, the kinetic response of cells to electrical stimulus is dependent upon dielectric properties of the cell. These properties can be modelled as an equivalent circuit with defined parameters, and measurement of these parameters allows the electrokinetic response of a cell to be determined.
+
+Electrorotation has been widely used to measure the electrical properties of cells because measurements can be obtained without displacing the cell within the required spatially-variant electric field. Typically, measurements of angular rotational velocity are obtained as the frequency of the applied electric field is varied. Re... *fitting* an appropriate form of the Claussius-Mossotti equation through these measurements provides the electrical parameters as the fitting coefficients.
+
+Figure \ref{fig:CM_factor_model_cell_high_low_cond} shows calculations of the Claussius-Mossotti factor for a model cell (single shell model - see Section xxx) in relatively high and low conductivity media; the electrorotaional response is proportional to the imaginary part. As can be seen from the figure, the peaks in the electrorotational spectra in high conductivity media are much smaller than for the low conductivity, and in practice it would be difficult to observe rotation under such conditions. Hence, electrorotaional measurements are usually performed on cells suspended in a low conductivity buffer. Additional sugars are added to render such media isotonic, to prevent cell .... lysis?
+
+\begin{figure}
+ \centering
+ \subfigure[]{
+ %\includegraphics{../Figures/CM_factor_model_cell_high_cond.pdf}
+ % .: 1179666x1179666 pixel, 0dpi, infxinf cm, bb=
+ \label{fig:CM_factor_model_cell_low_cond}
+ }
+ \subfigure[]{
+%\includegraphics{../Figures/CM_factor_model_cell_low_cond.pdf}
+ \label{fig:CM_factor_model_cell_low_cond}
+}
+ \label{fig:CM_factor_model_cell_high_low_cond}
+ \caption{Plot of the Clausius-Mossotti factor for a model cell in **ref** (a) high conductivity media and **ref** (b) low conductivity media (single shell model, 10$\mu$m diameter, xxxxxx )}
+\end{figure}
+
+
+Electrokinetic Manipulation
+Electrical properties
+Dielectric relaxation
+Cell membrane
+High conductivity media
+ROT spectra in low conductivity media
+Cell health - isotonic
+
+\section{Materials and Methods}
+Electrorotaion measurements were obtained for HeLa cells (human cervical carcinonma) and MG63 cells (human osteosarcoma) - both established cell lines in culture.
+
+
+\subsection{Equipment}
+Circular quadrapole electrodes \ref{fig:ROT_electrodes} fabricated on 500 $\mu$m thick borosilicate glass were used to create a rotating electric field within the central region. A TTI TGxxxx signal generator was used to produce a 4-phase electric field with 90$\circ$ phase angle. Custom scripts written in LabView (xxx) were used to record video sequences directly on to a personal computer (through a uEye 2230c video camera mounted on a Zeiss AxioVert xx microscope) and control the signal generator through a xxxx GPIB interface. Frequencies and voltages of the electric field were confirmed using an Agilent xxxx oscilloscope.
+
+\begin{figure}
+	\centering
+		%\includegraphics{../Figures/Electrorotation_electrodes.pdf}
+	\caption{Microscopy image of the electrodes used for electrorotation. Diagonal distance across the central region is approximately xx $\mu$m}
+	\label{fig:ROT_electrodes}
+\end{figure}
+
+\subsection{Cell culture}
+
+HeLa and MG63 cells were cultured in tissue culture flasks in DMEM (Dulbecco's Modified Eagle's Medium - 4mM L-glutamine, Hepes buffer, no Pyruvate) with 10$\%$ foetal calf serum, at $37^{\circ}$C. To maintain growth, the cultures were passaged every 3rd or 4th day by trypsinisation, and fresh culture medium added.
+
+An isoosmotic aqueous buffer was prepared comprising of: 8.5\% sucrose, 0.1\% glucose, 0.2\% BSA and 0.1mM EDTA. The conductivity was adjusted to 22.2 mS/m using KCl and a xxx conductivity meter. Media was sterillised by passing through a 0.2 $\mu$m syringe filter (Sartorious, USA). Cells were resuspended in the isoosmotic buffer by separation through centrifugation (100g, 5 minutes) and resuspension three times.
+
+\subsection{Experimental Work}
+
+Cells suspended in isoosmotic buffer were dispensed into a well on the electrode slide in volumes of 100 $\mu$l. A 4-phase rotating electric field was created with magnitude 10 Vpp, and the frequency swept between 1 KHz and 40 MHz with 5 increments per decade.
+
+Measurements of cell angular rotational velocity were obtained manually by frame-by-frame analysis using VirtualDub xxx software. Measurements of cell diameter were also obtained by image analysis, using the microscope objective magnification power (10x) and the camera pixel size as a conversion factor.
+
+\section{Results}
+
+Figure
+
+\begin{figure}
+	\centering
+		%\includegraphics{../Figures/Cell_images_HeLa_ROT.pdf}
+	\caption{Microscopy images of the ten HeLa cells used for electrorotation measurements, with their dimensions.}
+	\label{fig:Cell_images_HeLa_ROT}
+\end{figure}
+
+\begin{figure}
+	\centering
+		%\includegraphics{../Figures/HeLa_ROT_scatter plot.pdf}
+	\caption{Plot of the electrorotation angular velocity measurments for the ten HeLa cells.}
+	\label{fig:HeLa_ROT_scatter plot}
+\end{figure}
+
+\begin{figure}
+	\centering
+		%\includegraphics{../Figures/HeLa_ROT_fits.pdf}
+	\caption{Plot of the electrorotation angular velocity measurments for the ten HeLa cells with their associated Claussius-Mossotti functions using fitted data.}
+	\label{fig:HeLa_ROT_fits}
+\end{figure}
+
+Table of Parameters - HeLa cells, Average Value, Standard Deviation
+Diameter
+Membrane Capacitance
+Cytoplasm Conductivity
+Cytoplasm Relative Permitivitty
+
+\begin{figure}
+	\centering
+		%\includegraphics{../Figures/Cell_images_MG63_ROT.pdf}
+	\caption{Microscopy images of the ten MG63 cells used for electrorotation measurements, with their dimensions.}
+	\label{fig:Cell_images_MG63_ROT}
+\end{figure}
+
+\begin{figure}
+	\centering
+		%\includegraphics{../Figures/MG63_ROT_scatter plot.pdf}
+	\caption{Plot of the electrorotation angular velocity measurments for the ten MG63 cells.}
+	\label{fig:MG63_ROT_scatter plot}
+\end{figure}
+
+\begin{figure}
+	\centering
+		%\includegraphics{../Figures/MG63_ROT_fits.pdf}
+	\caption{Plot of the electrorotation angular velocity measurments for the ten MG63 cells with their associated Claussius-Mossotti functions using fitted data.}
+	\label{fig:MG63_ROT_fits}
+\end{figure}
+
+Table of Parameters - HeLa cells, Average Value, Standard Deviation
+Diameter
+Membrane Capacitance
+Cytoplasm Conductivity
+Cytoplasm Relative Permitivitty
+
+\section{Discussion}
+
+** Extraction of cell characterisitics - single shell model **
+** CM factor plot **
+
+\section{Conclusions}
+
+\clearpage
+
+\subsection{subsection title}
+\subsection{subsubsection title}
+\paragraph{paragraph title}
+\subparagraph{subparagraph title}

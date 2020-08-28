@@ -1,0 +1,383 @@
+%% ----------------------------------------------------------------
+%% Background.tex
+%% ---------------------------------------------------------------- 
+\chapter{Background Theory}
+\label{Chapter:Background}
+
+\section{Concepts in Electrostatics and Electrodynamics}
+\label{sec:concepts_in_electrostatics_and_electrodynamics}
+
+An electric charge can be described as an excess (negative charge) or shortage (positive charge) of electrons, in comparison to a body that is electrically neutral. Such a body has equal numbers of positive and negative charges, and so has no overall charge. A charged particle in an electric field experiences a Coulomb force:
+
+\begin{equation}
+ F=Q \textbf{E}
+\label{eqn:force_on_point_charge}
+\end{equation}
+
+$Q$ is the electric charge on the particle, and $\textbf{E}$ is the electric field vector. The electric field surrounding a charged particle (point charge) can also be described, using the equation below:
+
+\begin{equation}
+ \textbf{E}=\dfrac{1}{4\pi\epsilon}\dfrac{Q}{r^{2}}\hat{i}
+\label{eqn:field_around_point_charge}
+\end{equation}
+
+$r$ is the distance from the particle centre to the point of interest, and $\hat{i}$ is the unit vector from the particle centre to the measurement location.
+
+The displacement of charged particles within an electric field is the phenomenon of electrophoresis - and is commonly used as a scientific tool to identify small charged particles, such as proteins or DNA. Particles are identified by the distance that they move through a viscous gel under an electric field in a given time - charge and size of the particles determining the Coulomb and hydrodynamic drag forces on the particle, the sum of these determining the velocity at which the particle moves. A picture of the arrangement inside a typical machine for sample identification using electrophoresis is shown in Section \ref{sec:electrophoresis_intro}.
+
+A dipole is a pair of opposite charges, separated by a fixed distance $d$. Dipoles can exist naturally, such as across molecules of water, or can be created by the movement of charges (see below). The net movement of electrons is described as an electric current, and the ease at which electrons move through a material defines it as a conductor, semiconductor or and insulator. Electrons are free to move through the lattice of a metallic conductor relatively unhindered, due to overlapping electron orbits. No such mechanism exists in materials described as insulators, and hence the energy required to drive electrons through such a material is significantly higher. The electrons in an insulating material are described as bound charges, because they are generally bound to an individual atom and are not free to move through the atomic lattice.
+
+\section{Polarisation of a Dielectric Particle}
+\subsection{Electronic Polarisation}
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/dipole_formation_in_electric_field_diagram}
+ \caption[Dipole formation on a particle in solution under an external electric field.]{A dielectric particle in a more polarisable solution: under the influence of an external electric field an equivalent dipole is formed.}
+ \label{fig:dipole_formation_in_electric_field_diagram}
+\end{figure}
+
+Electrons in an insulating material are considered to be bound to their parent atom, and do not readily flow through the material in the presence of an electric field. The electrons will be displaced, however, with the focus of their random orbits shifted by the force of the electric field on the charged particle. The charge in the material is no longer evenly distributed, with regions of net negative and net positive charge at either ends of the body: the material is polarised. A particle in an electric field will polarise, as charges throughout the material are displaced. The surfaces of the particle will have a net charge, as electrons are displaced either towards or away from the surfaces. This difference in net charge across the particle can be modelled as an equivalent induced dipole, and in the case of a spherical, homogeneous particle in a uniform electric field, this is a valid mathematical model and is frequently used in the numerical analysis of electrokinetic systems. The polarisation of a material by the displacement of electrons is described as the electronic mechanism of polarisation.
+
+\subsection{Interfacial polarisation}
+
+In the case of a particle suspended in a dielectric liquid, the charges at the surface of the particle attract oppositely charged counter-charges from the liquid - this is known as interfacial polarisation. If the effective polarisability of the medium is different to that of the particle, the magnitude of the counter-charge that is developed from the medium will be different to the surface charge on the polarised particle - leading to a difference in the net charge across the particle - see \fref{fig:dipole_formation_in_electric_field_diagram}.
+
+In the case of a spherical, homogeneous particle, this difference in net charge across the particle can be modelled as an equivalent induced dipole. Particles of other geometry or configuration can be modelled by an equivalent induced multi-pole. 
+
+\section{Dielectrophoresis}
+\label{sec:bg_dielectrophoresis}
+
+\begin{figure}[t]
+ \centering
+ \includegraphics{../Figures/dipole_in_uniform_field.pdf}
+ \caption[A dipole in a uniform field experiences a torque that directs it towards alignment with the field.]{A dipole in a uniform field experiences a torque that directs it towards alignment with the field, but the net force on the dipole is zero.}
+ \label{fig:dipole_in_uniform_field}
+\end{figure}
+
+A dielectric particle placed in an electric field will polarise, forming an induced equivalent dipole. A dipole in a uniform electric field will experience a torque, directing it towards alignment with the field, but as Figure \ref{fig:dipole_in_uniform_field} shows, the net force on the dipole is zero because an equal and opposite force acts on each half of the dipole.
+
+If the electric field is not uniformly distributed, however, the electrostatic force on each half of the dipole will be different, resulting in a net force on the dipole - this is the dielectrophoresis effect. The direction that the DEP force acts is dependent on the relationship between the polarisability of the particle and the polarisability of the medium, described by the Clausius-Mossotti factor (see below). The time averaged DEP force can be calculated by the equation \citep{Morgan:2003}:
+
+\begin{equation}
+ \langle F_{DEP} \rangle = \pi \epsilon_{m} a^{3} Re(f_{CM}) \nabla |\textbf{E}|^{2}
+\label{eqn:dep_force}
+\end{equation}
+
+$\epsilon_{m}$ is the permittivity of the suspending medium, $Re(f_{CM})$ represents the real part of the Clausius-Mossotti (CM) factor, and $\textbf{E}$ is the peak value of the electric field vector. The CM factor is a complex number that describes the polarisability of the system (particle and medium), and for a homogeneous sphere it can be calculated as:
+
+
+\begin{figure}[t]
+ \centering
+ \includegraphics{../Figures/medoro_2007_pdep_ndep_charges.pdf}
+ \caption[Positive and negative DEP.]{(a) Positive and (b) negative DEP. Adapted from \cite{Medoro:2007}.}
+ \label{fig:medoro_2007_pdep_ndep_charges}
+\end{figure}
+
+\begin{equation}
+ f_{CM} =  \frac{\epsilon_{p}^{*}-\epsilon_{m}^{*}}{\epsilon_{p}^{*}+2\epsilon_{m}^{*}}
+\label{eqn:CM_factor}
+\end{equation}
+
+$\epsilon_{p}^{*}$ is the complex permittivity of the particle, and $\epsilon_{m}^{*}$ is the complex permittivity of the medium. The complex permittivity can be calculated from the electrical properties of a material:
+
+\begin{equation}
+ \epsilon^{*} = \epsilon - j \frac{\sigma}{\omega}
+\label{eqn:complex_permittivity}
+\end{equation}
+
+$\epsilon$ is the bulk permittivity of the material, $\sigma$ is the conductivity, $\omega$ is the angular frequency of the applied electric field and $j$ is the imaginary vector.
+
+The polarisation relationship between the particle and the medium defines the direction of the induced dipole, and hence the DEP force. \fref{fig:medoro_2007_pdep_ndep_charges} (a) shows the case where the complex permittivity of the particle exceeds that of the medium - \eref{eqn:CM_factor} evaluates to have a positive real part, and the DEP force directs the particle towards regions of high electric field strength. This is called positive DEP. \fref{fig:medoro_2007_pdep_ndep_charges} (b) shows the case where the complex permittivity of the particle is less than that of the medium - \eref{eqn:CM_factor} evaluates to have a negative real part, and the DEP force vector points towards regions of lower electric field strength. This is called negative DEP.
+
+\fref{fig:CM_factor_1um_bead_0x1mS_cond} shows the variation in the Clausius-Mossotti factor for a 1 $\mu$m latex bead in an aqueous suspension of conductivity 0.1m S/m. As can be seen from \eref{eqn:complex_permittivity}, the frequency is very important in determining the significance of the conductivity or permittivity. The low-frequency effects are dependent on the ratio of the conductivities, whereas the high frequencies are almost solely dependent on the ratio of the permittivities. The crossover frequency ($f_{xo}$) is the point at which the CM factor is equal to zero, and occurs when \citep{Jones:1986}:
+
+\begin{equation}
+ f_{xo} = \frac{1}{2 \pi} \sqrt{\frac{(\sigma_p - \sigma_m)(\sigma_p + 2 \sigma_m)}{(\epsilon_p - \epsilon_m)(\epsilon_p + 2 \epsilon_m)}}
+\label{eqn:crossover_equation}
+\end{equation}
+
+Measurement of the crossover frequency is a quick and simple method to asses the polarisability of a particle in comparison to the medium.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/CM_factor_1um_bead_0x1mS_cond.pdf}
+ \caption[Plot of the Clausius-Mossotti factor for a 1 $\mu$m diameter latex bead in aqueous solution of conductivity 0.1 mS m$^{-1}$.]{Plot of the Clausius-Mossotti factor for a 1 $\mu$m diameter latex bead in aqueous solution of conductivity 0.1 mS m$^{-1}$. Travelling wave DEP is feasible in the greyed frequency bands where the CM factor has a negative real part and a non-zero imaginary part.}
+ \label{fig:CM_factor_1um_bead_0x1mS_cond}
+\end{figure}
+
+\subsection{Electrorotation and Travelling-wave DEP}
+\label{sec:electrorotation_and_travelling_wave}
+
+\fref{fig:4_phase_sinusoidal_waveforms} shows the waveforms of four alternating sinusoidal voltages, each with a phase-lag of $90^{\circ}$ to the previous wave. When applied to the quadrapole electrode array (Section \ref{sec:electrorotation_intro}, \fref{fig:Reichle1999_ROT_jurkat_T}), a rotating electric field is produced. This will interact with an induced dipole on a particle within the electrodes to produce a torque on the particle. The torque can be calculated using the equation:
+\nopagebreak[3]
+\begin{equation}
+ \langle \Gamma_{ROT} \rangle = -4 \pi \epsilon_{m} a^{3} Im(f_{CM}) |\textbf{E}|^{2}
+\label{eqn:ROT_torque}
+\end{equation}
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/4_phase_sinusoidal_waveforms.pdf}
+ \caption{4-phase waveforms used to drive an electrorotation array.}
+ \label{fig:4_phase_sinusoidal_waveforms}
+\end{figure}
+
+$Im(f_{CM})$ represents the imaginary part of the CM factor. The particle will rotate either with or against the direction of rotation of the field, depending on if the imaginary part of the CM factor is positive or negative.
+
+Similarly, if the 4-phase electric fields are applied to the travelling-wave array shown in \fref{fig:Morgan1997_TWDEP}, the field maxima will appear to move along the array, and will interact with the dipole induced on a particle above the electrodes to produce forces on the particle both perpendicular and parallel to the surface of the array. The travelling wave force developed on a particle can be calculated from \citep{Morgan:1997}:
+\nopagebreak[3]
+\begin{equation}
+ F_{TWDEP} = \frac{-4\pi\epsilon_{m}a^{3} Im(f_{CM}) |\textbf{E}|^{2}}{\lambda}
+\end{equation}
+
+$\lambda$ is the wavelength of the travelling field (determined by the geometry of the electrode array.) A particle will experience a DEP force (proportional to the real part of the CM factor) that attracts/repels the particle from the electrodes in conjunction with a ROT or TW force. In the case of electrorotation, a positive DEP force will destabilise the electrorotation effect as the particle is drawn towards the electrodes. The phase angle of 90$^{\circ}$ between neighbouring electrodes reduces the gradient of the electric field by a factor of 2, hence reducing the DEP force on the particle by a factor of 4. For the majority of particles (that are more dense than water), a negative DEP force is required for travelling-wave manipulation so that the particle is lifted above the electrode surface. The particle will rise until an equilibrium is reached between gravity and the (vertical) DEP force. \fref{fig:CM_factor_1um_bead_0x1mS_cond} shows a plot of the Clausius-Mossotti factor for 1 $\mu$m diameter polystyrene microparticles. Travelling-wave manipulation is possible in the greyed regions, where the real part of the CM factor is sufficiently negative for the cells to be levitated and the imaginary part is non-zero.
+
+\section{Interactions between Fluids and Electric Fields}
+\subsection{Overview}
+Electrokinetic effects are not limited to the manipulation of microparticles in suspension, as interactions between the electric field and the fluid itself can also take place. Electric field-induced fluid motion is often produced unintentionally, when electrokinetic manipulation of microparticles was the primary intention. In such cases, it can be of help or hindrance. Electric field-induced fluid motion has also been intentionally exploited, such as its use as a pumping mechanism. Such techniques are useful as they permit pumping hardware to be integrated into microfluidic systems.
+
+\subsection{The Double Layer}
+Ionic content in a fluid greatly affects its electrical conductivity, acting as charge carriers. These electrolytic solutions (or electrolytes) are commonly used within microfluidic devices, particularly for the manipulation of cells as a certain level of salts are required to regulate the osmotic pressure. The local field that surrounds an ion in solution draws water molecules towards it due to their permanent dipole. This creates a cloud of water molecules around each ion \citep{Morgan:2003}.
+
+The interface between a solid surface, such as the wall of a channel or a suspended particle, and an electrolyte is strongly affected by surface charge and the presence of ions from the electrolyte. Surfaces can accumulate charge through dissociation of chemical groups on the surface, or adsorption of ions from solution; in the case of electrodes, an applied voltage causes movement of charge carriers through the circuit and a corresponding charge imbalance on the surface of the electrodes.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/double_layer.pdf}
+ \caption[Double layer formation at a charged surface.]{Counter-ions in aqueous solution are drawn towards a charged surface. Water molecules are drawn to the ions by their local field. An imbalance of ion concentration is created, forming the Stern and diffuse layers around the surface. Adapted from \cite{Morgan:2003}}
+ \label{fig:double_layer}
+\end{figure}
+
+The electric field surrounding a charged surface draws counter ions from the solution towards the surface, creating a higher than average concentration of counter ions in the area around the electrodes, known as the diffuse layer. \fref{fig:double_layer} shows a schematic representation of this. In addition, the ions (with their associated cloud of water molecules) form a very thin layer, bound to the surface, known as the Stern layer.
+
+The presence of counter ions at the surface/water interface acts as a capacitor, with the surface potential dropping over the double layer, so that the potential in the fluid bulk is much lower. In the case of an electrode driven with an alternating voltage, the effect is frequency-dependent. At low frequencies, much of the potential will drop over the counter ions at the electrode surface. With higher frequencies, the counter ions in the solution will not have sufficient time to re-establish polarisation at the electrodes before the polarity reverses again, and majority of the potential will be applied across the bulk solution.
+
+In hydrodynamic terms, the Stern layer represents a highly viscous, immobile monolayer. The outer surface of the Stern layer is the slip plane, the point at which fluid can move relative to the surface. The potential at this point is known as the zeta potential, and is a function of the charge density in the solution. Disruption of the charges in the double layer can induce fluid motion, known as electroosmosis.
+
+\subsection{Electroosmosis}
+An electric field in a direction parallel to a polarised interface will move charges in the double layer, generating a flow. The flow velocity is zero at the fluid/electrolyte interface, rising to its maximum at the slip plane. The velocity is maintained with a flat profile throughout the bulk of the fluid. This phenomenon has been exploited as a pumping technology, by applying a DC potential across the length of a microfluidic channel, such as \cite{Fu:1999,Dittrich:2003}. The electroosmotic fluid velocity can be determined from \eref{eqn:electroosmotic_velocity} \citep{Morgan:2003}:
+
+\begin{equation}
+ u_{x} = -E_{x} \frac{\epsilon_{m} \zeta}{\eta}
+\label{eqn:electroosmotic_velocity}
+\end{equation}
+
+$\epsilon_{m}$ is the permittivity of the fluid, $\eta$ is the dynamic viscosity of the fluid, and $\zeta$ is the zeta potential at the interface. Electroosmotic flow is particularly significant as the fluid velocity profile is flat across the bulk of the fluid, very different from the parabolic velocity profile usually found in microfluidic channels. This flat profile avoids the spreading of a small sample that occurs when a parabolic velocity profile causes sample at the centre of the channel to move faster than that at the edges.
+
+\subsection{AC Electroosmosis}
+Electroosmosis as described in the previous section is a phenomenon that occurs only under a DC field - reversal of the field would produce a corresponding reversal in flow, and a zero time-averaged net flow. Under a non-uniform electric field, however, displacement of ions in and around the double layer is possible, producing local fluid motion. \fref{fig:Electroosmosis_overview_diagram} shows a coplanar pair of electrodes producing a non-uniform electric field within a microfluidic channel. The field is normal to the surface as it meets the electrodes, but quickly assumes a tangential component as it curves toward the opposing electrode. The interaction between the electric field and the ions drawn towards the electrode surface produces fluid motion across the surface of the electrode. The key difference with AC electroosmosis is that as the field reverses, oppositely charged ions are drawn to the surface and displaced in the same direction, so the fluid motion continues unchanged. The effect of AC electroosmosis can be seen while performing pDEP trapping of microparticles. Particles are drawn to the high field regions at the edges of electrodes, but are pushed back, on top of the electrodes by the fluid flow. The fluid flow field can be determined from the equation \citep{Morgan:2003}:
+
+\begin{equation}
+ \left\langle u_{x} \right\rangle = \frac{1}{2} Re \left[ \frac{\sigma_{qo} E_{t}^{*}}{\eta \kappa} \right] 
+\label{eqn:acelectroosmotic_velocity}
+\end{equation}
+
+\begin{equation}
+ \kappa = \sqrt{\frac{\sigma_{m}}{D \epsilon_{m}}}
+\label{eqn:debye_length}
+\end{equation}
+
+$\sigma_{qo}$ is the surface charge, $E_{t}^{*}$ is the tangential component of the electric field, $D$ is the diffusion coefficient of the electrolyte and $\kappa$ is the reciprocal of the Debye length - a length scale that describes the rate at which the electric potential drops off with distance. In the case of \eref{eqn:debye_length}, this is the potential around a single, monovalent ion.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/Electroosmosis_overview_diagram2.pdf}
+ \caption[Electroosmotic flow around an electrode pair.]{Electroosmotic flow around an electrode pair. Adapted from \cite{Morgan:2003}.}
+ \label{fig:Electroosmosis_overview_diagram}
+\end{figure}
+
+The magnitude of the fluid velocity is frequency dependent, due to the electrode polarisation effects. At higher frequencies, the electrodes do not fully polarise before the field reverses, meaning that there is not the required excess of counter-ions near to the electrodes to be displaced by the tangential component of the electric field. At low frequencies, the electrodes fully polarise each half cycle which blocks the field from the bulk of the electrolyte. It is in the intermediate region that AC electroosmosis can take effect, typically from 10$^{1}$ to 10$^{5}$ Hz \citep{Morgan:2003}.
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/Ramos2003_electroosotic_pumping.pdf}
+ \caption[Asymmetric electroosmotic flow around differently sized electrodes produces a net flow through a microchannel.]{Asymmetric electroosmotic flow around differently sized electrodes produces a net flow through a microchannel. Taken from \cite{Ramos:2003}.}
+ \label{fig:Ramos2003_electroosotic_pumping}
+\end{figure}
+
+The effect of AC electroosmosis around a symmetrical electrode pair is to redistribute the fluid outwards, away from the gap between the electrodes. This has the effect of producing swirls of liquid over each electrode as fluid is brought down between the electrodes from the top of the channel, and recirculated. Over the system as a whole, this will only lead to local fluid motion, as the circulating flow is mirrored above the opposing electrode. \cite{Brown:2000} observed, however, that an asymmetric pair of electrodes would produce differently sized swirls of fluid, leading to a net fluid flow through the channel. Hence, AC electroosmosis could be used to produce an on-chip solid-state pump. An overview of the fluid motion from a cross-section view is shown in \fref{fig:Ramos2003_electroosotic_pumping}.
+
+\subsection{Electrothermal Flow}
+
+The presence of an electric field within a fluid will give rise to electric current flow if the fluid has a non-zero conductivity. This leads to Joule heating of the fluid, producing a temperature gradient within the system. In the case of electrodes for electrokinetic manipulation, the heat sources can be quite localised, leading to large thermal gradients in the vicinity of the electrodes \citep{Ramos:1998}:
+
+\begin{equation}
+ P = \sigma_{m} |\textbf{E}|^{2}
+\label{eqn:joule_heating}
+\end{equation}
+
+$P$ is the power dissipation per unit volume. Variation in temperature produces a corresponding variation in the conductivity of the fluid, and hence thermal input produces a conductivity gradient in the fluid. In the presence of an electric field these variations give rise to a body force on the fluid, leading to fluid flow as can be seen from \eref{eqn:simplified_navier_stokes} below in Section \ref{sec:flow_velocity_profile}. The body force can be determined from \citep{Chen:2006}:
+
+\begin{equation}
+ \langle f_{e} \rangle = \frac{1}{2} Re \left[ \left( \frac{(\sigma_{m} \nabla \epsilon_{m} - \epsilon_{m} \nabla \sigma_{m}) \cdot \textbf{E} }{\sigma_{m} + i \omega \epsilon_{m}} \right) \textbf{E}^{*} - \frac{1}{2} |\textbf{E}|^{2} \nabla \epsilon_{m} \right]
+\label{eqn:electrothermal_flow}
+\end{equation}
+
+$E$ is the electric field vector, and $^{*}$ represents the complex conjugate. Electrothermal flow is highly dependent on the fluid bulk conductivity, as power dissipation in the fluid increases with conductivity. Electroosmotic flow (see below) is usually the more dominant effect at electric field frequencies of less than 100 kHz \citep{Morgan:2003}.
+
+\section{Electrical Characteristics of Biological Cells}
+\label{sec:electrical_characteristics_of_biological_cells}
+The developed internal structure of biological cells means that they have a complicated response to electrical stimulus. The cell membrane is a very thin (approximately 5 nm) and highly insulating bilayer, while the cytosol that comprises the vast majority of the cell volume has a much higher conductivity, of approximately 0.2 S m$^{-1}$. Polarisation will occur at every internal membrane and discontinuity within the cell, as well as at the exterior interface. The most common approach to simulate the electrical characteristics of cells is to use a concentric shell model. The cell is treated as a spherical particle, with one or more discrete shells, each with uniform electrical parameters - see \fref{fig:cell_single_shell_model_diagram}.
+
+Shelled models are typically derived from the cells physical structure, the most commonly used has a single shell representing the cell membrane with the rest of the internal volume representing the cytosol and cell interior. The cell wall and membrane of yeast cells (\textit{S. cerevisiae}) have also been successfully represented using a two-shell model by \cite{Huang:1992}.
+
+\begin{figure}
+ \centering
+ \includegraphics{cell_single_shell_model_diagram.pdf}
+ \caption{A single concentric shell model, typically used for modelling a biological cell.}
+ \label{fig:cell_single_shell_model_diagram}
+\end{figure}
+
+The Clausius-Mossotti factor for a single-shell model particle in suspension can be calculated by determining first the Clausius-Mossotti factor for the particle itself (\eref{eqn:single_shell_1}), calculating the equivalent complex permittivity for the particle (\eref{eqn:single_shell_2}), and finally calculating the Clausius-Mossotti factor for the particle/medium system together (\eref{eqn:single_shell_3}), as shown by \cite{Huang:1992}:
+
+\begin{equation}
+ f_{CM12}=\frac{\epsilon_{2}^{*}-\epsilon_{1}^{*}}{\epsilon_{2}^{*}+2\epsilon_{1}^{*}}
+\label{eqn:single_shell_1}
+\end{equation}
+
+\begin{equation}
+ \epsilon_{12}^{*}=\epsilon_{2}^{*}\frac{(a_{1}/a_{2})^{3}+2f_{CM12}}{(a_{1}/a_{2})^{3}-f_{CM12}}
+\label{eqn:single_shell_2}
+\end{equation}
+
+\begin{equation}
+ f_{CM123}=\frac{\epsilon_{12}^{*}-\epsilon_{3}^{*}}{\epsilon_{12}^{*}+2\epsilon_{3}^{*}}
+\label{eqn:single_shell_3}
+\end{equation}
+
+$\epsilon_{3}^{*}$ is the complex permittivity of the medium, and can be calculated from \eref{eqn:complex_permittivity}. The response of more complex particle models (with more shells) can be calculated in the same manner, by sequentially calculating the effective permittivity for pairs of shells \citep{Huang:1992}. \fref{fig:CM_plot_viable_yeast} shows a plot of the Clausius-Mossotti factor for a single shell model of \textit{S. Saccharomyces} in aqueous suspension, using a single shell model.
+
+To model the electrical characteristics of cells, a more appropriate model maybe as a thin membrane surrounding a lossy dielectric. Small discrepancies in the value of the cell membrane thickness in a numerical model may cause a significant change in the model output, so it is advantageous to remove this element from a model if possible. By introducing the capacitance of the membrane per unit area, the Clausius-Mossotti factor may be modified accordingly \citep{Kriegmaier:2001}:
+
+\begin{equation}
+ C_{m} = \frac{\epsilon_{2}}{d}
+\end{equation}
+
+\begin{equation}
+ f_{CM}=\frac{aC_{m}^{*} \left ( \epsilon_{3}^{*} - \epsilon_{1}^{*}  \right ) - \epsilon_{1}^{*}\epsilon_{3}^{*}}{aC_{m}^{*} \left ( \epsilon_{3}^{*} +2 \epsilon_{1}^{*}  \right ) +2 \epsilon_{1}^{*}\epsilon_{3}^{*}}
+\label{CM_thin_membrane}
+\end{equation}
+
+\begin{figure}
+ \centering
+ \includegraphics[scale=0.6]{../Figures/CM_plot_viable_yeast.pdf}
+ \caption[Plot of the Clausius-Mossotti factor for viable yeast cells in aqueous solution.]{Plot of the Clausius-Mossotti factor for viable yeast cells in aqueous solution, calculated using a single shell model ($\sigma_{m}$ = 50 mS/m, $\sigma_{membrane}$ = 0.25 $\mu$S/m, $\sigma_{cytoplasm}$ = 0.3 S/m, $\epsilon_{r,medium}$ =78, $\epsilon_{r,membrane}$= 6, $\epsilon_{r,cytoplasm}$ = 60, $a_{2}$ = 4 $\mu$m, $a_{2}-a_{1}$ = 8 nm) - travelling wave DEP is feasible in the greyed frequency bands where the CM factor has a negative real part and a non-zero imaginary part.}
+ \label{fig:CM_plot_viable_yeast}
+\end{figure}
+
+
+\section{Flow in Microfluidic Systems}
+\label{sec:flow_in_microfluidic_systems}
+\subsection{Regimes of Flow}
+
+Intuitive physical relationships that occur in the macroscopic world, such as fluids flowing with turbulence and mixing easily, are not maintained on smaller length scales. On the micro-scale, viscous forces dominate, and inertia becomes much less important. The Reynolds number of a system describes the ratio between viscous and inertial forces:
+
+\begin{equation}
+ Re = \frac{\rho_{m} V D_{H}}{\eta} = \frac{V D_{H}}{\nu} = \frac{Q D_{H}}{\nu A}
+\label{eqn:reynolds_number}
+\end{equation}
+
+
+$\rho_{m}$ is the fluid density, $D_{H}$ is the characteristic length of the system (or \textit{hydraulic diameter}, equal to the actual diameter in a circular pipe), $V$ is the mean fluid velocity, $\eta$ is the dynamic fluid viscosity, $Q$ is the fluid volumetric flow rate, $A$ is the cross-sectional area and $\nu$ is the kinematic fluid viscosity. As Equation \ref{eqn:reynolds_number} shows, decreasing the length scale and the fluid velocity causes the Reynolds number to decrease. Fluid flow in a low Reynolds number system is described as laminar, and has some unique properties.
+
+\subsection{Laminar Flow}
+
+The flow in a microfluidic system is almost always laminar, as the dimensions of the system push the Reynolds number below 1 (flows with Reynolds numbers of 2300 and below are generally considered to be laminar). There is little lateral motion of the fluid, and the primary method of mixing is diffusion. Particles in suspension follow flow streamlines through the channel, so (in the absence of external forces) the particle distribution is the same throughout the length of the channel. 
+
+Laminar flow conditions mean that multiple fluids can be carried in the same channel without them mixing. Novel microfluidic devices have been constructed to move particles between different fluids flowing side-by-side in a microchannel, a potential application for this technology is cell lysis: cells from a blood sample are moved laterally across a microfluidic channel by DEP, into a lysis buffer, before being returned to their physiological media. Unwanted erythrocytes are destroyed, leaving the more robust leukocytes intact for further analysis. Such conditions are less than advantageous, however, for performing chemical reactions within a microchannel. Mixing of reagents by diffusion is slow, and hence a number of active and passive mixing devices have been developed to accelerate the process.
+
+\subsection{Flow Velocity Profile}
+\label{sec:flow_velocity_profile}
+Laminar flows exhibit streamlines, with little lateral movement or turbulence of the fluid. Hydrodynamic drag on the fluid from the walls of the channel reduces the flow rate of the fluid near to the wall, leading to clear and defined gradients in the fluid velocity across the channel. A plot of the fluid velocity over a cross-section through the channel has a parabolic profile, with zero velocity at the channel walls - see \fref{fig:2d_velocity_profile}.
+
+\begin{figure}
+	\centering
+	\includegraphics{../Figures/2d_velocity_profile.pdf}
+	\caption[Fluid velocity profile across a microchannel.]{Fluid velocity ($u$) profile across the vertical ($Y$) axis of a channel as it flows in the x-direction.}
+	\label{fig:2d_velocity_profile}
+\end{figure}
+
+The Navier-Stokes equations describe the motion of fluids and gases, and can be used to calculate the velocity profile across a channel if the boundary conditions can be defined. In the case of a continuous Newtonian fluid flowing under low Reynolds number conditions, the governing equation is the Navier-Stokes equation:
+
+\begin{equation}
+ \rho_{m} \frac {d\textbf{u}}{dt} + \rho_{m} (\textbf{u} \cdot \nabla)\textbf{u} = -\nabla p + \eta \nabla^{2} \textbf{u} + f
+\label{eqn:simplified_navier_stokes}
+\end{equation}
+
+
+$\nabla p$ represents the pressure drop along the channel, $\rho_{m}$ is the density of the fluid, $\textbf{u}$ is the velocity of the fluid, $\eta$ is the viscosity of the fluid and $f$ is a body force acting on the fluid. For a flow that varies in one dimension only (assuming the channel width along the z-direction is very large), with a steady (time invariant) flow, only along the x-axis - depicted in \fref{fig:2d_velocity_profile} - Equation \ref{eqn:simplified_navier_stokes} reduces to the form of:
+
+\begin{equation}
+ \frac{\partial^{2}u_{x}}{\partial y^{2}} = - \frac {p_{0}} {\eta l_{0}}
+\label{eqn:1d_steady_state_navier_stokes}
+\end{equation}
+
+$p_{0}$ is the pressure drop along the channel, and $l_{0}$ is the length of the channel. The differential equation can be solved by integration and using boundary conditions - namely that the fluid velocity is zero at the channel walls (when $y=\pm d$).
+
+\begin{equation}
+ u_{x} = \frac {p_{0}} {2\eta l_{0}} (d^{2} - y^{2})
+\label{2d_steady_state_solution_navier_stokes}
+\end{equation}
+
+An alternative method for calculating the flow velocity profile when the volumetric flow rate is known (for example if fluid is pumped using a positive displacement device, such as a syringe pump) is to calculate the pressure drop over the length of the channel from the volumetric flow rate.
+
+\begin{equation}
+ Q =  \int_{-d}^{d} u_{x} dy
+= \frac{2}{3}\frac{d^{3}}{\eta} \frac{p_{0}}{l_{0}} 
+\label{derivation_vfp_from_vfr}
+\end{equation}
+
+\begin{equation}
+ \therefore \frac{p_{0}}{l_{0}} = \frac{3 \eta Q}{2 d^{3}}
+\label{derivation_vfp_from_vfr2}
+\end{equation}
+
+\begin{equation}
+ \therefore u_{x} = \frac{3 Q}{2 d^{3}}(d^{2}-y^{2})
+\label{2d_solution_from_Q_navier_stokes}
+\end{equation}
+
+This method of solving the differential equation is not appropriate if the flow varies in 2-dimensions, however, as the boundary conditions do not sufficiently constrain the solution. This would be the case if the aspect ratio of the channel was near to 1, and hence the flow velocity would be a function of the position in both the $y$ and $z$ axes. A number of methods exist to solve such problems, including numerical simulation by finite element analysis. Alternatively, an analytical method can be used by constraining the solution to a harmonic solution, and introducing a Fourier series. This method is used to calculate the hydrodynamic drag force on a particle within a microfluidic channel in \cref{Chapter:Ring_traps_1}, and a full derivation of the method is given in Appendix \ref{Chapter:derivation_of_HD_flow_profile_Fourier}.
+
+\section{Forces Acting on a Particle Within a Microfluidic System}
+\label{sec:Forces_Particle_Microfluidic_System}
+
+The motion of a particle is a vector sum of the independent forces acting upon it. This can be used to construct a generalised model of forces in a microfluidic system. A particles mass causes it to experience a gravitational force, which can be expressed in terms of the particle volume:
+
+\begin{equation}
+ F_{g} = - mg = - \frac{4}{3} \pi a^{3} \rho_{p} g 
+\label{eqn:gravitational_force}
+\end{equation}
+
+$\rho_{p}$ is the particle density, $g$ is the gravitational constant. This is opposed by a buoyancy force, equal to the weight of fluid displaced:
+
+\begin{equation}
+ F_{B} = \frac{4}{3} \pi a^{3} \rho_{m} g
+\label{eqn:buoyancy_force}
+\end{equation}
+
+$\rho_{m}$ is the density of the suspending medium. Hence, a net sedimentation force on the particle is proportional to the difference in the densities of the particle and the medium:
+
+\begin{equation}
+ F_{S} = \frac{4}{3} \pi a^{3} \rho_{m} g - \frac{4}{3} \pi a^{3} \rho_{p} g  = \frac{4}{3} \pi a^{3} (\rho_{m} - \rho_{m}) g
+\label{eqn:sedimentation_force}
+\end{equation}
+
+As the particle accelerates, hydrodynamic drag forces on the particle will increase until they equal the sedimentation force, and the particle will have reached terminal velocity. Any motion relative to the fluid will be opposed by a drag force, the magnitude of which depends on the particle velocity with reference to the fluid:
+
+\begin{equation}
+\textbf{F}_{HD}= -6 \pi a \eta \textbf{v}
+ \label{eqn:stokes_law}
+\end{equation}
+
+$\textbf{v}$ is the velocity vector between the particle and the local fluid. Electrokinetic forces can be applied to particles in solution, the direction and magnitude of which are functions of the electrode and channel geometry, the particle size and composition, the media composition and the frequency and magnitude of the electric field. The governing equations for these phenomenon are covered in the preceding sections. Vector maps of the dielectrophoretic forces within microfluidic devices can be obtained by numerical simulation, and this is discussed in Chapter \ref{Chapter:NumericalSimulation} - \nameref{Chapter:NumericalSimulation}.
+
+The parabolic flow profile of a fluid under laminar flow means that a particle within a microfluidic channel is likely to be within a shearing flow (unless it is at the centre of the channel, after focusing for example). The shear gradient induces a lift force, directed down the shear gradient and towards the wall. Also, the flow field between the particle and the wall causes asymmetry in the wake of the particle, producing a lift force directed away from the wall. The balance of these two forces produces a lift force on the particle normal to the surface of the wall as a result of fluid flow tangential to the surface of the wall \citep{DiCarlo:2007,Asmolov:1999}:
+
+\begin{equation}
+F_{L}= \frac{\rho_{m} \textbf{u}^{2} a^{4}}{D_{h}^{2}} f_{c}(R_{c},x_{c}) = \frac{\eta^{2}}{\rho_{m}} R_{p}^{2} f_{c}(R_{c},x_{c})
+ \label{eqn:lift_force}
+\end{equation}
+
+$f_{c}(R_{c},x_{c})$ is a lift coefficient that is a function of the particle position within the channel cross-section $x_{c}$ and the channel Reynolds number $R_{c}$, $R_{p}$ is the Reynolds number of the particle. As \eref{eqn:lift_force} shows, the lift force is proportional to the square of the fluid velocity ($U_{m}^{2}$) and the channel Reynolds number, which is also a function of the fluid velocity. Hence, the lift forces decrease rapidly in response to any decrease in the fluid velocity. Lift forces have been used to confine particle streams flowing at high velocity - such as 1.8 m s$^{-1}$ used by \cite{DiCarlo:2007} - but at the more modest velocities of several hundred micrometres per second used in this work the lift forces are negligible.

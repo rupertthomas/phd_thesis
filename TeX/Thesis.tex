@@ -1,0 +1,161 @@
+%% ----------------------------------------------------------------
+%% Thesis.tex
+%% ---------------------------------------------------------------- 
+\documentclass[oneside]{ecsthesis}      % Use the Thesis Style
+\graphicspath{{../Figures/}}   % Location of your graphics files
+\usepackage{natbib}            % Use Natbib style for the refs.
+\usepackage{float}
+%\usepackage{caption}[2008/04/01]
+\hypersetup{colorlinks=false}   % Set to false for black/white printing
+\input{Definitions}            % Include your abbreviations
+%\setcounter{tocdepth}{1}	% Set to one for just chapter headings and main sections in TOC
+%% ----------------------------------------------------------------
+\begin{document}
+\frontmatter
+\title      {Single Particle Dielectrophoretic Sorting Technologies}
+\authors    {\texorpdfstring
+             {\href{mailto:r.thomas@soton.ac.uk}{Rupert Thomas}}
+             {Rupert}
+            }
+\addresses  {\groupname\\\deptname\\\univname}
+\date       {\today}
+\subject    {}
+\keywords   {}
+\maketitle
+\begin{abstract}
+Cell sorting is an important laboratory process with medical and biotechnological research applications, but a problem common to many current techniques is the contamination of sorted populations with other non-target cells, which limits the usefulness of recovered populations. Microfluidic devices enable new methods of handling minute volumes of biological and chemical samples, including single cells. This work explores techniques for the manipulation of single cells and particles in a microfluidic channel using electrokinetic forces, intended for the isolation of cells from a heterogeneous population and recovery with a high purity. 
+
+Real-time image processing techniques have been used with an automated control system to sort fluorescent cells and particles using dielectrophoresis as they flow through a microfluidic channel. The use of image data enabled more complex decision algorithms to be used to distinguish between target and non-target particles. Multiple single cells and particles were tracked simultaneously, and identified by their colour, luminosity, size and shape. 
+
+Several novel electrode geometries have been developed for the manipulation of single cells and particles using dielectrophoresis. Ring electrodes have been used for trapping single cells and particles, and are suitable for massively-parallel and arrayed operation. Minority subpopulations have been enriched by using the traps to select single cells from the bulk population, and recovered with 100\% purity. This method of sorting cells is advantageous if further processing or analysis is intended within the microfluidic device, as cells are volumetrically concentrated as well as being enriched.
+
+Dielectrophoretic sorting gates have been developed for sorting particles by deflecting them laterally as they flow through a microfluidic channel junction, with up to five spatially separated outputs. Sorting performance has been characterised by measuring the velocity at which synthetic particles break-through the dielectrophoretic barriers, and the maximum rate at which particles can be sorted. The purity of recovered populations is related to the flow velocity and particle concentration during sorting, and 100\% purity has been obtained for populations sorted at rates of up to 0.9 particles per second. 
+\end{abstract}
+\tableofcontents
+\listoffigures
+\listoftables
+%\lstlistoflistings
+\listofsymbols{ll}
+{
+$a$ & Radius \\
+$A$ & Cross-sectional area \\
+$c_p$ & Specific heat at constant pressure \\
+$C_m$ & Membrane capacitance \\
+$C$ & Concentration \\
+
+$d$ & Width of the microfluidic channel \\
+$D$ & Electric flux \\
+$D$ & Diffusion coefficient \\
+$D_H$ & Hydraulic diameter \\
+
+$\epsilon_0$ & Permittivity of free space \\
+$\epsilon_{m}$ & Permittivity of the suspending medium \\
+$\epsilon_{p}$ & Permittivity of the particle \\
+$\epsilon^{*}$ & Complex permittivity \\
+$\epsilon_{m}^{*}$ & Complex permittivity of the suspending medium \\
+$\epsilon_{p}^{*}$ & Complex permittivity of the particle \\
+$\epsilon_{r}$ & Relative permittivity \\
+$E$ & Electric field \\
+
+
+$\eta$ & Dynamic fluid viscosity \\
+
+$\theta$ & Angle \\
+
+$f$ & Fluid body force \\
+$f_{CM}$ & Clausius-Mossotti factor \\
+$F$ & Force \\
+$F_B$ & Buoyancy force \\
+$F_{DEP}$ & Dielectrophoretic force \\
+$F_g$ & Gravitational force \\
+$F_{HD}$ & Hydrodynamic drag force \\
+$F_L$ & Hydrodynamic lift force \\
+$F_N$ & Normal surface reaction force \\
+$F_{TWDEP}$ & Travelling wave dielectrophoretic force \\
+$F_S$ & Sedimentation force \\
+
+$g$ & Gravitational constant \\
+$G_{m}$ & Membrane conductance per unit area\\
+$\Gamma_{ROT}$ & Electrorotational torque \\
+
+
+$h$ & Height \\
+
+$J$ & Current density \\
+
+$k$ & Thermal conductivity \\
+$K_{s}$ & Surface conductance \\
+$\kappa$ & Reciprocal of the Debye length \\
+
+$l$ & Length \\
+$\lambda$ & Wavelength of the travelling wave field \\
+
+$m$ & Mass \\
+$\mu_{DEP}$ & Dielectrophoretic mobility \\
+
+$\nu$ & Kinematic fluid viscosity \\
+
+$p$ & Pressure \\
+$P$ & Power dissipation per unit volume \\
+
+$Q$ & Electric charge \\
+$Q$ & Fluid volumetric flow rate \\
+
+$r$ & Position vector \\
+$R$ & Sorting rate \\
+$\rho$ & Charge density \\
+$\rho_i$ & Resistivity of the cell interior \\
+$\rho_m$ & Resistivity of the suspending medium \\
+$\rho_m$ & Fluid mass density \\
+$\rho_p$ & Particle mass density \\
+$Re$ & Reynolds number \\
+
+
+$S$ & Shear rate \\
+$\sigma$ & Conductivity \\
+$\sigma_{qo}$ & Surface charge \\
+
+$T$ & Temperature \\
+
+$\phi$ & Scalar electrical potential \\
+
+$u$ & Fluid velocity \\
+$U$ & Transmembrane potential \\
+
+$v$ & Velocity \\
+$v_{DEP}$ & Resultant velocity under the DEP force\\
+$V$ & Mean fluid velocity \\
+
+$\omega$ & Angular frequency \\
+$\zeta$ & Zeta potential of the interface \\
+
+$\nabla$ & Spatial gradient \\
+}
+\acknowledgements{
+
+The completion of this thesis has only been possible with the help and support of many people. First and foremost, I would like to thank Professor Hywel Morgan for introducing me to this fascinating area of science and many subsequent years of mentorship and support. I would also like to thank Dr Nicolas Green for his help and guidance throughout and significant patience in many stimulating discussions.
+
+This work was supported by Philips Research Laboratories, to whom I am most grateful for the receipt of a CASE award and much technological assistance. I am also deeply grateful to Professor Richard Oreffo and Peter Mitchell of the School of Medicine, University of Southampton, in conjunction with whom part of this work was performed.
+
+I would like to thank Nico Kooyman of Philips Research Laboratories and Katie Chamberlain of the Southampton Nanofabrication Centre for the fabrication of many electrodes and microfluidic devices, and all the members of the Morgan Group at the University of Southampton, past and present, for the companionship, camaraderie, coffee and cakes. Finally, I must express my gratitude to my friends and family for their never ending support through this journey, I am indebted to you all.
+
+}
+%\dedicatory{To \dots}
+\mainmatter
+%% ----------------------------------------------------------------
+\include{Introduction}
+\include{Background}
+\include{NumericalSimulation}
+\include{Fabrication}
+%\include{CellMeasurements}
+\include{Ringtraps1}
+\include{Autotrapping}
+\include{SorterDevice}
+\include{Conclusions}
+\appendix
+\include{AppendixA}
+\backmatter
+\bibliographystyle{ecs}
+\bibliography{refs}
+\end{document}
+%% ----------------------------------------------------------------

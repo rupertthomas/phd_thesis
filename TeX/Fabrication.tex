@@ -1,0 +1,347 @@
+\chapter{Fabrication of Microfluidic Electrokinetic Devices} 
+\label{Chapter:Fabrication}
+
+\section{Introduction}
+MEMs fabrication grew as an offshoot of semiconductor manufacture, so early methods involved the bulk micromachining of silicon wafers. Although silicon has some unique electrical and mechanical properties that can be usefully exploited in MEMs devices, its processing is laborious and expensive. Other materials exist in which microfluidic channels can be more readily fabricated, with more useful properties - such as optical transparency. While all the metallised electrodes used in this work were fabricated by professional staff from a commercial clean-room environment, a number of techniques for the fabrication of microfluidic channels were simple enough for the author to perform using a rudimentary laboratory set-up.
+
+
+\section{Microfluidic Channel Fabrication}
+\subsection{Dry Film Resist}
+
+Photopatternable resists for printed circuit board fabrication have typically been applied by spray coating, but dry film resists are often more convenient to use as they can be applied to the substrate by hot-rolling in a simple lamination machine. Such films can also be used as a structural material for microfabrication, and some materials are suitable for microfluidic use as they can be compression bonded to form a sealed channel. An example is the epoxy-based polymer film SY300 supplied by Elgar Europe Ltd. The material is cross-linked by exposure to UV radiation, so must be exposed through a dark-field mask. Regions that are not exposed remain soft and can be removed by dissolution in an organic solvent (BMR, Elgar). \fref{fig:DFR_channel_image_mask} shows a microfluidic channel fabricated in dry film resist, and the mask with which it was patterned.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/DFR_channel_image_mask.pdf}
+	\caption[Microfluidic channel fabricated from dry film resist, with the mask from which it was produced.]{Microscopy image of a section of microfluidic channel fabricated from a photo-patterned dry film resist (a), with an image of the mask from which it was produced (b). The resist was exposed to a columnated light source through a contact mask, so the developed structures show a close dimensional tolerance to the features in the mask.}
+	\label{fig:DFR_channel_image_mask}
+\end{figure}
+
+A closed microfluidic channel can be created between two glass substrates by compression bonding two patterned dry film resist layers at elevated temperature. The patterned layers are typically mirror images of each other (or are symmetrical along at least one axis) so that they overlap when placed in contact. Features in the two patterned resist layers must be aligned - this can be performed either by hand or by microscopic observation with micromanipulators, depending on the feature size and the level of alignment required for optimal performance. Access holes must be drilled through one of the substrates to open the channel (see Section \ref{Section:Fluid_interfacing}). \fref{fig:DFR_device_fabrication_sequence} shows the fabrication sequence used to produce a closed microfluidic channel.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/DFR_device_fabrication_sequence.pdf}
+	\caption[Fabrication of a microfluidic device using dry film resist.]{Fabrication of a microfluidic device using dry film resist: the substrate is laminated with the resist and exposed to UV radiation through a contact mask (i), exposed regions of the polymer cross-link, and so do not dissolve when the substrate is developed in solvent (ii). Symmetrical features on two opposing substrates are aligned (iii), and the two layers coalesce under elevated temperature and pressure to form a closed channel.}
+	\label{fig:DFR_device_fabrication_sequence}
+\end{figure}
+
+Features with dimensions of 20 $\mu$m have been reliably reproduced in DFR \citep{Vulto:2005}. Generally a contact mask is used, and a columnated light source must be used for production of the smallest features. It is also possible to process DFR using rudimentary laboratory equipment, outside a clean-room environment. A non-columnated light source can be used, such as a UV `light box' - the patterned resist will generally have features slightly larger than in the mask, with sloping side walls, due to exposure under the edges of the mask. This does not usually cause many problems if the angle of the sidewalls is anticipated and the features to be produced are significantly larger than the thickness of the resist. The DFR features shown in \fref{fig:PDMS_channel_DFR_master} were produced using a non-columnated light source, and have correspondingly large, non-vertical sidewalls.
+
+Dry film resists are particularly suitable for fabrication of microfluidic devices that require electrodes on opposing faces of the channel (examples include dielectrophoretic barriers and octopole traps, see \fref{fig:dep_barriers_traps_schematic}). The material is sufficiently thin to provide the correct separation between the two substrates, yet is still able to be applied to the substrate efficiently. Such devices require the electrodes on each substrate to be aligned before bonding.
+
+The production of bonded microfluidic devices using dry film resists has reached maturity, and it is now possible to reliably produce large batches of devices. Nevertheless, a large number of parameters required optimisation before this stage was reached. The bonding pressure of the two DFR layers must be controlled sufficiently so they coalesce, without producing significant compression of the channel material. Similarly, pressure must be applied evenly across the surface of the substrates, or the glass may crack or otherwise be damaged.
+
+
+\begin{figure}[b]
+	\centering
+		\includegraphics{../Figures/dep_barriers_traps_schematic.pdf}
+	\caption[DEP devices that require electrodes on opposing faces of the microfluidic channel.]{DEP devices that require electrodes on opposing faces of the microfluidic channel include (a) barriers and (b) the octopole trap.}
+	\label{fig:dep_barriers_traps_schematic}
+\end{figure}
+
+\subsection{PDMS Molding}
+\label{Section:PDMS_molding}
+\begin{figure}[t]
+ \centering
+ \subfigure[Moulded PDMS channel]{
+ \includegraphics[scale=.9]{../Figures/PDMS_channel_image.png}
+ \label{fig:PDMS_channel_image}
+ }
+ \subfigure[Dry film resist master]{
+\includegraphics[scale=.9]{../Figures/PDMS_channel_DFR_master.png}
+ \label{fig:PDMS_channel_DFR_master}
+}
+ \caption{Microscopy image of a microfluidic channel moulded in PDMS around a DFR master.}
+ \label{fig:PDMS_channel_and_master}
+\end{figure}
+
+PDMS (polydimethylsiloxane) is a silicone polymer that is commercially available as a two-part self-curing material supplied in liquid form (such as Sylgard, Dow Corning). The material is highly suitable for use in microfabrication as a structural material as it is transparent, tough, self-sealing and easy to mould and cut.
+
+Microfluidic channels are typically formed by moulding polymeric materials around a master substrate. Features in the master can be produced using photolithography, such as by etching a silicon wafer, or in dry film resist (see above). Channels moulded in this fashion are suitable only for devices that require electrodes on a single surface of the channel (or do not require electrodes at all), so are suitable for use with the ring electrodes used in Chapters \ref{Chapter:Ring_traps_1} and \ref{Chapter:Autotrapping} but not the sorting gate used in \cref{Chapter:SorterDevice} as that required electrodes on two opposing faces of the channel.
+
+The protocol for fabrication of a PDMS mould from a pre-prepared master is quite simple:
+\begin{enumerate}
+	\item The master is cleaned and prepared: ultrasonic cleaning in water with a mild detergent is sufficient, followed by air drying.
+	\item PDMS pre-polymer is mixed with the curing agent in a ratio of 10:1.
+	\item The master is placed within a suitable container, and the liquid PDMS mixture is poured on top.
+	\item Air bubbles within the liquid PDMS are removed by degassing in a vacuum chamber for approximately 20 minutes.
+	\item The PDMS will cure and be fully solidified after about 10 hours at room temperature, or 1 hour at 60$^{\circ}$C.
+	\item The moulded region can be cut from the surrounding PDMS with a scalpel, and peeled from the master.
+\end{enumerate}
+
+After polymerisation and cross-linking, the PDMS surface is hydrophobic. Adsorption of hydrophobic contaminants can be a problem for PDMS microchannels, particularly protein adsorption. Plasma oxidation or chemical functionalisation has been shown to be useful in limiting surface adsorption \citep{McDonald:2000,Hillborg:2000}.
+
+\fref{fig:PDMS_channel_and_master} shows a microfluidic channel moulded in PDMS around a DFR master. Dimensions of the fabricated channel correspond well with the master - within 2.5\%. The microfluidic channel used with the ring trap arrays in \cref{Chapter:Autotrapping} were fabricated by moulding PDMS. Although not necessary to seal the channel, a glass lid was used on top of the moulded PDMS to improve compatability with the fluid manifold, as the o-rings that seal the fluid channel between the manifold and the glass device were found to compress the PDMS and occasionally block the free passage of fluid. \fref{fig:SEM_PDMS_channel} shows a scanning electron microscopy (SEM) image of a microfluidic channel moulded in PDMS from a DFR master. The master was exposed using a non-columnated light source, producing non-vertical sidewalls in both the master and the moulded channel.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/SEM_PDMS_channel.png}
+	\caption[SEM image of a moulded PDMS microfluidic channel.]{SEM image of a moulded PDMS microfluidic channel, similar to the design used in \cref{Chapter:Autotrapping}. Holes have been punched using a hollow corer to provide fluid inlets and outlets. Image taken by Diego Morganti.}
+	\label{fig:SEM_PDMS_channel}
+\end{figure}
+
+
+\section{Fluid Interfacing}
+\label{Section:Fluid_interfacing}
+
+Although it has been shown possible to achieve a high level of integration within a microfluidic device, such as with integrated fluid pumping, cell culture, or analysis stages, all of the devices in this work relied upon external sources of flow control and sample injection and recovery. Hence, it was necessary to interface external macrofluidic technologies to the microfluidic device. Although this interface could be as simple as adhesive bonding of tubes to the device, the more developed solution of a clamped fluid manifold was employed as it enabled the microfluidic device to be rapidly changed without re-bonding.
+
+The microfluidic device was clamped against the fluid manifold, with a pliable membrane in between to seal the fluid channels. Tubing was then connected to the manifold with screw connectors, and to macrofluidic components at other end. The manifold was designed to permit microscopic observation of the active area of the channel, and to enable electric connection to the device.
+
+A standardised hole layout was used for the majority of the devices used in this work, with substrates diced into 25 x 20 mm regions -  \fref{fig:microfluidic_device_hole_layouts} (a). An alternative hole layout was used for the simpler, smaller devices that required substrates diced into 20 x 15 mm regions - \fref{fig:microfluidic_device_hole_layouts} (b). Figures \ref{fig:electrode_holder_a}, \ref{fig:electrode_holder_b} and \ref{fig:electrode_holder_c} show exploded schematics of three generations of the fluid manifold as it was developed and improved between designs.
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/microfluidic_device_hole_layouts.pdf}
+	\caption[Access port geometry on 25 x 20 mm and 20 x 15 mm devices.]{Access port geometry on (a) 25 x 20 mm devices and (b) 20 x 15 mm devices.}
+	\label{fig:microfluidic_device_hole_layouts}
+\end{figure}
+
+
+
+
+\begin{figure}[p]
+	\centering
+		\includegraphics{../Figures/electrode_holder_a.pdf}
+	\caption[Exploded schematic of the first generation of the fluid manifold.]{An exploded schematic of the first generation of the fluid manifold, designed to hold devices ranging in size from 25 x 15 mm to 25 x 25mm. A laser-cut silicone rubber gasket sealed the microfluidic device to the manifold. Integrated PCBs with spring contacts were included for electrical connections.}
+	\label{fig:electrode_holder_a}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+		\includegraphics{../Figures/electrode_holder_b.pdf}
+	\caption[Exploded schematic of the second generation of the fluid manifold.]{An exploded schematic of the second generation of the fluid manifold. Electrical connections were provided by separate flexible circuit boards, ACF bonded to each device. Polymer o-rings, made from the chemically resistant material viton, were used to seal the microfluidic device to the manifold. The same o-rings were also used underneath the microfluidic device to aid alignment of the fluid channels, and to provide a compliant but load bearing surface so that compressive forces were only applied to the device in a direction normal to its surface.}
+	\label{fig:electrode_holder_b}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+		\includegraphics{../Figures/electrode_holder_c.pdf}
+	\caption[Exploded schematic of the third generation of the fluid manifold.]{An exploded schematic of the third generation of the fluid manifold, very similar to the previous generation but designed for the smaller 20 x 15 mm devices with four external fluid connections. Electrical connections were soldered directly to each device.}
+	\label{fig:electrode_holder_c}
+\end{figure}
+
+It was also necessary to develop techniques to produce the fluid access ports in microfluidic devices. The microfluidic channels were produced at the interface between two substrates, so it was required to produce ports through one of the substrates for fluid to enter and exit the device.
+
+\pagebreak
+\clearpage
+
+\subsection{Mechanical Drilling}
+\label{Section:Spade_drilling}
+Mechanical twist drill bits can be used to drill access holes through harder substrates. Care must be taken to avoid damage to the substrate through excess heating or mechanical pressure. When drilling a glass substrate, development of cracks through the substrate (on the macroscale) or `chipping' on the reverse side of the substrate (generally on the microscale) are both symptomatic of over-pressure or over-temperature. \fref{fig:spade_drilling_holes} shows a hole drilled through a 700 $\mu$m glass wafer with a 1 mm diameter tungsten carbide spade drill.
+
+\begin{figure}
+\centering
+\subfigure[Overview]{
+\includegraphics[scale=0.75]{../Figures/spade_drill_1.png}
+\label{fig:spade_drill_1_3d_view}
+}
+\subfigure[Top view]{
+\includegraphics[scale=0.75]{../Figures/spade_drill_2.png}
+\label{fig:spade_drill_2_top_view}
+}
+\subfigure[Side view of bonded microfluidic device]{
+\includegraphics[scale=0.75]{../Figures/spade_drill_3.png}
+\label{fig:spade_drill_3_side}
+}
+\subfigure[Hole profile]{
+ \includegraphics[scale=0.75]{../Figures/spade_drill_4.png}
+\label{fig:spade_drill_4_hole_profile}
+}
+\caption[Hole drilled through glass substrate by spade drill.]{Hole drilled by tungsten carbide spade drill (60$^{\circ}$ tip angle), through one half of a microfluidic device - formed from two 700 $\mu$m borosilicate glass wafers. 875 $\mu$m maximum diameter.}
+\label{fig:spade_drilling_holes}
+\end{figure}
+
+\subsection{Punching}
+\label{Section:Punching_pdms}
+
+A sharpened needle may be used to punch holes in softer substrates such as PDMS, by removing a `core' of material. Holes may be produced very quickly and cleanly, as the materials are much less prone to fracture than glass or silicon. \fref{fig:pdms_punched_holes} shows a hole punched through a moulded PDMS sheet. Compression of the substrate produces sidewalls with a flared profile.
+
+\begin{figure}
+\centering
+\subfigure[Top view]{
+\includegraphics[scale=.75]{../Figures/pdms_hole_punch_1.png}
+\label{fig:pdms_hole_punch_1_top_view}
+}
+\subfigure[Side of PDMS sheet]{
+\includegraphics[scale=.75]{../Figures/pdms_hole_punch_3.png}
+\label{fig:pdms_hole_punch_3_side}
+}
+\subfigure[Hole profile]{
+\includegraphics[scale=.75]{../Figures/pdms_hole_punch_4.png}
+\label{fig:pdms_hole_punch_4_hole_profile}
+}
+\caption[Hole punched through PDMS sheet by hollow corer.]{Hole punched through a 975 $\mu$m thick PDMS sheet by hollow corer. Compression of the substrate produces a characteristic flared profile - diameter varies from 696-982 $\mu$m.}
+\label{fig:pdms_punched_holes}
+\end{figure}
+
+
+\subsection{ECDM}
+\label{Section:ECDM}
+Electrochemical discharge machining (ECDM) involves the removal of material from the substrate in a chemical reaction with the electrolyte in the presence of an electrical discharge. Originally pioneered by \cite{Kurafugi:1968}, the technique is particularly suitable for producing small apertures through a glass substrate, such as for fluidic interconnections on a microfluidic device.
+
+
+\begin{figure}
+\centering
+\subfigure[Top view 1]{
+\includegraphics[scale=0.75]{../Figures/edcm_1.png}
+\label{fig:edcm_1_top_view_1}
+}
+\subfigure[Top view 2]{
+\includegraphics[scale=0.75]{../Figures/edcm_2.png}
+\label{fig:edcm_2_top_view_2}
+}
+\subfigure[Side view of bonded microfluidic device]{
+\includegraphics[scale=0.75]{../Figures/edcm_3.png}
+\label{fig:edcm_3_side}
+}
+\subfigure[Hole profile]{
+ \includegraphics[scale=0.75]{../Figures/edcm_4.png}
+\label{fig:edcm_4_hole_profile}
+}
+\caption[Hole through glass substrate produced by ECDM.]{Hole produced by electro-chemical discharge machining (spark erosion) through one half of a microfluidic device - formed from two 700 $\mu$m borosilicate glass wafers.}
+\label{fig:ECDM_holes}
+\end{figure}
+
+The substrate is immersed in an alkaline electrolyte (30\% NaOH is commonly used) with a tool electrode and (larger) counter electrode. A DC voltage across the electrodes causes the electrolytic decomposition of water and gas evolution at either electrode. Above a critical voltage, the gas bubbles coalesce into a film, insulating the electrode. Electrical discharge across the gas film and Joule heating produce intense local heating at the tip of the tool electrode. The tip of the electrode is brought into close proximity to the glass substrate, heating it above the material softening temperature ($\sim$1190 K) leading to material removal by reaction with the Na+ ions in the electrolyte \citep{West:2007}:
+
+\begin{center}
+$2Na^{+}_{(aq)} + SiO_{2(s)} + 2OH^{-}_{(aq)} \xrightarrow{} Na_{2}SiO_{3(aq)} + H_{2}O.$
+\end{center}
+
+A simple laboratory setup was used to drill fluid interconnections in glass microfluidic devices using ECDM. A platinum tool electrode was carried by a computer-controlled motorised micro-manipulator, and driven with a DC voltage switched at 10 Hz. The main parameters of the machining process are shown in \tref{tab:ECDM_parameters}. \fref{fig:ECDM_holes} shows a sequence of images of a hole produced in a 700 $\mu$m borosilicate glass wafer by ECDM.
+\\
+
+\begin{table}[!h]
+	\centering
+		\begin{tabular} { c c }
+		\hline
+			Process Parameter & Value \\		
+		\hline
+			Voltage & 40V dc\\
+			Switching Frequency & 10 Hz \\
+			Current & 20 mA typically \\
+			Electrode & Platinum wire \\
+			Diameter & 400 $\mu$m approximately \\
+			Feed rate & 2 $\mu$m sec$^{-1}$ \\
+			Electrolyte & NaOH 30\% aqueous\\
+		\hline			
+		\end{tabular}
+	\caption{Summary of the main parameters used during ECDM of borosilicate glass wafers.}
+	\label{tab:ECDM_parameters}
+\end{table}
+
+\subsection{Laser Ablation}
+\label{Section:Laser_ablation}
+Intense light, typically from a laser source, may be used for the targeted removal of material from a substrate. As with ECDM, mechanical contact with the substrate is not required, although heating of the substrate may be an issue that limits the rate at which material may be removed. \fref{fig:laser_drilling_holes} shows a hole produced in a 700 $\mu$m glass wafer by laser ablation. Some damage to the dry film resist that forms the microfluidic channel is visible.
+
+\begin{figure}
+\centering
+\subfigure[Overview]{
+\includegraphics[scale=0.75]{../Figures/laser_drilling_1.png}
+\label{fig:laser_drilling_1_3d_view}
+}
+\subfigure[Top view]{
+\includegraphics[scale=0.75]{../Figures/laser_drilling_2.png}
+\label{fig:laser_drilling_2_top_view}
+}
+\subfigure[Side view of bonded microfluidic device]{
+\includegraphics[scale=0.75]{../Figures/laser_drilling_3.png}
+\label{fig:laser_drilling_3_side}
+}
+\subfigure[Hole profile]{
+ \includegraphics[scale=0.75]{../Figures/laser_drilling_4.png}
+\label{fig:laser_drilling_4_hole_profile}
+}
+\caption[Hole drilled through glass substrate by laser ablation.]{Hole produced by laser ablation through one half of a microfluidic device - formed from two 700 $\mu$m borosilicate glass wafers.}
+\label{fig:laser_drilling_holes}
+\end{figure}
+
+\section{Electrode Fabrication}
+\label{Section:Electrode_fabrication}
+A broad range of techniques exist for the production of microelectrode structures, although they can generally be surmised as a two step process: (i) a surface is coated in a metallic layer, and (ii) material is removed from certain areas to leave behind the patterned electrodes. Metal deposition and patterning is a difficult and technically demanding process, so all the electrodes used in this work were prepared by professional staff in a clean-room environment.
+
+Micro-electrodes are generally constructed with thin-film deposition techniques (as opposed to thick-film techniques such as screen printing), evaporation and sputtering being the most common. Briefly, metal atoms from the source are driven into vapour phase by heating (evaporation) or by a plasma stream (sputtering), within a vacuum chamber, and deposit on the surface of the substrate to be coated. Electrodes of 100 nm thickness were used in this work; early designs used a 3-layer structure of titanium-gold-titanium (titanium for its excellent adhesion to glass at the bottom layer and for its hardness as the top layer, and gold for its high electrical conductivity in between) although subsequently a dual layer titanium-platinum structure was used as this proved more resilient in an aqueous environment.
+
+Metallised substrates are typically patterned by photolithography, by exposure to light through a high-resolution mask. A photopatternable resist can be applied on to the metallised surface, patterned by photolithography, and subsequently used as an etch mask to pattern the metal layer below - this process is shown schematically in \fref{fig:metal_patterning_etch_and_liftoff} (a). Alternatively, a photopatternable resist of similar material can be applied to the substrate and patterned prior to metal deposition. Metal above the resist layer is `lifted off' when the resist is dissolved, leaving only the metal that has deposited on to the exposed substrate. This is shown in \fref{fig:metal_patterning_etch_and_liftoff} (b).
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/metal_patterning_etch_and_liftoff.pdf}
+	\caption[Process schematics of steps in the patterning of thin metal films.]{Process schematics of steps in the patterning of thin metal films. Photopatternable resists can be used as an etch mask (a): the substrate is metallised and spin-coated with a positive photoresist (i), and is exposed to light through a mask (ii). The exposed regions of the photoresist are soluble in the developing solvent, and can be removed (iii), exposing regions of the metal layer that can also be removed by etching (iv). The remaining resist can be stripped, leaving the patterned metal (v). An alternative process is `lift-off' (b): the substrate is spin-coated with photoresist (i), which is patterned by exposure (ii) and development (iii) (Note that for this process the mask design has been inverted.) The substrate is metallised (iv), and metal above the patterned photoresist is removed by stripping the resist (v).}
+	\label{fig:metal_patterning_etch_and_liftoff}
+\end{figure}
+
+\subsection{Single Metal Layer Devices}
+\label{sec:single_metal_electrode_fabrication}
+The microelectrodes constructed with a single metal layer (used in Chapter \ref{Chapter:SorterDevice}) were fabricated by Katie Chamberlain at the Southampton Nanofabrication Centre, University of Southampton. Metallised glass wafers (700 $\mu$m thickness, sputter coated - 20 nm titanium, 200 nm platinum) were purchased from EPFL (Lausanne, Switzerland). A positive resist (S1813 from Shipley, US) was applied by spin coating, and was developed by UV exposure through a high-resolution glass/chrome contact mask (JD Photo-Tools, UK) and hard baked. The exposed metal was removed by ion-beam milling (Oxford Instruments Ionfab 300+). Finally, the resist was removed in fuming nitric acid.
+
+\subsection{Two Metal Layer Devices}
+
+Complex electrode designs such as the ring trap electrodes used in Chapters \ref{Chapter:Ring_traps_1} and \ref{Chapter:Autotrapping} could not be produced using a single metal layer, as the electrical connections cross and overlap, so a multi-layer structure was used with two metal layers separated by an insulating dielectric. The dielectric layer was patterned to produce electrical connections between the metal layers. The first generation of electrodes used a 1 $\mu$m thick layer of benzocyclobutene (BCB) as a dielectric, although this was subsequently changed to a 700 nm layer of silicon nitride as this proved less susceptible to degradation in an aqueous environment. All two-metal layer microelectrodes were fabricated by Nico Kooyman at Mi Plaza, Philips Research Laboratories, Eindhoven, The Netherlands using similar techniques to that used for the single metal layer devices. BCB was deposited by spin coating, silicon nitride by PECVD.
+
+\section{Device Integration}
+\label{Section:Device_integration}
+
+Although it is possible to integrate a wide variety of electronic components on to a metalised glass substrate, the expense of producing microelectrode structures means that they are normally manufactured in small quantities and integrated into a larger electrical system. Techniques for producing electrical connections can be as simple as standard soldering techniques, or include computer-aligned multi-way bonding.
+
+The first generation of fluid manifold (\fref{fig:electrode_holder_a}) used gold-plated spring terminals mounted on a PCB to make electrical contact with the microfluidic device. Clamping the microfluidic device to the fluid manifold simultaneously compressed the spring terminals against exposed electrode contact pads, providing electrical connection. The pads are typically 1 x 5 mm, with a pitch of 2 mm. The spring terminals must be aligned to the contact pads each time the microfluidic device is removed from the manifold; if this is performed with the unaided eye, a pitch of 1 mm is usually the minimum feasible.
+
+%\begin{figure}
+%	\centering
+		%\includegraphics{../Figures/spring_terminals_pcb_device.pdf}
+%	\caption{Photograph of spring terminals mounted on a PCB, with a corresponding device.}
+%	\label{fig:spring_terminals_pcb_device}
+%\end{figure}
+
+It is also possible to use solder or conductive epoxy to directly connect wires to contact pads on the electrodes. This negates the requirement to realign the contact pads each time the fluid manifold is removed, although requires each new device to be connected before it can be used. A pitch of 1 mm is usually the minimum feasible if unaided techniques are used, although this can be reduced be an order of magnitude if micromanipulation is used, particularly automated wire-bonding machinery.
+
+%\begin{figure}
+%	\centering
+		%\includegraphics{../Figures/solder_and_conductive_epoxy.pdf}
+%	\caption{Photograph of electrodes connected with (a) solder joints and (b) conductive epoxy joints.}
+%	\label{fig:solder_and_conductive_epoxy}
+%\end{figure}
+
+\subsection{Anisotropic Conductive Film Bonding}
+\label{Section:Foil_bondng}
+The ring trap array electrodes (used for cell separation experiments described in Chapter \ref{Chapter:Autotrapping}) were connected using anisotropic conductive film (ACF) bonding. ACF is a nanostructured material that, when in its bonded state, exhibits much increased electrical conduction in one axis. Hence, ACF can be used to create multiple parallel electrical connections simultaneously. 
+
+\fref{fig:unbonded_chip_foil_pcb} shows the components of a complete device before bonding - the patterned microelectrodes on glass substrate, flexible foil interconnect (gold coated copper patterned on polyamide film, Hallmark Electronics, UK), and rigid PCB. Although the glass substrate could be bonded directly to a rigid PCB, it is generally more suitable to connect the two through a flexible interconnect as this negates the need to simultaneously align other connections and relieves bending stresses on the ACF bonds. The square symbols in the vicinity of the bonding pads are alignment marks that overlap when the flexible interconnect is correctly orientated above the electrodes. ACF tape was purchased from Hitachi Chemical Company; \tref{tab:ACF_parameters} shows a summary of the parameters used for producing the bonded connections. An assembled device is shown in \fref{fig:foil_bonded_device}.
+
+\begin{table}[!h]
+	\centering
+		\begin{tabular} { c c c c c c }
+		\hline
+			Bond & ACF Tape & Stage & Temperature & Pressure & Time \\		
+		\hline
+			Glass/Foil & AC-7206U-18 & Pre-bond & 108$^{\circ}$C & 0.4 kgf cm$^{-2}$ & 10 s \\
+			  				&   					& Final & 237$^{\circ}$C & 2.2 kgf cm$^{-2}$ & 37 s \\
+			Foil/PCB & AC-2052P-45 & Pre-bond & 108$^{\circ}$C & 0.4 kgf cm$^{-2}$ & 8 s \\
+							 &  					 & Final & 250$^{\circ}$C & 1.3 kgf cm$^{-2}$ & 30 s \\
+		\hline			
+		\end{tabular}
+	\caption[Summary of the bonding parameters used with ACF tape.]{Summary of the bonding parameters used with the ACF tape.}
+	\label{tab:ACF_parameters}
+\end{table}
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/unbonded_chip_foil_pcb.pdf}
+	\caption[Bonding parameters for ACF tape.]{Photograph of a glass substrate with microelectrodes, the flexible interconnect, and the rigid PCB that will be bonded together using ACF bonding. The flexible interconnect has been inverted to show the gold/copper tracks on its underside.}
+	\label{fig:unbonded_chip_foil_pcb}
+\end{figure}
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/foil_bonded_device.pdf}
+	\caption[ACF-bonded microfluidic device with attached PCB.]{Photograph of an ACF-bonded microfluidic device with attached PCB. A PDMS microchannel has been fitted over the electrodes, with a glass lid on top. Silicone sealant has been applied around the ACF bonds to add mechanical stability.}
+	\label{fig:foil_bonded_device}
+\end{figure}
+
+\subsection{Summary of Fabrication Techniques}
+
+A broad range of techniques have been developed for the fabrication of microfluidic electrokinetic devices, with several techniques usually required on a single device to produce electrode structures, fluidic channels, and to provide the relevant connectivity. Consideration must be given to the order in which processes are carried out, particularly with regard to the ability of each material to withstand the subsequent processing conditions. An alignment stage is required at key points during fabrication, typically involving the alignment of a photolithographic mask to the substrate for each layer of electrodes, dielectric, or microfluidic channel. This is often a laborious and time-consuming task requiring specialised equipment, and the use of equivalent alternative processes that require fewer alignment stages often results in an overall streamlining of the microfabrication protocol. An example would be the use of PDMS to construct a microfluidic channel rather than DFR, as this would require only a single alignment stage to be performed rather than the two that would be required using DFR. If electrodes are only required on one side of the microfluidic channel, this would likely be a prudent decision. 
+
+Over the next three chapters, the use of microfabricated devices for single cell and particle manipulation and sorting is explored. The choice of fabrication technology for each section of work is slightly different, as requirements for the placement of electrodes and the number of electrical connections develops.

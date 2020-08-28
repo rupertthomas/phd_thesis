@@ -1,0 +1,307 @@
+\chapter{Numerical Simulation of Microfluidic and Electrokinetic Devices} 
+\label{Chapter:NumericalSimulation} 
+
+\section{Introduction}
+The dielectrophoretic force developed on a particle can be modelled to allow the electrode geometry to be optimised. \fref{fig:point_ring_system_simulation} shows the field in a plane between a point charge and a ring electrode (this could be a section within a 3-dimensional system consisting of a long thin wire inside a hollow cylindrical electrode). The electric field within such a system is accurately described by \eref{eqn:e_field_point_ring}, obtained using Gauss's Law. Hence, the dielectrophoretic effect on a particle within the system can be determined from an analytical solution of this equation:
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/point_ring_system_simulation.pdf}
+	\caption[A 2-dimensional electrode set comprising a point and ring structure.]{A 2-dimensional electrode set comprising a point and ring structure, with (a) a schematic representation of the electric field lines, and (b) a contour plot of the electric potential.}
+	\label{fig:point_ring_system_simulation}
+\end{figure}
+
+\begin{equation}
+\textbf{E} = \frac{Q}{2 \pi \textbf{r} \epsilon_{0}}
+ \label{eqn:e_field_point_ring}
+\end{equation}
+
+$Q$ is the charge on the surfaces of the electrodes, and $\textbf{r}$ is the vector from the centre of the ring to the point of interest. It is not always possible to find analytical solutions for every system, however. The field within more complex electrode geometries cannot always be described by a single equation, but approximate solutions can be obtained using finite element analysis. A mesh of smaller elements is created through the model space, and partial differential equations (PDE) that govern the electrical relationships are solved iteratively. Real space is not composed of separate elements, of course, but is a continuous space. Hence, finite element models become more representative of real space as the size of mesh elements decreases and the number of mesh elements within the model is increased. Finite element analysis can be applied to any physical relationship that can be described by PDEs; examples in this work include calculations of the DEP force developed on a dielectric particle, hydrodynamic laminar flow through a microchannel, and Joule heating of a conductive liquid.
+
+\section{Modelling Considerations}
+The computational power required to solve finite element problems is directly proportional to the number of mesh elements within the model. Hence, it is advantageous to avoid unnecessarily complex meshes where possible. Where planes of symmetry exist within a system, only part of a system need be simulated, and results can be extrapolated across unsimulated regions. A system with rotational symmetry can be reduced to a 2-dimensional plane, for example, and the model equations solved in cylindrical geometry without loss of generality.
+
+\subsection{Electric Fields}
+One approach to the calculation of electric field distributions is to relate the electric field to the charge density within the system, as described by Maxwell's Equations: 
+
+\begin{equation}
+\nabla \cdot \textbf{E} = \frac{\rho}{\epsilon_{0}}
+ \label{eqn:e_divergence_relation}
+\end{equation} 
+
+$\nabla$ represents the gradient function, $\rho$ is the charge density. This leads to complexities, however, as the electric field ($\textbf{E}$) is a vector quantity. An alternative method is to relate the electric field to the scalar electric potential (\eref{eqn:e_v_relationship}), leading to Poisson's equation (\eref{eqn:poisson_equation}).
+
+\begin{equation}
+\textbf{E} = - \nabla \phi 
+ \label{eqn:e_v_relationship}
+\end{equation}
+
+\begin{equation}
+\nabla \cdot \nabla \phi = \nabla^{2} \phi = \frac{-\rho}{\epsilon_{0}}
+ \label{eqn:poisson_equation}
+\end{equation} 
+
+$\phi$ is the scalar electric potential, $\rho$ is the charge density within the system. The electric potential throughout the system can be determined by solving Poisson's equation, from which the electric field distribution can be obtained. Boundary conditions are specified at the extents of the simulation space - in this study these were either a fixed electrical potential ($\phi=V_{0}$) or electrical insulation (no field lines across the boundary - $n \cdot D = 0$). Current flow may be obtained from such a model using a line integral (2-d) or a surface integral (3-d) of the electric field - \eref{eqn:current_density}. The integral is usually performed across the surface of one of the electrodes. The DEP force can be calculated from $\nabla \left| \textbf{E} \right| ^{2}$ and \eref{eqn:dep_force}.
+
+\subsection{Electrothermal}
+
+Heat is generated within microfluidic devices by resistive (Joule) heating of the electrolyte. While this is often negligible within electrolytes with a low ionic content, it is an important consideration when cells are manipulated in physiological medium. The current density ($J$) within the electrolyte is related to the electric field ($\textbf{E}$) by the electrical conductivity ($\sigma$) - \eref{eqn:current_density}, which gives rise to the power dissipation relationship - \eref{eqn:power_dissipation}.
+
+\begin{equation}
+\textbf{J} = \sigma \textbf{E}
+ \label{eqn:current_density}
+\end{equation} 
+
+\begin{equation}
+P = J \cdot \textbf{E} = \sigma \textbf{E}^{2}
+ \label{eqn:power_dissipation}
+\end{equation} 
+
+$P$ is the power dissipated as thermal energy per unit volume within the system. As the temperature in the system changes, thermal energy leaves the system by conduction through the boundaries of the device, and is also carried away by fluid flow. The thermal field is a solution of the energy balance equation \citep{Morgan:2003}:
+
+\begin{equation}
+ \rho_{m} c_{p} \frac{\partial T}{\partial t} + \rho_{m} c_{p} \textbf{u} \cdot \nabla T = k \nabla^{2} T + \sigma_{m} \left| \textbf{E} \right| ^{2}
+\label{eqn:thermal_energy_balance}
+\end{equation}
+
+$ \rho_{m} $ is the mass density of the medium, $ c_{p} $ is the specific heat at constant pressure, $\textbf{u}$ is the fluid velocity vector, $ T $ is the temperature of the medium, $ k $ is the thermal conductivity and $\sigma_{m}$ is the medium conductivity.
+
+Under steady state conditions, the first term of \eref{eqn:thermal_energy_balance} can be disregarded. The Grashof number, the ratio of natural convection to heat diffusion, has been shown to be very much less than one when within typical microsystems \citep{Castellanos:1998}, so the natural convection term ($ \rho_{m} c_{p} \textbf{u} \cdot \nabla T $) can be disregarded as it is much smaller than the rate of heat diffusion ($ k \nabla^{2} T $) within the system. \eref{eqn:thermal_energy_balance} then reduces to the form:
+
+\begin{equation}
+ k \nabla^{2} T + \sigma \left| \textbf{E} \right| ^{2} = 0
+\label{eqn:thermal_energy_balance_reduced}
+\end{equation}
+
+\subsection{Hydrodynamics}
+
+The Navier-Stokes equation for flow at low Reynolds number (\eref{eqn:simplified_navier_stokes}) accurately describes the flow within a microchannel. Although this can be solved directly for a steady-state solution for 1-dimensional flow (and this can be a reasonable approximation for the flow within channels that have particularly large or small aspect ratios), the boundary conditions do not sufficiently constrain the solution for flow that varies in two dimensions. Under steady-state conditions and a uni-directional flow, the Navier-Stokes equation reduces to the form of:
+
+\begin{equation}
+ \frac{\partial^{2}u_{x}}{\partial y^{2}} + \frac{\partial^{2}u_{x}}{\partial z^{2}} = - \frac {p_{0}} {\eta l_{0}}
+\label{eqn:2d_steady_state_navier_stokes}
+\end{equation}
+
+$p_{0}$ is the pressure drop along the channel, and $l_{0}$ is the length of the channel. A number of methods exist for determining the surface of the velocity flow profile for 2-dimensional flow, which include finding a solution by iterative finite element analysis, or assuming a harmonic solution exists (which it does) and solving using a Fourier series. A derivation of the method using Fourier series is given in Appendix \ref{Chapter:derivation_of_HD_flow_profile_Fourier}, which produces a solution in the form of:
+
+\begin{equation}
+ \textbf{u}_{x} = \sum_{k=1,3...}^{\infty}\sum_{l=1,3...}^{\infty} a_{kl} sin\left(\frac{k \pi}{d}y\right)sin\left(\frac{l \pi}{h}z\right)
+\label{eqn:fourier_solution_navier_stokes1}
+\end{equation}
+
+\begin{equation}
+ a_{kl} = \frac{-16\tfrac{1}{\eta}\tfrac{\partial p}{\partial x}}{kl \pi^{2} \left [ \left ( \frac{k \pi}{d} \right )^{2} + \left ( \frac{l \pi}{h} \right )^{2} \right ]}
+\label{eqn:fourier_solution_navier_stokes2}
+\end{equation}
+
+
+ 
+\section{Ring Trap Device}
+\label{sec:ring_trap_simulation}
+The ring trap electrodes - discussed further in \cref{Chapter:Ring_traps_1} - create a closed nDEP trap to isolate single cells or particles from a flow within a microfluidic channel. They consist of either a metal ring and surrounding ground plane (\fref{fig:ringplanering_electrodes} a) or two concentric, coplanar metal rings (\fref{fig:ringplanering_electrodes} b). The electrodes produce an electric field that has a gradient minima at their centre, creating a trapping region. 
+
+\begin{figure}
+	\centering
+		\includegraphics{../Figures/ringplane_electrodes.pdf}
+	\caption[The ring trap electrodes.]{The Ring Trap electrodes with ground plane (a) or ground ring (b).}
+	\label{fig:ringplanering_electrodes}
+\end{figure}
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/ring_trap_cylindrical_coordinates.pdf}
+ \caption[Cylindrical coordinates for numerical simulation.]{Rotational symmetry permits the electric field around the electrodes to be analysed as a 2-dimensional plane within cylindrical coordinates without loss of generality.}
+ \label{fig:ring_trap_cylindrical_coordinates}
+\end{figure}
+
+The distribution of the electric field can be simulated on a 2-dimensional plane within a cylindrical coordinate system (\fref{fig:ring_trap_cylindrical_coordinates}), rather than a full 3-dimensional system, because of the rotational symmetry of the electrodes. This dramatically reduces the mesh complexity and correspondingly the number of computational steps required.
+
+
+\subsection{Electric Field Distribution}
+
+\begin{figure}[t]
+ \centering
+ \includegraphics{../Figures/plot_arrow_plot_full_ring_plane.pdf}
+ \caption[Plot of the electric field and the direction of the DEP force within the ring-plane electrodes.]{Plot of the electric field ($\left | \textbf{E} \right | ^{2}$) within the ring-plane electrodes, with an arrow plot (normalised vectors) indicating the direction of the DEP force on a particle experiencing negative DEP. Also shown are the electrical connections to the ground plane and ring electrodes.}
+ \label{fig:plot_arrow_plot_full_ring_plane}
+\end{figure}
+
+The electric field within the ring trap electrodes was simulated over a plane using a cylindrical geometry. \fref{fig:plot_arrow_plot_full_ring_plane} shows a plot of the electrostatic simulation of the electric field ($\left | \textbf{E} \right | ^{2}$) as an intensity plot, overlaid with arrows (normalised vectors) indicating the direction of the DEP force (the direction of $\nabla \left | \textbf{E} \right | ^{2}$) on a particle experiencing negative DEP. The plots have been mirrored across the axis of symmetry to show a cross-section across the whole trap. The electric field is assumed to be confined entirely to the region within the microfluidic channel, which contains an aqueous solution ($\epsilon_{m}$=78). This is a valid approximation below the charge relaxation frequency, which is 300 MHz in physiological medium such as PBS or DMEM. All boundaries are defined as insulators, except the electrodes which are set at fixed potentials of either 0 or 2.5 V - the peak value of the alternating potential.
+
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/E_field_plot_ringplane.pdf}
+ \caption[Plot of the electric field lines within the ring-plane electrodes.]{Plot of the electric field lines within the ring-plane electrodes.}
+ \label{fig:E_field_plot_ringplane}
+\end{figure}
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/E_field_plot_ringring.pdf}
+ \caption[Plot of the electric field lines within the ring-ring electrodes.]{Plot of the electric field lines within the ring-ring electrodes.}
+ \label{fig:E_field_plot_ringring}
+\end{figure}
+
+The two designs of ring trap electrodes operate in a similar manner. Figures \ref{fig:E_field_plot_ringplane} and \ref{fig:E_field_plot_ringring} show plots of an electrostatic simulation of the electric field lines from the ring-plane and ring-ring electrodes respectively. Figures \ref{fig:E2_surface_plot_ringplane} and \ref{fig:E2_surface_plot_ringring} show comparison plots of the magnitude of the electric field ($\left | \textbf{E} \right | ^{2}$) for the ring-plane and ring-ring electrodes respectively - similar to that shown in \fref{fig:plot_arrow_plot_full_ring_plane}, although only one half of the device is simulated (the axis $R=0$ being a line of symmetry). As can be seen from the plots, the magnitudes of the electric field within the ring-plane and ring-ring electrodes are similar, producing similar DEP forces on trapped particles. The DEP force is calculated from the gradient of this value, so the plot shows the potential energy of the DEP field. Under negative DEP, cells and particles are trapped at the region of low electric field strength at the centre of the trap (the bottom, right-hand corner of the plot). This result is more generalised than the DEP force itself, which is dependent on characteristics of the particle and suspending medium. 
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/E2_surface_plot_ringplane.pdf}
+ \caption[Plot of the electric field ($\left | E \right | ^{2}$) within the ring-plane electrodes.]{Plot of the electric field ($\left | \textbf{E} \right | ^{2}$) within the ring-plane electrodes. Electrode voltage is 2.5 V peak, medium relative permittivity ($\epsilon_{m}$) = 78.}
+ \label{fig:E2_surface_plot_ringplane}
+\end{figure}
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/E2_surface_plot_ringring.pdf}
+ \caption[Plot of the electric field ($\left | E \right | ^{2}$) within the ring-ring electrodes.]{Plot of the electric field ($\left | \textbf{E} \right | ^{2}$) within the ring-ring electrodes. Electrode voltage is 2.5 V peak, medium relative permittivity ($\epsilon_{m}$) = 78.}
+ \label{fig:E2_surface_plot_ringring}
+\end{figure}
+
+\subsection{Electro-thermal Effects}
+
+To accurately model the temperature within the channel, it is necessary to model the heat dissipation out of the system. The water in the channel is bounded by two glass substrates of 700 $\mu$m thickness. An overview of the simulation geometry is shown in \fref{fig:ring_thermal_simulation_geometry}. Thermal power dissipation is of most significance when the electrical conductivity of the electrolyte is high, such as physiological medias that contain considerable ionic content. The ring electrodes were used to sort fluorescently labelled cells - see \cref{Chapter:Autotrapping} - suspended in DMEM ($\sigma_{m}$ = 1.6 S m$^{-1}$), although the device was cooled to 10$^{\circ}$C and the electrical conductivity is a function of the temperature of the electrolyte. For the purposes of simulation the electrical conductivity of the electrolyte was set at 0.8 S m$^{-1}$ as this was the electrical conductivity of DMEM measured at 10$^{\circ}$C. \fref{fig:ring_thermal_simulation_contour_plot} shows the results of simulation as a contour plot.
+
+\begin{figure}[p]
+	\centering
+		\includegraphics{../Figures/ring_thermal_simulation_geometry.pdf}
+	\caption[Simulation geometry for ring trap electrothermal simulation.]{Schematic of the geometry used for simulation of the thermal environment within the microfluidic channel. The interface between the glass substrates and the air is assumed to be at a constant temperature of 10$^{\circ}$C.}
+	\label{fig:ring_thermal_simulation_geometry}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+		\includegraphics{../Figures/ring_thermal_simulation_contour_plot.pdf}
+	\caption[Ring trap electrothermal simulation.]{Simulation of the temperature within the microfluidic channel during trapping of cells in physiological media (device cooled to 10$^{\circ}C$). The origin $ R,Z = 0 $ is at the centre of the ring electrodes. Applied voltage = 10 Vpp, fluid electrical conductivity = 0.8 S m$^{-1}$. Simulation produced by N.G. Green \citep{Thomas:2009} supplementary material.}
+	\label{fig:ring_thermal_simulation_contour_plot}
+\end{figure}
+
+
+\subsection{Hydrodynamic Flow Profile}
+
+\fref{fig:ring2_simulation_fluid_flow_5x50ulmin} shows the results of calculation of the fluid velocity profile using a Fourier series solution to the Navier-Stokes equation (\eref{eqn:fourier_solution_navier_stokes1}), for fluid within the microfluidic channel used in \cref{Chapter:Ring_traps_1}. The channel is much wider than it is deep, so the effect of the top and bottom walls of the channel is much more significant than the effect of the side-walls, and the velocity flow profile has a flat profile throughout the central 95\% of the channel width. 
+
+\begin{figure}[p]
+	\centering
+		\includegraphics{../Figures/ring2_simulation_fluid_flow_5x50ulmin.pdf}
+	\caption[Plot of the fluid flow velocity used for force characterisation of the ring electrodes.]{Plot of the calculated fluid flow velocity through the microchannel used for force characterisation of the ring electrodes (\cref{Chapter:Ring_traps_1} - 4000 x 100 $\mu$m), at a volumetric flow rate of 5.5 $\mu$L min$^{-1}$.}
+	\label{fig:ring2_simulation_fluid_flow_5x50ulmin}
+\end{figure}
+
+The velocity flow profile may also be obtained by solving the partial differential equation through iterative finite element analysis. This method is more suited to complex channel geometries for which an analytical solution cannot be found. An example is the fluid junction of the sorter device, discussed in Section \ref{sec:sorting_gate_simulation}.
+
+
+\subsection{Combined Solutions}
+The low Reynolds number of microfluidic systems mean that viscous forces dominate over inertial forces, and particles reach terminal velocity almost instantaneously. Hence, it is possible to develop the DEP force equation (\eref{eqn:dep_force}) to determine the particle mobility under a DEP force \citep{Morgan:2003}: 
+
+\begin{equation}
+\mathbf{v}_{DEP} = \mu_{DEP} \nabla \left | \textbf{E} \right | ^{2}
+\label{eqn:DEP_mobility1}
+\end{equation}
+
+\begin{equation}
+\mu_{DEP} = \frac{a^{2} \epsilon_{m} Re\left [ f_{CM} \right ]}{6 \eta}
+\label{eqn:DEP_mobility2}
+\end{equation}
+
+$\mathbf{v}_{DEP}$ is the resultant particle velocity under the DEP force, and $\mu_{DEP}$ is the particle DEP mobility. In the absence of an external force, particles in suspension move at the local fluid velocity. The vector sum of the DEP mobility and the fluid velocity gives rise to a velocity field that can be used to determine the trajectory of a particle moving through the system (ignoring other effects such as Brownian motion, buoyancy and lift forces). \fref{fig:3d_particle_trajectories_DEP_HD_ring_plane} shows streamlines through the velocity field that represent the trajectory that a 15 $\mu$m polystyrene particle would take as it is carried through the microfluidic channel and deflected by the DEP force produced by the ring electrodes.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/3d_particle_trajectories_DEP_HD_ring_plane.png}
+ \caption[Trajectories of 15 $\mu$m polystyrene microspheres around a ring trap.]{Plot of the trajectories of 15 $\mu$m polystyrene microspheres around a ring trap, modelling the dielectrophoretic and hydrodynamic forces. ($\sigma_{m}$ = 0.18 mS m$^{-1}$, $\epsilon_{m}$ = 78, 2.5 V peak electrode voltage, 1 MHz, flow rate equivalent to 5.5 $\mu$L min$^{-1}$ through 4000 x 100 $\mu$m.)}
+ \label{fig:3d_particle_trajectories_DEP_HD_ring_plane}
+\end{figure}
+
+\subsection{Summary of Results for the Ring Trap Device}
+
+The electric field within the ring trap electrodes has been simulated, demonstrating how they create a region of low electric field strength at their centre in which particles can be trapped using negative DEP. This data is used in \cref{Chapter:Ring_traps_1} to model the DEP force on a trapped particle. The electrical power dissipation through the microfluidic device has also been modelled, and used to simulate the temperature rise due to Joule heating. Thermal effects are of prime concern if biological cells are to be manipulated, as a significant increase in temperature will lead to a loss of viability. This data provides some additional validation to the method of sorting cells using the ring electrodes, discussed in \cref{Chapter:Autotrapping}. The two designs of ring electrodes have been shown to operate in a similar manner and produce similar forces. The main advantage of the ring-ring electrodes is that they do not block light transmission through the device, permitting diascopic illumination during microscopic observation.
+
+\section{Sorting Gate Device}
+\label{sec:sorting_gate_simulation}
+
+The sorting gate is an electrode configuration designed to sort particles as they pass through a fluidic junction. The electrodes deflect particles either to the left or to the right - a small displacement is sufficient to move a particle into a different fluid streamline and change the output through which it leaves the junction. Precise control of the electric field and the hydrodynamic flow is required to accurately sort particles. This technology is discussed in more detail in \cref{Chapter:SorterDevice}.
+
+\subsection{Electric Field Distribution}
+
+Each element of the sorting gate is effectively a negative DEP barrier formed from a pair of opposing electrodes on the top and bottom of the channel. Due to the symmetry present, such a geometry can be accurately simulated in two dimensions, on a cross-sectional plane across the electrodes. \fref{fig:E_field_plot_dep_barrier} shows a plot of the field lines between each barrier. The dashed line is a plane equidistant from the two electrodes, along which the magnitude of the electric field is at it lowest value. Particles experiencing negative DEP are repelled from the strong electric field at the edges of the electrodes, and are focused into the centre of the channel. A plot of the magnitude of the electric field ($\textbf{E}^{2}$) on the central plane between the electrodes (dashed line) is shown in \fref{fig:E2_line_plot_dep_barrier}. The electric field is at its maximum at a point between the two geometric centres of the two electrodes (a displacement of zero on the x-axis), and decreases in either direction away from the electrodes.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/E_field_plot_dep_barrier.pdf}
+ \caption[Plot of the electric field lines within a negative DEP barrier.]{Plot of the electric field lines between the opposing electrodes of a negative DEP barrier, on a cross-section through the electrodes. The electrodes are shown as black lines at the top and bottom of the channel.}
+ \label{fig:E_field_plot_dep_barrier}
+\end{figure}
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/E2_line_plot_dep_barrier.pdf}
+ \caption[Plot of the electric field on a centre line through a negative DEP barrier.]{Plot of the electric field ($\textbf{E}^{2}$) between the opposing electrodes of a negative DEP barrier - along the dashed line in \fref{fig:E_field_plot_dep_barrier}. Potential difference across the electrode pair is 1 V, electrode spacing 100 $\mu$m.}
+ \label{fig:E2_line_plot_dep_barrier}
+\end{figure}
+
+As discussed previously, the DEP force is dependent on the gradient of the electric field, $\nabla \left | \textbf{E} \right | ^{2}$. For the electrode geometry in question, this reaches a maximum (on the equidistant plane) at two points, at displacements approximately $\pm$50~$\mu$m from the centre of the electrodes. A particle in a microfluidic channel that is carried by fluid flow towards the barrier will be repelled from the electrodes, leading to motion relative to the suspending medium and a corresponding hydrodynamic drag force (\eref{eqn:stokes_law}). The drag force acts in the opposite direction to the DEP force, so the particle is held at a distance from the electrodes at which the DEP and the hydrodynamic drag forces are equal. If the hydrodynamic drag force exceeds the peak DEP force, the particle will be carried through the point at which the DEP force is at its maximum, and will pass through the barrier.
+
+\cite{Schnelle:1999} showed that a DEP barrier at an angle to the direction of fluid flow could be used to laterally displace suspended particles, and that a force equilibrium existed that was dependent on the angle between the electrodes and the direction of fluid flow:
+\nopagebreak[3]
+\begin{equation}
+ F_{HD} = F_{DEP} \sin \theta
+\label{eqn:stokes_force_against_DEP_barrier}
+\end{equation}
+\nopagebreak[3]
+$\theta$ is the angle between the electrodes and the direction of fluid flow. \fref{fig:dep_barrier_force_diagram} shows the system of forces on a particle in the vicinity of a negative DEP barrier. Angled DEP barriers are used in the sorter device to focus particles into a narrow stream so that they all pass through the detection region in single-file (see below).
+
+\begin{figure}
+ \centering
+ \includegraphics{../Figures/dep_barrier_force_diagram.pdf}
+ \caption[Schematic of the forces on a particle in the vicinity a nDEP barrier.]{Schematic of the forces on a particle in the vicinity a nDEP barrier. Provided the hydrodynamic drag does not exceed the peak DEP force, a force equilibrium exists ($F_{HD} = F_{DEP}$) and the particle is carried along the edge of the electrode by the fluid flow and the horizontal component of the DEP force.}
+ \label{fig:dep_barrier_force_diagram}
+\end{figure}
+
+
+\fref{fig:3d_sorter_V_slice} is a simulation of the entire sorting gate device showing the electric potential over a series of vertical slices, produced by finite element analysis in 3-dimensions using Comsol Multiphysics 3.4. The sorting gate is comprised of three pairs of electrodes, which form negative DEP barriers. All boundary surfaces are modelled as electrical insulators, except the electrodes which have a fixed electric potential. For the purposes of simulation, these are set at either 0 (ground) or 1 V, although higher voltages may be used in the device if stronger DEP forces are required. \fref{fig:3d_sorter_E_slice} is a plot of the simulation of the electric field produced within the microfluidic channel. This shows how the four sloping focusing electrodes create a region of low electric field strength at the centre of the channel, surrounded by a stronger field nearer the electrodes. Particles are focused by negative DEP into the centre of the channel.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/3d_sorter_V_slice.pdf}
+ \caption[Simulation of the electric potential within the sorting gate.]{Plot of the electric potential around the electrodes of the sorter gate, configured to direct particles through the lower outlet. Potential difference across opposing electrode pairs is 1 V.}
+ \label{fig:3d_sorter_V_slice}
+\end{figure}
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/3d_sorter_E_slice.pdf}
+ \caption[Simulation of the electric field distribution within the sorting gate.]{Plot of the electric field distribution around the electrodes of the sorter gate, configured to direct particles through the lower outlet. Potential difference across opposing electrode pairs is 1 V.}
+ \label{fig:3d_sorter_E_slice}
+\end{figure}
+
+\fref{fig:3d_sorter_E2} shows results of simulation of the electric field ($\left | \textbf{E} \right | ^{2}$) on a horizontal plane through the middle of the electrodes. The plot shows how the electrodes create a negative DEP `tunnel' through the electrodes, along which the electric field is at a local minimum. Particles experiencing negative DEP are constrained to follow this path as they are carried through the device by fluid flow. Reversal of the electric potential across the central electrode pair reconfigures the electric field to direct particles towards the opposite outlet. Although \fref{fig:3d_sorter_E2} shows the magnitude of the electric field on a plane, it is a vector quantity with components in each of the three axes. On the vertical axis, the most significant effect (under negative DEP) is the focusing of the particles into a narrow stream towards the centre of the channel.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/3d_sorter_E2.pdf}
+ \caption[Simulation of the electric field distribution ($\left | E \right | ^{2}$) within the sorting gate.]{Plot of the electric field distribution ($\left | \textbf{E} \right | ^{2}$) on a mid-plane through the sorting electrodes, configured to direct particles through the lower outlet. Potential difference across opposing electrode pairs is 1 V.}
+ \label{fig:3d_sorter_E2}
+\end{figure}
+
+\subsection{Hydrodynamic Flow Profile}
+
+The microfluidic channel geometry of the sorter device is too complex for an analytical solution of the Navier-Stokes equation to be used. The fluid velocity flow profile through the microfluidic junction was modelled by finite element analysis in 3-dimensions using Comsol Multiphysics 3.4. \fref{fig:3d_vfp_Comsol_y_junction} shows a plot of the fluid velocity on a mid-plane through the channel. The dimensions of the microfluidic channel ensure the flow is entirely laminar, and so fluid moves along streamlines through the device. A velocity profile exists across the channel, with fluid moving fastest at the centre of the channel. The fluid velocity decreases through the junction as the total cross-sectional area of the outlets is greater than the inlet.
+
+\begin{figure}[p]
+ \centering
+ \includegraphics{../Figures/3d_vfp_Comsol_y_junction.pdf}
+ \caption[Simulation of laminar flow in a microchannel dividing at a junction.]{Plot of the results of simulation (finite element model) of laminar flow in a microchannel dividing at a junction, along a mid-plane through the sorting electrodes (flow of 100 $\mu$L min$^{-1}$, channel depth 26 $\mu$m).}
+ \label{fig:3d_vfp_Comsol_y_junction}
+\end{figure}
+
+
+\subsection{Summary of Results for the Sorting Gate Device}
+
+Numerical simulation of the electric field within the sorting gate electrodes shows how the device creates a `tunnel' of low electric field strength through the centre of the electrodes, towards one of the outlets. Particles are focused into this region, and are carried through it by fluid flow towards the selected outlet. Switching the phase relationship of the electric field between the central pair of electrodes changes the outlet that particles are directed towards. In \cref{Chapter:SorterDevice} these simulations of the electric field are used to model the force produced by a negative DEP barrier and hence calculate the fluid velocity required for a particle to break through the barrier.
+
+\section{Conclusions}
+
+Numerical simulation offers a useful tool to analyse the physical relationships within microfluidic devices. Dielectrophoretic forces arise due to spatial inhomogeneity within an electric field, so the electrode geometry is an important consideration when designing electrokinetic devices. As computational power has increased, it has become more practical to use numerical simulation and finite element analysis to solve complex physical interdependencies in multiple dimensions. Calculations are only as good as the model that they are based on, however, and it is not possible to incorporate every parameter that may affect the analysis. As an example, during the simulation of electrothermal heating around the ring electrodes, the electrical conductivity of the electrolyte was assumed to be of a fixed value (adjusted for the ambient temperature) and the temperature dependence as a second-order effect was ignored. This is unlikely to cause a large deviation from the true value as the temperature increase around the electrodes was relatively small, but is nevertheless an additional source of error. As far as is possible, results of numerical analysis should be validated against experimental data to confirm accuracy. This concept is explored further in \cref{Chapter:Ring_traps_1}, where the results of simulation of the DEP force produced on a particle immobilised in the ring electrodes are compared with experimental measurements of the hydrodynamic drag.
+
